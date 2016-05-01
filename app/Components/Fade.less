@@ -1,0 +1,30 @@
+@show: 1;
+@hide: 0.01;
+@ease: 500ms;
+
+.enter {
+  opacity: @hide;
+}
+
+.enter.enterActive {
+  opacity: @show;
+  transition: opacity @ease ease-in;
+}
+
+.appear {
+  opacity: @hide;
+}
+
+.appear.appearActive {
+  opacity: @show;
+  transition: opacity @ease ease-in;
+}
+
+.leave {
+  opacity: @show;
+}
+
+.leave.leaveActive {
+  opacity: @hide;
+  transition: opacity @ease ease-in;
+}

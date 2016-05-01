@@ -1,0 +1,27 @@
+@import "../variables.less";
+
+:local(.className) {
+    margin: 0;
+    padding: 0;
+    
+    .logoImage {
+        background-image: url(../../build/imgs/wingburst-logo-simple.png);
+        background-repeat: no-repeat;
+        background-position-y: center;
+        display: inline-block;
+        height: 3em;
+        width: 3em;
+        background-size: 100%;
+    }
+    .logoText {
+        font-family: 'ISOCTEUR', sans-serif;
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 0.75em;
+        font-size: 1.2em;
+        color: #fff;
+        margin-left: 0.5em;
+        border-bottom: 1px solid @secondary;
+    }
+}
