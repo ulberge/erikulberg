@@ -1,4 +1,15 @@
 @import "../variables.less";
 
 :local(.className) {
+    list-style: none;
+    padding: 0;
+
+    .image-element-class {
+        padding: 0;
+    }
+
+    .image-element-class img {
+        width: 100%;
+        padding: @padding-large-vertical @padding-large-horizontal;
+    }
 }
