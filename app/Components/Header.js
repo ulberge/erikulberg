@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import jQuery from 'jquery';
 
 import { className } from './Header.less';
 
