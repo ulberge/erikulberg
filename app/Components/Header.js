@@ -6,8 +6,8 @@ import { className } from './Header.less';
 export default class Header extends Component {
   render() {
     return (
-      <div className={classnames(className)}>
-        <h1>Erik Ulberg</h1>
+      <div className={classnames(className, 'text-center')}>
+        <h1>Artwork by Erik Ulberg</h1>
       </div>
     );
   }
