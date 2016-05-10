@@ -8,7 +8,7 @@ import { className } from './Home.less';
 export default class extends Component {
   render() {
     return (
-      <div className={classnames(className, '')}>
+      <div className={classnames(className, 'container')}>
         <Gallery />
       </div>
     );

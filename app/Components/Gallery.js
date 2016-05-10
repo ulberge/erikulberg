@@ -32,14 +32,14 @@ export default class Gallery extends Component {
   render() {
     const childElements = images.map(function map(src) {
       return (
-        <li className="image-element-class col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <li key={src} className="image-element-class col-lg-4 col-md-4 col-sm-6 col-xs-12">
           <img src={src} />
         </li>
       );
     });
 
     return (
-      <Masonry className={classnames(className, 'my-gallery-class container')} // default ''
+      <Masonry className={classnames(className, 'my-gallery-class')} // default ''
         elementType={'ul'} // default 'div'
         options={masonryOptions} // default {}
         disableImagesLoaded={false} // default false
