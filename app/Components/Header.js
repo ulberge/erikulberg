@@ -20,13 +20,13 @@ export default class Header extends Component {
           <Navbar.Collapse>
             <Nav pullRight>
               <LinkContainer to={{ pathname: '/' }}>
-                <NavItem eventKey={1} href="/">Work</NavItem>
+                <NavItem eventKey={1}>Work</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: '/about' }}>
-                <NavItem eventKey={2} href="/about">About</NavItem>
+                <NavItem eventKey={2}>About</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: '/contact' }}>
-                <NavItem eventKey={3} href="/contact">Contact</NavItem>
+                <NavItem eventKey={3}>Contact</NavItem>
               </LinkContainer>
               <NavItem eventKey={4} href="https://www.instagram.com/erikulberg/"><FontAwesome name="instagram" /></NavItem>
             </Nav>

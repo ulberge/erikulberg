@@ -16,10 +16,12 @@ render((
         component={Home}
       />
       <Route
+        name="About"
         path="/about"
         component={About}
       />
       <Route
+        name="Contact"
         path="/contact"
         component={Contact}
       />
