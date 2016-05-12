@@ -11,23 +11,23 @@ const masonryOptions = {
 };
 
 const images = [
-  { src: './imgs/vashon2.jpg', zoom: './imgs/vashon2.jpg' },
-  { src: './imgs/marsh.jpg', zoom: './imgs/marsh.jpg' },
-  { src: './imgs/port.jpg', zoom: './imgs/port.jpg' },
-  { src: './imgs/waterfall.jpg', zoom: './imgs/waterfall.jpg' },
-  { src: './imgs/carl_cigar2.jpg', zoom: './imgs/carl_cigar2.jpg' },
-  { src: './imgs/ballpark.jpg', zoom: './imgs/ballpark.jpg' },
-  { src: './imgs/chickens.jpg', zoom: './imgs/chickens.jpg' },
-  { src: './imgs/tree.jpg', zoom: './imgs/tree.jpg' },
-  { src: './imgs/vashon1.jpg', zoom: './imgs/vashon1.jpg' },
-  { src: './imgs/carl_cigar.jpg', zoom: './imgs/carl_cigar.jpg' },
-  { src: './imgs/cubanfeast.jpg', zoom: './imgs/cubanfeast.jpg' },
-  { src: './imgs/cubanrooftop.jpg', zoom: './imgs/cubanrooftop.jpg' },
-  { src: './imgs/falltrees.jpg', zoom: './imgs/falltrees.jpg' },
-  { src: './imgs/redshoes.jpg', zoom: './imgs/redshoes.jpg' },
-  { src: './imgs/stilllife1.jpg', zoom: './imgs/stilllife1.jpg' },
-  { src: './imgs/momshouse.jpg', zoom: './imgs/momshouse.jpg' },
-  { src: './imgs/dolores_park.jpg', zoom: './imgs/dolores_park.jpg' }
+  { src: './imgs/vashon2.jpg', zoom: './imgs/zoom/vashon2.jpg' },
+  { src: './imgs/marsh.jpg', zoom: './imgs/zoom/marsh.jpg' },
+  { src: './imgs/port.jpg', zoom: './imgs/zoom/port.jpg' },
+  { src: './imgs/waterfall.jpg', zoom: './imgs/zoom/waterfall.jpg' },
+  { src: './imgs/carl_cigar2.jpg', zoom: './imgs/zoom/carl_cigar2.jpg' },
+  { src: './imgs/ballpark.jpg', zoom: './imgs/zoom/ballpark.jpg' },
+  { src: './imgs/chickens.jpg', zoom: './imgs/zoom/chickens.jpg' },
+  { src: './imgs/tree.jpg', zoom: './imgs/zoom/tree.jpg' },
+  { src: './imgs/vashon1.jpg', zoom: './imgs/zoom/vashon1.jpg' },
+  { src: './imgs/carl_cigar.jpg', zoom: './imgs/zoom/carl_cigar.jpg' },
+  { src: './imgs/cubanfeast.jpg', zoom: './imgs/zoom/cubanfeast.jpg' },
+  { src: './imgs/cubanrooftop.jpg', zoom: './imgs/zoom/cubanrooftop.jpg' },
+  { src: './imgs/falltrees.jpg', zoom: './imgs/zoom/falltrees.jpg' },
+  { src: './imgs/redshoes.jpg', zoom: './imgs/zoom/redshoes.jpg' },
+  { src: './imgs/stilllife1.jpg', zoom: './imgs/zoom/stilllife1.jpg' },
+  { src: './imgs/momshouse.jpg', zoom: './imgs/zoom/momshouse.jpg' },
+  { src: './imgs/dolores_park.jpg', zoom: './imgs/zoom/dolores_park.jpg' }
 ];
 
 module.exports = React.createClass({
