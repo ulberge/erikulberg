@@ -28,7 +28,7 @@ export default class Header extends Component {
               <LinkContainer to={{ pathname: '/contact' }}>
                 <NavItem eventKey={3}>Contact</NavItem>
               </LinkContainer>
-              <NavItem eventKey={4} href="https://www.instagram.com/erikulberg/"><FontAwesome name="instagram" /></NavItem>
+              <NavItem eventKey={4} href="https://www.instagram.com/erikulberg/" className="socialMediaLink"><FontAwesome name="instagram" /></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
