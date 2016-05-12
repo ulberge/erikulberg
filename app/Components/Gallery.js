@@ -37,8 +37,14 @@ module.exports = React.createClass({
       isOpen: false
     };
   },
-  openLightbox: function openLightbox() {
-    this.setState({ isOpen: true });
+  openLightbox: function openLightbox(event) {
+    this.setState({
+      isOpen: true,
+      index: parseInt(event.currentTarget.getAttribute('data-index'), 10)
+    });
+    setTimeout(function setBackground() {
+      document.querySelector('#react-image-lightbox-portal .toolbar').style.backgroundColor = 'transparent';
+    }, 0);
   },
   closeLightbox: function closeLightbox() {
     this.setState({ isOpen: false });
@@ -51,10 +57,10 @@ module.exports = React.createClass({
   },
   render: function render() {
     const that = this;
-    const childElements = images.map(function map(img) {
+    const childElements = images.map(function map(img, index) {
       return (
         <li key={img.src} className="image-element-class col-lg-4 col-md-4 col-sm-6 col-xs-12">
-          <a onClick={that.openLightbox} href="#" zoomSrc={img.zoom}><img src={img.src} /></a>
+          <a onClick={that.openLightbox} href="#" data-index={index}><img src={img.src} /></a>
         </li>
       );
     });
