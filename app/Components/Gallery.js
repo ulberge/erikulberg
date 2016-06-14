@@ -88,7 +88,7 @@ module.exports = React.createClass({
     }
 
     imagesLoaded($('.' + className), function showImages() {
-      $('.' + className + ' img').fadeIn(500);
+      $('.' + className + ' img').fadeTo('slow', 1);
     });
 
     return (
