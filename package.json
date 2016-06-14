@@ -9,6 +9,7 @@
     "font-awesome": "^4.5.0",
     "highlight.js": "^9.0.0",
     "history": "^1.17.0",
+    "imagesloaded": "^4.1.0",
     "imports-loader": "^0.6.5",
     "jquery": "^2.1.4",
     "marked": "^0.3.5",

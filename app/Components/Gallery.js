@@ -2,7 +2,9 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 import classnames from 'classnames';
 
+import $ from 'jquery';
 import Lightbox from 'react-image-lightbox';
+import imagesLoaded from 'imagesloaded';
 
 import { className } from './Gallery.less';
 
@@ -84,6 +86,10 @@ module.exports = React.createClass({
         onMoveNextRequest={this.moveNext}
       />);
     }
+
+    imagesLoaded($('.' + className), function showImages() {
+      $('.' + className + ' img').fadeIn(500);
+    });
 
     return (
       <div className={classnames(className)}>
