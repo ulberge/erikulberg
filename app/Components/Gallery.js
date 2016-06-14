@@ -11,6 +11,10 @@ const masonryOptions = {
 };
 
 const images = [
+  { src: './imgs/reliefmeandcarl.jpg', zoom: './imgs/zoom/reliefmeandcarl.jpg' },
+  { src: './imgs/ballarddocks.jpg', zoom: './imgs/zoom/ballarddocks.jpg' },
+  { src: './imgs/wineandoil.jpg', zoom: './imgs/zoom/wineandoil.jpg' },
+  { src: './imgs/goldengardens.jpg', zoom: './imgs/zoom/goldengardens.jpg' },
   { src: './imgs/vashon2.jpg', zoom: './imgs/zoom/vashon2.jpg' },
   { src: './imgs/marsh.jpg', zoom: './imgs/zoom/marsh.jpg' },
   { src: './imgs/port.jpg', zoom: './imgs/zoom/port.jpg' },
