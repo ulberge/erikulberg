@@ -1,5 +1,7 @@
 # erikulberg.com
 
+My personal website, built using ReactJS, deployed with ghpages
+
 To setup:
 npm install
 
