@@ -12,31 +12,15 @@ const masonryOptions = {
   transitionDuration: 0
 };
 
-const images = [
-  { src: './imgs/reliefmeandcarl.jpg', zoom: './imgs/zoom/reliefmeandcarl.jpg' },
-  { src: './imgs/ballarddocks.jpg', zoom: './imgs/zoom/ballarddocks.jpg' },
-  { src: './imgs/wineandoil.jpg', zoom: './imgs/zoom/wineandoil.jpg' },
-  { src: './imgs/goldengardens.jpg', zoom: './imgs/zoom/goldengardens.jpg' },
-  { src: './imgs/vashon2.jpg', zoom: './imgs/zoom/vashon2.jpg' },
-  { src: './imgs/marsh.jpg', zoom: './imgs/zoom/marsh.jpg' },
-  { src: './imgs/port.jpg', zoom: './imgs/zoom/port.jpg' },
-  { src: './imgs/waterfall.jpg', zoom: './imgs/zoom/waterfall.jpg' },
-  { src: './imgs/carl_cigar2.jpg', zoom: './imgs/zoom/carl_cigar2.jpg' },
-  { src: './imgs/ballpark.jpg', zoom: './imgs/zoom/ballpark.jpg' },
-  { src: './imgs/chickens.jpg', zoom: './imgs/zoom/chickens.jpg' },
-  { src: './imgs/tree.jpg', zoom: './imgs/zoom/tree.jpg' },
-  { src: './imgs/vashon1.jpg', zoom: './imgs/zoom/vashon1.jpg' },
-  { src: './imgs/carl_cigar.jpg', zoom: './imgs/zoom/carl_cigar.jpg' },
-  { src: './imgs/cubanfeast.jpg', zoom: './imgs/zoom/cubanfeast.jpg' },
-  { src: './imgs/cubanrooftop.jpg', zoom: './imgs/zoom/cubanrooftop.jpg' },
-  { src: './imgs/falltrees.jpg', zoom: './imgs/zoom/falltrees.jpg' },
-  { src: './imgs/redshoes.jpg', zoom: './imgs/zoom/redshoes.jpg' },
-  { src: './imgs/stilllife1.jpg', zoom: './imgs/zoom/stilllife1.jpg' },
-  { src: './imgs/momshouse.jpg', zoom: './imgs/zoom/momshouse.jpg' },
-  { src: './imgs/dolores_park.jpg', zoom: './imgs/zoom/dolores_park.jpg' }
-];
-
 module.exports = React.createClass({
+  propTypes: {
+    images: React.PropTypes.array
+  },
+  getDefaultProps: function getDefaultProps() {
+    return {
+      images: []
+    };
+  },
   getInitialState: function getInitialState() {
     return {
       index: 0,
@@ -51,27 +35,28 @@ module.exports = React.createClass({
     setTimeout(function setBackground() {
       document.querySelector('#react-image-lightbox-portal .toolbar').style.backgroundColor = 'transparent';
     }, 0);
+    event.preventDefault();
   },
   closeLightbox: function closeLightbox() {
     this.setState({ isOpen: false });
   },
   moveNext: function moveNext() {
-    this.setState({ index: (this.state.index + 1) % images.length });
+    this.setState({ index: (this.state.index + 1) % this.props.images.length });
   },
   movePrev: function movePrev() {
-    this.setState({ index: (this.state.index + images.length - 1) % images.length });
+    this.setState({ index: (this.state.index + this.props.images.length - 1) % this.props.images.length });
   },
   render: function render() {
     const that = this;
-    const childElements = images.map(function map(img, index) {
+    const childElements = this.props.images.map(function map(img, index) {
       return (
         <li key={img.src} className="image-element-class col-lg-4 col-md-4 col-sm-6 col-xs-12">
-          <a onClick={that.openLightbox} href="#" data-index={index}><img src={img.src} /></a>
+          <span onClick={that.openLightbox} data-index={index}><img src={img.src} /></span>
         </li>
       );
     });
 
-    const zoomSrcs = images.map(function map(img) {
+    const zoomSrcs = this.props.images.map(function map(img) {
       return img.zoom;
     });
     let lightbox = '';

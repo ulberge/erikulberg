@@ -10,3 +10,6 @@ npm run start
 
 To deploy on ghpages:
 npm run deploy
+
+To lint:
+npm run lint

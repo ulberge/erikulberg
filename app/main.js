@@ -9,6 +9,8 @@ import Home from './Components/Home';
 import Contact from './Components/Contact';
 import CV from './Components/CV';
 import Art from './Components/Art';
+import SculptureVideo from './Components/SculptureVideo';
+import Sculpture from './Components/Sculpture';
 
 const history = createHashHistory({
   queryKey: false
@@ -23,8 +25,8 @@ render((
         component={Home}
       />
       <Route
-        name="Art"
-        path="/art"
+        name="Paintings"
+        path="/paintings"
         component={Art}
       />
       <Route
@@ -36,6 +38,16 @@ render((
         name="Contact"
         path="/contact"
         component={Contact}
+      />
+      <Route
+        name="Relief"
+        path="/relief"
+        component={SculptureVideo}
+      />
+      <Route
+        name="Sculpture"
+        path="/sculpture"
+        component={Sculpture}
       />
       <Route
         path="*"
