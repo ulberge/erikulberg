@@ -13,7 +13,9 @@ export default class Header extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">Erik Ulberg</a>
+              <LinkContainer to={{ pathname: '/' }}>
+                <a href="/">Erik Ulberg</a>
+              </LinkContainer>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -22,13 +24,16 @@ export default class Header extends Component {
               <LinkContainer to={{ pathname: '/' }}>
                 <NavItem eventKey={1}>Work</NavItem>
               </LinkContainer>
-              <LinkContainer to={{ pathname: '/about' }}>
-                <NavItem eventKey={2}>About</NavItem>
+              <LinkContainer to={{ pathname: '/art' }}>
+                <NavItem eventKey={2}>Art</NavItem>
+              </LinkContainer>
+              <LinkContainer to={{ pathname: '/cv' }}>
+                <NavItem eventKey={3}>CV</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: '/contact' }}>
-                <NavItem eventKey={3}>Contact</NavItem>
+                <NavItem eventKey={5}>Contact</NavItem>
               </LinkContainer>
-              <NavItem eventKey={4} href="https://www.instagram.com/erikulberg/" className="socialMediaLink"><FontAwesome name="instagram" /></NavItem>
+              <NavItem eventKey={6} href="https://www.instagram.com/erikulberg/" className="socialMediaLink"><FontAwesome name="instagram" /></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

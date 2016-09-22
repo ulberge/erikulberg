@@ -1,24 +1,36 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
+import { createHashHistory } from 'history';
 import './main.less';
 
 import Layout from './Components/Layout';
 import Home from './Components/Home';
-import About from './Components/About';
 import Contact from './Components/Contact';
+import CV from './Components/CV';
+import Art from './Components/Art';
+
+const history = createHashHistory({
+  queryKey: false
+});
 
 render((
-  <Router history={browserHistory}>
+  <Router history={history}>
     <Route component={Layout}>
       <Route
+        name="Work"
         path="/"
         component={Home}
       />
       <Route
-        name="About"
-        path="/about"
-        component={About}
+        name="Art"
+        path="/art"
+        component={Art}
+      />
+      <Route
+        name="CV"
+        path="/cv"
+        component={CV}
       />
       <Route
         name="Contact"

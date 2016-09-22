@@ -1,4 +1,77 @@
 @import "../variables.less";
 
 :local(.className) {
+  p {
+    padding-top: 2em;
+    text-align: center;
+    padding-bottom: 2em;
+  }
+
+  .homeLink {
+    .imgContainer {
+      border: 2px solid transparent;
+      position: relative;
+    }
+    .artImg {
+      max-height: 211px;
+      overflow: hidden;
+
+      img {
+        margin-top: 0px;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .goIcon {
+      opacity: 0;
+      border: 2px solid @metal;
+      font-size: 24px;
+      border-radius: 40px;
+      height: 40px;
+      width: 40px;
+      line-height: 38px;
+      text-align: center;
+      padding-left: 2px;
+      color: @metal;
+      left: 50%;
+      top: 50%;
+      margin-left: -20px;
+      margin-top: -20px;
+      z-index: 1;
+      transform: rotateY(180deg);
+      transition: transform 0.4s ease;
+      position: absolute;
+    }
+
+    h3 {
+      padding: 0.2em 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: lighten(@metal, 0%);
+      font-size: 1.2em;
+    }
+  }
+  .homeLink:hover {
+    text-decoration: none;
+    cursor: pointer;
+
+    .imgContainer {
+      border-color: @metal;
+    }
+    img {
+      opacity: 0.3;
+    }
+    .goIcon {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+
+    h3 {
+        color: darken(@metal, 10%);
+    }
+  }
+        
 }
