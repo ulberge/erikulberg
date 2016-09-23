@@ -10,23 +10,27 @@ export default class extends Component {
       <div className={classnames(className, 'container')}>
         <div className="row">
           <div className="col-lg-4">
-            <a className="homeLink" href="http://studyokee.com" target="_blank">
+            <LinkContainer to={{ pathname: '/studyokee' }}>
+            <a className="homeLink" href="/#/studyokee">
               <h3>Project: Studyokee</h3>
               <div className="imgContainer">
                 <img src={"./imgs/studyokee.jpg"}/>
                 <div className="goIcon">⇨</div>
               </div>
             </a>
+            </LinkContainer>
             <p>Design and Development for a language learning app using Node.js and Backbone.js</p>
           </div>
           <div className="col-lg-4">
-            <a className="homeLink" href="http://www.findwes.com" target="_blank">
+            <LinkContainer to={{ pathname: '/wes' }}>
+            <a className="homeLink" href="/#/wes">
               <h3>Project: WES</h3>
               <div className="imgContainer">
                 <img src={"./imgs/wes.jpg"}/>
                 <div className="goIcon">⇨</div>
               </div>
             </a>
+            </LinkContainer>
             <p>Development for a financial literacy app using WordPress</p>
           </div>
           <div className="col-lg-4">

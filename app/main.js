@@ -11,6 +11,8 @@ import CV from './Components/CV';
 import Art from './Components/Art';
 import SculptureVideo from './Components/SculptureVideo';
 import Sculpture from './Components/Sculpture';
+import Studyokee from './Components/Studyokee';
+import WES from './Components/WES';
 
 const history = createHashHistory({
   queryKey: false
@@ -48,6 +50,16 @@ render((
         name="Sculpture"
         path="/sculpture"
         component={Sculpture}
+      />
+      <Route
+        name="Studyokee"
+        path="/studyokee"
+        component={Studyokee}
+      />
+      <Route
+        name="WES"
+        path="/wes"
+        component={WES}
       />
       <Route
         path="*"
