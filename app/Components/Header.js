@@ -31,6 +31,7 @@ export default class Header extends Component {
                 <NavItem eventKey={5}>Contact</NavItem>
               </LinkContainer>
               <NavItem eventKey={6} href="https://www.instagram.com/erikulberg/" className="socialMediaLink"><FontAwesome name="instagram" /></NavItem>
+              <NavItem eventKey={7} href="https://github.com/ulberge" className="socialMediaLink"><FontAwesome name="github" /></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
