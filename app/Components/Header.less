@@ -28,6 +28,9 @@
             font-size: 2em;
             padding-top: 0.8em;
         }
+        .navbar-toggle {
+            margin-top: 1.85em;
+        }
     }
 
     .navbar-brand:hover {
@@ -53,6 +56,13 @@
     .navbar .navbar-nav .socialMediaLink a {
         padding-left: 0.2em;
         padding-right: 0.2em;
+    }
+
+    @media (max-width: @screen-sm-min) {
+        .navbar .navbar-nav .socialMediaLink a {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
     }
 }
 
