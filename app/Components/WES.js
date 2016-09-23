@@ -10,7 +10,7 @@ export default class extends Component {
           <h2 className="text-center">Project: WES</h2>
           <div className="row">
             <div className="col-lg-6">
-              <p><b>Website</b>: <a href="http://www.findwes.com/">www.findwes.com</a></p>
+              <p><b>Website</b>: <a href="http://www.findwes.com/" target="_blank">www.findwes.com</a></p>
               <p><b>Front End</b>: JavaScript, jQuery, Bootstrap, LESS, RequireJS</p>
               <p><b>Server</b>: WordPress, PHP, MySQL</p>
               <p><b>Tools/Ops</b>: Grunt, Bower, npm</p>
