@@ -32,8 +32,8 @@ render((
         component={Art}
       />
       <Route
-        name="CV"
-        path="/cv"
+        name="Resume"
+        path="/resume"
         component={CV}
       />
       <Route

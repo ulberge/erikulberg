@@ -24,8 +24,8 @@ export default class Header extends Component {
               <LinkContainer to={{ pathname: '/' }}>
                 <NavItem eventKey={1}>Work</NavItem>
               </LinkContainer>
-              <LinkContainer to={{ pathname: '/cv' }}>
-                <NavItem eventKey={3}>CV</NavItem>
+              <LinkContainer to={{ pathname: '/resume' }}>
+                <NavItem eventKey={3}>Resume</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: '/contact' }}>
                 <NavItem eventKey={5}>Contact</NavItem>
