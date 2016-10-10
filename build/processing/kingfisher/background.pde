@@ -140,7 +140,7 @@ public class Background {
   
   void drawBabyBird(float seed) {
     pushMatrix();
-    float speed = 5;
+    float speed = 3;
     float pos = abs(sin(birdTimer*speed + seed));
     float vpos = birdHeight*abs(sin(birdTimer*speed + seed));
     
