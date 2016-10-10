@@ -89,7 +89,7 @@ export default class extends Component {
               </div>
             </a>
             </LinkContainer>
-            <p>2D Fishing Game</p>
+            <p>2D Action Game built with Processing.js</p>
           </div>
         </div>
       </div>
