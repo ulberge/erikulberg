@@ -102,33 +102,77 @@ void draw() {
 }
 
 void renderStartMenu() {
-  float rectWidth = 550;
-  float rectHeight = 260;
+  float rectWidth = 450;
+  float rectHeight = 250;
   fill(40);
   stroke(0);
+  strokeWeight(STROKE_WEIGHT*1.5);
   textSize(16);
-  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
+  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight, 6, 6, 6, 6);
   textAlign(CENTER, CENTER);
+  
   fill(255);
   textFont(FONT, 30);
-  text("Kingfisher.js", width/2, (height/2)-rectHeight*0.3);
+  text("Kingfisher.js", width/2, (height/2)-rectHeight*0.31);
   textFont(FONT, 18);
-  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, (height/2)+rectHeight*0.1);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
+  
+  strokeWeight(STROKE_WEIGHT);
+  
+  Bird dummyBird = new Bird(0,0,null);
+  pushMatrix();
+  translate((width/2)-150, (height/2)-rectHeight*0.31);
+  rotate(-PI/4);
+  scale(1.3);
+  dummyBird.render();
+  popMatrix();
+  
+  Fish dummyFish = new Fish(0,0,null);
+  dummyFish.r = 14;
+  pushMatrix();
+  translate((width/2)+150, (height/2)-rectHeight*0.31);
+  rotate(PI/4);
+  fill(FISH_COLOR);
+  scale(1.3);
+  dummyFish.render();
+  popMatrix();
 }
 
 void renderGameOver() {
-  float rectWidth = 550;
-  float rectHeight = 260;
+  float rectWidth = 450;
+  float rectHeight = 250;
   fill(40);
   stroke(0);
+  strokeWeight(STROKE_WEIGHT*1.5);
   textSize(16);
-  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
+  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight, 6, 6, 6, 6);
   textAlign(CENTER, CENTER);
+  
   fill(255);
   textFont(FONT, 30);
-  text("Game Over!", width/2, (height/2)-rectHeight*0.3);
+  text("Game Over!", width/2, (height/2)-rectHeight*0.31);
   textFont(FONT, 18);
-  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nRestart Game: <ENTER>", width/2, (height/2)+rectHeight*0.1);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nRestart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
+  
+  strokeWeight(STROKE_WEIGHT);
+  
+  Bird dummyBird = new Bird(0,0,null);
+  pushMatrix();
+  translate((width/2)-150, (height/2)-rectHeight*0.31);
+  rotate(-PI/4);
+  scale(1.3);
+  dummyBird.render();
+  popMatrix();
+  
+  Fish dummyFish = new Fish(0,0,null);
+  dummyFish.r = 14;
+  pushMatrix();
+  translate((width/2)+150, (height/2)-rectHeight*0.31);
+  rotate(PI/4);
+  fill(FISH_COLOR);
+  scale(1.3);
+  dummyFish.render();
+  popMatrix();
 }
   
 void runGame() {
