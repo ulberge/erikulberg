@@ -10,7 +10,7 @@ float MAX_TIME_DECREASE_RATE = 0.02;
 float BUBBLE_RATE = 0.001;
 
 // Number of draw frames per second
-float FRAME_RATE = 60;
+float FRAME_RATE = 50;
 // Frequency of updating animal desires
 float LOGIC_RATE = 3;
 float LOGIC_COUNTER = 0;
@@ -102,31 +102,33 @@ void draw() {
 }
 
 void renderStartMenu() {
-  float rectWidth = 350;
-  float rectHeight = 240;
+  float rectWidth = 550;
+  float rectHeight = 260;
+  fill(40);
   stroke(0);
-  strokeWeight(2);
-  fill(240);
   textSize(16);
   rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
   textAlign(CENTER, CENTER);
-  fill(0);
-  text("Welcome to Kingfisher!\n\nCollect fish and bring them to your nest\nbefore time runs out. (Note: Avoid sharks!)\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
-  strokeWeight(STROKE_WEIGHT);
+  fill(255);
+  textFont(FONT, 30);
+  text("Kingfisher.js", width/2, (height/2)-rectHeight*0.3);
+  textFont(FONT, 18);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, (height/2)+rectHeight*0.1);
 }
 
 void renderGameOver() {
-  float rectWidth = 250;
-  float rectHeight = 160;
+  float rectWidth = 550;
+  float rectHeight = 260;
+  fill(40);
   stroke(0);
-  strokeWeight(2);
-  fill(240);
   textSize(16);
   rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
   textAlign(CENTER, CENTER);
-  fill(0);
-  text("Game Over!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
-  strokeWeight(STROKE_WEIGHT);
+  fill(255);
+  textFont(FONT, 30);
+  text("Game Over!", width/2, (height/2)-rectHeight*0.3);
+  textFont(FONT, 18);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nRestart Game: <ENTER>", width/2, (height/2)+rectHeight*0.1);
 }
   
 void runGame() {
@@ -284,7 +286,6 @@ void renderTimer() {
 
 void renderScore() {
   float barHeight = 10;
-  float chalkboardSize = 14;
   
   Fish dummyFish = new Fish(0,0,null);
   dummyFish.r = 14;
@@ -295,20 +296,20 @@ void renderScore() {
   popMatrix();
   
   pushMatrix();
-  translate(dummyFish.r,-chalkboardSize*0.6);
+  translate(dummyFish.r,-6);
   
   pushMatrix();
   fill(60);
   stroke(0);
-  rect(chalkboardSize*0.1,chalkboardSize*0.2,chalkboardSize*2.6,chalkboardSize*1.5);
+  rect(0,0,34,24);
   popMatrix();
   
   pushMatrix();
-  translate(chalkboardSize*1.3,chalkboardSize*1.25);
+  translate(17,12);
   fill(255);
   scale(1, 0.85);
   textFont(FONT, 16);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   text(FISH_CAPTURED, 0, 0);
   popMatrix();
   
