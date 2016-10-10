@@ -14,6 +14,7 @@ float FRAME_RATE = 60;
 // Frequency of updating animal desires
 float LOGIC_RATE = 3;
 float LOGIC_COUNTER = 0;
+float STROKE_WEIGHT = 1.5;
 
 float SHARK_CAPTURE_DISTANCE = 10;
 
@@ -111,7 +112,7 @@ void renderStartMenu() {
   textAlign(CENTER, CENTER);
   fill(0);
   text("Welcome to Kingfisher!\n\nCollect fish and bring them to your nest\nbefore time runs out. (Note: Avoid sharks!)\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
-  strokeWeight(1);
+  strokeWeight(STROKE_WEIGHT);
 }
 
 void renderGameOver() {
@@ -125,7 +126,7 @@ void renderGameOver() {
   textAlign(CENTER, CENTER);
   fill(0);
   text("Game Over!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
-  strokeWeight(1);
+  strokeWeight(STROKE_WEIGHT);
 }
   
 void runGame() {
@@ -146,7 +147,7 @@ void runGame() {
   }
   MAX_TIME -= MAX_TIME_DECREASE_RATE/frameRate;
 
-  strokeWeight(1);
+  strokeWeight(STROKE_WEIGHT);
   pushMatrix();
   scale(width/DEFAULT_GAME_WIDTH, height/DEFAULT_GAME_HEIGHT);
   
@@ -180,7 +181,7 @@ void runBubbles() {
   ArrayList<Integer> bubblesToRemove = new ArrayList<Integer>();
   int i = 0;
   fill(color(47, 188, 176));
-  strokeWeight(0.6);
+  strokeWeight(1);
   for (Bubble bubble: BUBBLES) {
     if (bubble.isInWater()) {
       bubble.render();
@@ -189,7 +190,7 @@ void runBubbles() {
     }
     i++;
   }
-  strokeWeight(1);
+  strokeWeight(STROKE_WEIGHT);
   for (int index : bubblesToRemove) {
     BUBBLES.remove(index);
   }
