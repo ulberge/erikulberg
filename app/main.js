@@ -13,6 +13,7 @@ import SculptureVideo from './Components/SculptureVideo';
 import Sculpture from './Components/Sculpture';
 import Studyokee from './Components/Studyokee';
 import WES from './Components/WES';
+import Kingfisher from './Components/Kingfisher';
 
 const history = createHashHistory({
   queryKey: false
@@ -60,6 +61,11 @@ render((
         name="WES"
         path="/wes"
         component={WES}
+      />
+      <Route
+        name="Kingfisher"
+        path="/kingfisher"
+        component={Kingfisher}
       />
       <Route
         path="*"
