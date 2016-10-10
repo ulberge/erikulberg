@@ -101,8 +101,8 @@ void draw() {
 }
 
 void renderStartMenu() {
-  float rectWidth = 250;
-  float rectHeight = 160;
+  float rectWidth = 350;
+  float rectHeight = 240;
   stroke(0);
   strokeWeight(2);
   fill(240);
@@ -110,7 +110,7 @@ void renderStartMenu() {
   rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
   textAlign(CENTER, CENTER);
   fill(0);
-  text("Welcome to Kingfisher!\n\nRotate Bird Left: ←\nRotate Bird Right: →\nStart Game: <ENTER>", width/2, height/2);
+  text("Welcome to Kingfisher!\n\nCollect fish and bring them to your nest\nbefore time runs out. (Note: Avoid sharks!)\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
   strokeWeight(1);
 }
 
@@ -124,7 +124,7 @@ void renderGameOver() {
   rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
   textAlign(CENTER, CENTER);
   fill(0);
-  text("Game Over!\n\nRotate Bird Left: ←\nRotate Bird Right: →\nRestart Game: <ENTER>", width/2, height/2);
+  text("Game Over!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
   strokeWeight(1);
 }
   
