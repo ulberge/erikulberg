@@ -29,7 +29,7 @@ public class Shark extends Boid {
   Shark(float x, float y, Boid prey, ArrayList<Boid> sharks) {
     super(x, y);
     
-    r = 40;
+    r = 16;
     wanderMod = 0.1;
     
     wanderR = 2;

@@ -1,4 +1,7 @@
 boolean DEBUG=false;
+boolean GAME_OVER = false;
+boolean GAME_STARTED = false;
+boolean RENDER_ONCE = false;
 PFont FONT;
 
 float FISH_SPAWN_RATE= 0.2;
@@ -15,10 +18,10 @@ float LOGIC_COUNTER = 0;
 float SHARK_CAPTURE_DISTANCE = 10;
 
 float FISH_TIME_RATE = 0.5;
-float TARGET_FISH_POPULATION = 30;
+float TARGET_FISH_POPULATION = 25;
 
 float SHARK_RATE = 10;
-float INIT_TIME = 30;
+float INIT_TIME = 45;
 float WATER_LEVEL = 0.6;
 
 float ADJUSTED_SPEED;
@@ -80,6 +83,52 @@ void restart() {
 }
 
 void draw() {
+  if (!GAME_STARTED) {
+    if (!RENDER_ONCE) {
+      runGame(); 
+      RENDER_ONCE = true;
+    }
+    
+    renderStartMenu();
+    return;
+  }
+  if (GAME_OVER) {
+    renderGameOver();
+    return;
+  }
+  
+  runGame();
+}
+
+void renderStartMenu() {
+  float rectWidth = 350;
+  float rectHeight = 240;
+  stroke(0);
+  strokeWeight(2);
+  fill(240);
+  textSize(16);
+  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
+  textAlign(CENTER, CENTER);
+  fill(0);
+  text("Welcome to Kingfisher!\n\nCollect fish and bring them to your nest\nbefore time runs out. (Note: Avoid sharks!)\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
+  strokeWeight(1);
+}
+
+void renderGameOver() {
+  float rectWidth = 250;
+  float rectHeight = 160;
+  stroke(0);
+  strokeWeight(2);
+  fill(240);
+  textSize(16);
+  rect((-rectWidth+width)/2, (-rectHeight+height)/2, rectWidth, rectHeight);
+  textAlign(CENTER, CENTER);
+  fill(0);
+  text("Game Over!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, height/2);
+  strokeWeight(1);
+}
+  
+void runGame() {
   ADJUSTED_SPEED = 60.0/frameRate;
   LOGIC_COUNTER++;
   boolean updateLogic = false;
@@ -91,7 +140,8 @@ void draw() {
   runKeyboard();
   
   TIMER -= 1.0/frameRate;
-  if (TIMER <= 0) {
+  if (TIMER <= 0 || bird.capturer != null) {
+    GAME_OVER = true;
     return;
   }
   MAX_TIME -= MAX_TIME_DECREASE_RATE/frameRate;
@@ -130,7 +180,7 @@ void runBubbles() {
   ArrayList<Integer> bubblesToRemove = new ArrayList<Integer>();
   int i = 0;
   fill(color(47, 188, 176));
-  strokeWeight(0.3);
+  strokeWeight(0.6);
   for (Bubble bubble: BUBBLES) {
     if (bubble.isInWater()) {
       bubble.render();
@@ -144,7 +194,6 @@ void runBubbles() {
     BUBBLES.remove(index);
   }
 }
-
 
 void runSpawn() {
   float fishProbability = (FISH_SPAWN_RATE * (1-((float)fishes.boids.size()/TARGET_FISH_POPULATION)));
@@ -167,10 +216,18 @@ void runKeyboard() {
     } else if (keyCode == RIGHT) {
       // rotate bird clockwise
       bird.turnRight();
-    } else if (keyCode == UP) {
-      restart();
-    } 
+    }
   }
+}
+
+void keyPressed() {
+  if (!GAME_STARTED && (keyCode == RETURN || keyCode == ENTER)) {
+    GAME_STARTED = true;
+  } 
+  if (GAME_OVER && (keyCode == RETURN || keyCode == ENTER)) {
+    GAME_OVER = false;
+    restart();
+  } 
 }
 
 float getWaterLevel() {
@@ -222,8 +279,6 @@ void renderTimer() {
   fill(c);
   rect(0, 0, percentFull*barWidth, barHeight);
   popMatrix();
-  
-  text(frameRate, 0, 0);
 }
 
 void renderScore() {

@@ -59,7 +59,7 @@ public class Bird extends Boid {
       
       PVector swim = new PVector(sin(rotation), cos(rotation));
       swim.mult(swimSpeed);
-      swim.mult(Math.max(0.2, 1-(0.05*capturedFishes.size())));
+      swim.mult(Math.max(0.2, 1-(0.08*capturedFishes.size())));
       currentForces.put("swim", swim);
       target.add(swim);
     } else {
