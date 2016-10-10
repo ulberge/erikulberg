@@ -77,6 +77,20 @@ export default class extends Component {
             </LinkContainer>
             <p>Sculptures in Plaster, Clay, and Plasticine</p>
           </div>
+          <div className="col-lg-4 hidden">
+            <LinkContainer to={{ pathname: '/kingfisher' }}>
+            <a className="homeLink" href="/#/kingfisher">
+              <div className="homeLink">
+                <h3>Kingfisher</h3>
+                <div className="imgContainer artImg">
+                  <img src={"./imgs/gloria1.jpg"} style={{ marginTop: '-40px' }}/>
+                  <div className="goIcon">⇨</div>
+                </div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>2D Fishing Game</p>
+          </div>
         </div>
       </div>
     );
