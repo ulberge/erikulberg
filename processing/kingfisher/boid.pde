@@ -115,6 +115,9 @@ public abstract class Boid {
         float endx = force.x*size;
         float endy = force.y*size;
         fill(color(256, 256, 256));
+        if (name == "seek") {
+          fill(0,200,0);
+        }
         line(0,0,endx,endy);
         ellipse(endx, endy, 8, 8);
         popMatrix();

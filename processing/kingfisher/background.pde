@@ -51,13 +51,13 @@ public class Background {
   
   void drawWater() {
     noStroke();
-    fill(color(23, 229, 153));
+    fill(WATER_COLOR);
     rect(0, DEFAULT_GAME_HEIGHT*waterLevel, DEFAULT_GAME_WIDTH, DEFAULT_GAME_HEIGHT);
   }
   
   void drawAir() {
     noStroke();
-    fill(color(47, 188, 176));
+    fill(AIR_COLOR);
     rect(0, 0, DEFAULT_GAME_WIDTH, DEFAULT_GAME_HEIGHT*waterLevel);
   }
   
@@ -65,7 +65,7 @@ public class Background {
     pushMatrix();
     translate(-1,-1);
     stroke(0);
-    fill(color(178, 84, 0));
+    fill(TREE_COLOR);
     beginShape();
     vertex(1,317);
     vertex(62,218);
@@ -122,7 +122,7 @@ public class Background {
     drawBabyBird(2);
     popMatrix();
     
-    fill(color(229, 169, 23));
+    fill(NEST_COLOR);
     stroke(0);
     beginShape();
     vertex(0,4);
@@ -144,10 +144,10 @@ public class Background {
     float pos = abs(sin(birdTimer*speed + seed));
     float vpos = birdHeight*abs(sin(birdTimer*speed + seed));
     
-    fill(220);
+    fill(BIRD_COLOR);
     translate(-1.25*vpos,-2.5*vpos);
     ellipse(0,0,10,10);
-    fill(color(255, 205, 34));
+    fill(BIRD_BEAK_COLOR);
     translate(0,-5);
     beginShape();
     vertex(0,0);
@@ -166,7 +166,7 @@ public class Background {
   void drawMoutains() {
     
     // far mountains
-    fill(color(64, 115,127));
+    fill(MOUNTAIN_COLOR);
     stroke(0);
     beginShape();
     vertex(-100,360);
@@ -183,7 +183,7 @@ public class Background {
     endShape();
     
     // close hills
-    fill(color(203, 194, 92));
+    fill(HILL_COLOR);
     stroke(0);
     beginShape();
     vertex(-100,360);
@@ -198,7 +198,7 @@ public class Background {
     endShape();
     
     // water top
-    fill(color(89, 255, 241));
+    fill(AIR_COLOR);
     beginShape();
     float locX = 0;
     float locY = 0;
@@ -219,7 +219,7 @@ public class Background {
     plantTimer += plantSpeed*ADJUSTED_SPEED;
     pushMatrix();
     translate(0, 601);
-    fill(color(40, 201, 96));
+    fill(PLANT_COLOR);
     
     for (Plant plant: plants) {
       plant.render(plantTimer);

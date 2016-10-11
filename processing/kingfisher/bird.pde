@@ -113,7 +113,7 @@ public class Bird extends Boid {
       rotate(rotation);
     }
 
-    fill(220);
+    fill(BIRD_COLOR);
     stroke(0);
     
     // tail
@@ -209,7 +209,7 @@ public class Bird extends Boid {
        fish.render(); 
     }
     
-    fill(color(255, 205, 34));
+    fill(BIRD_BEAK_COLOR);
     
     if (openBeak) {
       beginShape();

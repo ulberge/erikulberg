@@ -6,28 +6,30 @@ PFont FONT;
 
 float FISH_SPAWN_RATE= 0.2;
 float GRAVITY_SCALE = 0.2;
-float MAX_TIME_DECREASE_RATE = 0.02;
+float MAX_TIME_DECREASE_RATE = 0.005;
 float BUBBLE_RATE = 0.001;
 
 // Number of draw frames per second
 float FRAME_RATE = 50;
 // Frequency of updating animal desires
-float LOGIC_RATE = 3;
+float LOGIC_RATE = 1;
 float LOGIC_COUNTER = 0;
 float STROKE_WEIGHT = 1.5;
 
 float SHARK_CAPTURE_DISTANCE = 10;
 
-float FISH_TIME_RATE = 0.5;
+float FISH_TIME_RATE = 1;
 float TARGET_FISH_POPULATION = 25;
 
-float SHARK_RATE = 10;
+float SHARK_RATE = 20;
+float HAWK_RATE = 40;
 float INIT_TIME = 45;
 float WATER_LEVEL = 0.6;
 
 float ADJUSTED_SPEED;
 
 float SHARK_TIMER;
+float HAWK_TIMER;
 int FISH_CAPTURED;
 float TIMER;
 float MAX_TIME;
@@ -36,12 +38,23 @@ float DEFAULT_GAME_WIDTH = 1000;
 float DEFAULT_GAME_HEIGHT = 600;
 
 // PALETTE
-color FISH_COLOR = color(255, 205, 34);
-color SHARK_COLOR = color(140);
+color WATER_COLOR = #33FFB4;
+color AIR_COLOR = #26D7FF;
+color PLANT_COLOR = #26FF35;
+color MOUNTAIN_COLOR = #39737F;
+color HILL_COLOR = #D4C84A;
+color FISH_COLOR = #EBCC46;
+color BIRD_BEAK_COLOR = #EBCC46;
+color NEST_COLOR = #EBCC46;
+color TREE_COLOR = #B25400;
+color SHARK_COLOR = #5C8E99;
+color HAWK_COLOR = color(110);
+color BIRD_COLOR = color(220);
 
 Background background;
 Flock fishes;
 Flock sharks;
+Flock hawks;
 HashMap<String, Flock> animalKingdom;
 Bird bird;
 
@@ -62,15 +75,18 @@ void restart() {
   TIMER = INIT_TIME;
   MAX_TIME = INIT_TIME;
   SHARK_TIMER = 0;
+  HAWK_TIMER = 0;
   
   background = new Background(WATER_LEVEL);
   fishes = new Flock(FISH_COLOR);
   sharks = new Flock(SHARK_COLOR);
+  hawks = new Flock(HAWK_COLOR);
   BUBBLES = new ArrayList<Bubble>();
   
   animalKingdom = new HashMap<String, Flock>();
   animalKingdom.put("fishes", fishes);
   animalKingdom.put("sharks", sharks);
+  animalKingdom.put("hawks", hawks);
 
   for (int i = 0; i < TARGET_FISH_POPULATION; i++) {
     addFish();
@@ -80,6 +96,9 @@ void restart() {
 
   for (int i = 0; i < 5; i++) {
     addShark();
+  }
+  for (int i = 0; i < 1; i++) {
+    addHawk();
   }
 }
 
@@ -115,7 +134,7 @@ void renderStartMenu() {
   textFont(FONT, 30);
   text("Kingfisher.js", width/2, (height/2)-rectHeight*0.31);
   textFont(FONT, 18);
-  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks and hawks!\n\nRotate Bird: ← and →\nStart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
   
   strokeWeight(STROKE_WEIGHT);
   
@@ -152,7 +171,7 @@ void renderGameOver() {
   textFont(FONT, 30);
   text("Game Over!", width/2, (height/2)-rectHeight*0.31);
   textFont(FONT, 18);
-  text("Bring fish to your nest before time runs out.\nAvoid sharks!\n\nRotate Bird: ← and →\nRestart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
+  text("Bring fish to your nest before time runs out.\nAvoid sharks and hawks!\n\nRotate Bird: ← and →\nRestart Game: <ENTER>", width/2, (height/2)+rectHeight*0.12);
   
   strokeWeight(STROKE_WEIGHT);
   
@@ -223,6 +242,12 @@ void addShark() {
   sharks.addBoid(b);
 }
 
+void addHawk() {
+  Boid b = new Hawk(random(DEFAULT_GAME_WIDTH/2, DEFAULT_GAME_WIDTH),random(0, getWaterLevel()), bird, hawks.boids);
+  hawks.addBoid(b);
+}
+
+
 void runBubbles() {
   ArrayList<Integer> bubblesToRemove = new ArrayList<Integer>();
   int i = 0;
@@ -253,6 +278,12 @@ void runSpawn() {
     SHARK_TIMER -= SHARK_RATE;
   }
   SHARK_TIMER += 1.0/frameRate;
+  
+  if (HAWK_TIMER > HAWK_RATE && bird.isInWater()) {
+    addHawk();
+    HAWK_TIMER -= HAWK_RATE;
+  }
+  HAWK_TIMER += 1.0/frameRate;
 }
 
 void runKeyboard() {
