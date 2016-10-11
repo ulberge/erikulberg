@@ -20,7 +20,9 @@ module.exports = React.createClass({
       'processing/kingfisher/hawk.pde'
     ];
     window.Processing.loadSketchFromSources('kingfisher', sources, function onLoad() {
-      document.getElementById('kingfisher').focus();
+      const canvas = document.getElementById('kingfisher');
+      canvas.focus();
+      canvas.classList.add('border');
     });
   },
   render() {
