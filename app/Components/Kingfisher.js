@@ -16,7 +16,8 @@ module.exports = React.createClass({
       'processing/kingfisher/kingfisher.pde',
       'processing/kingfisher/background.pde',
       'processing/kingfisher/bubble.pde',
-      'processing/kingfisher/bird.pde'
+      'processing/kingfisher/bird.pde',
+      'processing/kingfisher/hawk.pde'
     ];
     window.Processing.loadSketchFromSources('kingfisher', sources, function onLoad() {
       document.getElementById('kingfisher').focus();

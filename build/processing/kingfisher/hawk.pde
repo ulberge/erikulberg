@@ -1,4 +1,4 @@
-public class Shark extends Boid {
+public class Hawk extends Boid {
   
   float wanderR;
   float wanderD;
@@ -9,8 +9,9 @@ public class Shark extends Boid {
   float seekSpeed;
   float separation;
   
-  float tailPosition;
-  float tailSpeed;
+  float airSpeed;
+  float wingPosition;
+  float flapSpeed;
   
   int turnTimer;
   int turnLimit;
@@ -23,28 +24,28 @@ public class Shark extends Boid {
   private Boid prey;
   private PVector target;
   
-  ArrayList<Boid> sharks;
+  ArrayList<Boid> hawks;
   ArrayList<Boid> capturedPrey;
   
-  Shark(float x, float y, Boid prey, ArrayList<Boid> sharks) {
+  Hawk(float x, float y, Boid prey, ArrayList<Boid> hawks) {
     super(x, y);
     
     r = 16;
-    wanderMod = 0.1;
+    wanderMod = 1;
     
     wanderR = 2;
     wanderD = 100;
     wanderChange = 0.1;
-    wanderlust = 0.3;
+    wanderlust = 1.3;
     wanderTheta = 0;
     separation = 60;
     
-    tailPosition = random(2*PI);
-    tailSpeed = 0.2*ADJUSTED_SPEED;
+    airSpeed = 0.3;
+    wingPosition = 0;
+    flapSpeed = 0.1;
     
     turnTimer = 0;
     turnLimit = 10;
-    isLeftFacing = false;
     openMouth = false;
     openMouthDistance = r*3;
     
@@ -52,21 +53,28 @@ public class Shark extends Boid {
     
     target = new PVector(0,0);
     this.prey = prey;
-    this.sharks = sharks;
+    this.hawks = hawks;
     capturedPrey = new ArrayList<Boid>();
   }
   
+  public void run(boolean updateLogic) {
+    super.run(updateLogic);
+  }
+  
   protected HashMap<String, PVector> getForces() {
-    tailSpeed = 0.2*ADJUSTED_SPEED;
     target.mult(0);
     HashMap<String, PVector> forces = new HashMap<String, PVector>();
     
     // Fish can only swim in water
-    if (isInWater()) {
-      if (prey != null && prey.capturer == null && prey.isInWater()) {
+    if (!isInWater()) {
+      if (prey != null && prey.capturer == null && !prey.isInWater()) {
         PVector seekForce = seek(prey.location);
         forces.put("seek", seekForce);
-        target.add(velocity);
+      
+        PVector fly = velocity.get();
+        fly.mult(airSpeed);
+        forces.put("fly", fly);
+        target.add(fly);
         hasTarget = true;
       } else {
         if (hasTarget) {
@@ -80,18 +88,28 @@ public class Shark extends Boid {
           PVector wanderForce = wander(wanderR, wanderD, wanderlust, wanderTheta);
           wanderForce.mult(wanderMod);
           forces.put("wander", wanderForce);
-          target.add(wanderForce);
         }
       }
-      
-      PVector separateVector = separate(sharks, separation);
-      forces.put("separate", separateVector);
-      
-      PVector water = resistanceWater();
-      forces.put("water", water);
     } else {
       PVector gravityVector = gravity();
+      gravityVector.mult(-1);
       forces.put("gravity", gravityVector);
+    }
+    
+    // Add natural forces
+    if (isInWater()) {
+      PVector water = resistanceWater();
+      currentForces.put("water", water);
+    } else {
+      // Gravity affects bird more in climb and dive
+      PVector birdGravity = new PVector(0, abs(cos(target.heading())*GRAVITY_SCALE));
+      currentForces.put("birdGravity", birdGravity);
+      
+      PVector separateVector = separate(hawks, separation);
+      forces.put("separate", separateVector);
+      
+      PVector air = resistanceAir();
+      currentForces.put("air", air);
     }
     
     return forces;
@@ -115,6 +133,7 @@ public class Shark extends Boid {
     if (isLeftFacing) {
       mouthLocation.rotate(PI);
     }
+    mouthLocation.rotate(theta);
     mouthLocation.add(location);
     
     float preyDistance = PVector.dist(prey.location, mouthLocation);
@@ -124,66 +143,112 @@ public class Shark extends Boid {
       openMouth = false;
     }
     
-    if (preyDistance < SHARK_CAPTURE_DISTANCE) {
+    if (preyDistance < 10) {
       if (prey.capturer == null) {
         capture(prey);
         capturedPrey.add(prey);
       }
     }
-    
     pushMatrix();
     
-    if (isLeftFacing) {
+    if (!isLeftFacing) {
       scale(-1, 1);
     }
-
-    renderPrey();
     
     pushMatrix();
+    scale(1.8);
+    strokeWeight(STROKE_WEIGHT/1.8);
+    
+    fill(HAWK_COLOR);
+    
+    // tail
+    pushMatrix();
+    translate(-20, -20);
     beginShape();
-    // fin
-    vertex(4, -8);
-    vertex(6, -10);
-    vertex(6, -18);
-    vertex(16, -8);
-    // end fin
-    vertex(28, -8);
-    renderMouth();
-    // bottom wing
-    vertex(24, 8);
-    vertex(14, 8);
-    // end bottom wing
-    // belly
-    
-    // back half
-    renderTail();
-    
-    // end back half
-    vertex(4, -8);
+    vertex(1.88,22.78);
+    vertex(0.63,17.41);
+    vertex(4.5,17.28);
+    vertex(15,18.28);
+    vertex(16.13,17.03);
+    vertex(18.75,17.03);
+    vertex(29.88,3.03);
+    vertex(34,0.66);
+    vertex(37.63,5.66);
+    vertex(32.38,16.28);
+    vertex(24.88,23.16);
+    vertex(31.25,24.78);
+    vertex(30.75,30.53);
+    vertex(25.38,35.28);
+    vertex(21.25,34.66);
+    vertex(18.13,32.78);
+    vertex(19.75,25.78);
+    vertex(13,26.53);
+    vertex(1.88,22.78);
     endShape();
     popMatrix();
-
+    
+    // body
+    pushMatrix();
+    rotate(PI/4);
+    translate(2, 2);
+    ellipse(0,0,12,6);
     popMatrix();
     
+    // head
+    pushMatrix();
+    translate(-4, -2.5);
+    ellipse(0,0,6,5);
+    popMatrix();
+    
+    renderBeak();
+    
+    strokeWeight(STROKE_WEIGHT);
+    popMatrix();
+    
+    renderPrey();
+    popMatrix();
     if (DEBUG) {
-      drawForces(5000);
+      drawForces(500);
     }
   }
   
-  void renderMouth() {
-    if (openMouth) {
-      vertex(42, -8);
-      vertex(36.8, -4);
-      vertex(28, 0);
-      vertex(36, 6);
-      vertex(34.4, 8);
+  
+  private void renderBeak() {
+    pushMatrix();
+    PVector beakLocation = getMouthLocation();
+    translate(beakLocation.x, beakLocation.y);
+    
+    fill(color(255, 205, 34));
+    
+    float preyDistance = PVector.dist(prey.location, location);
+    if (capturedPrey.size() > 0 || (prey.capturer == null && preyDistance < openMouthDistance)) {
+      openMouth = true;
     } else {
-      vertex(44, -6);
-      vertex(38, -2);
-      vertex(28, 0);
-      vertex(36.8, 2);
-      vertex(36, 4);
+      openMouth = false;
     }
+    
+    if (openMouth) {
+      beginShape();
+      // top
+      vertex(4, 0);
+      vertex(0.5, -2);
+      vertex(4, -2);
+      vertex(4, 0);
+      
+      //bottom
+      vertex(4, 3);
+      vertex(0.5, 2);
+      vertex(4, 0);
+      endShape();
+    } else {
+      beginShape(TRIANGLES);
+      vertex(0, 0);
+      vertex(4, 3);
+      vertex(4, -2);
+      endShape();
+    }
+    
+    popMatrix();
   }
   
   void renderPrey() {
@@ -199,29 +264,7 @@ public class Shark extends Boid {
     popMatrix();
   }
   
-  void renderTail() {
-    tailPosition += tailSpeed*velocity.mag();
-    pushMatrix();
-    // horizonatl scaling
-    float tailDelta = -34.4 + (cos(tailPosition)*3.2);
-    //vertical scaling
-    float tailModifier = sin(tailPosition/2)*(0.8);
-    
-    vertex(tailDelta*0.5, 2-(tailModifier/2));
-    
-    // tail bottom tip
-    vertex(tailDelta*0.7, 8-(tailModifier));
-    
-    vertex(tailDelta*0.6, 0);
-    
-    // tail toptip
-    vertex(tailDelta*0.9, -12+(tailModifier));
-    
-    vertex(tailDelta*0.4, -2+(tailModifier/2));
-    popMatrix();
-  }
-  
   private PVector getMouthLocation() {
-    return new PVector(36,0);
+    return new PVector(-8,-3);
   }
 }
