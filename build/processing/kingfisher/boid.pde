@@ -30,12 +30,12 @@ public abstract class Boid {
   protected abstract HashMap<String, PVector> getForces();
   protected abstract void render();
 
-  public void run(boolean updateLogic) {
-    if (capturer != null) {
-      return;
-    }
-    
-    if (updateLogic) {
+  public void run() {
+    if (!PAUSED) {
+      if (capturer != null) {
+        return;
+      }
+      
       currentForces.clear();
       currentForces = getForces();
       
@@ -47,10 +47,10 @@ public abstract class Boid {
       for (PVector force : currentForces.values()) {
         acceleration.add(force);
       }
+  
+      update();
+      borders();
     }
-
-    update();
-    borders();
 
     pushMatrix();
     translate(location.x,location.y);

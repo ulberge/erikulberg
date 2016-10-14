@@ -17,12 +17,21 @@ module.exports = React.createClass({
       'processing/kingfisher/background.pde',
       'processing/kingfisher/bubble.pde',
       'processing/kingfisher/bird.pde',
-      'processing/kingfisher/hawk.pde'
+      'processing/kingfisher/hawk.pde',
+      'processing/kingfisher/button.pde'
     ];
     window.Processing.loadSketchFromSources('kingfisher', sources, function onLoad() {
       const canvas = document.getElementById('kingfisher');
       canvas.focus();
       canvas.classList.add('border');
+
+      // set scale of game based on screensize
+      const clientWidth = canvas.offsetWidth;
+      const sketch = window.Processing.getInstanceById('kingfisher');
+      if (clientWidth < 768) {
+        sketch.setShowButtons(true);
+      }
+      sketch.setSize(clientWidth, clientWidth * 0.6);
     });
   },
   render() {
