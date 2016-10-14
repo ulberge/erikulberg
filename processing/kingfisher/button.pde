@@ -3,7 +3,9 @@
 abstract class Button {
 
   PVector location;
-  int size;
+  PVector adjustedLocation;
+  float size;
+  float adjustedSize;
   color basecolor, highlightcolor;
   color currentcolor;
   public boolean isOver = false;
@@ -21,9 +23,11 @@ abstract class Button {
 
 class CircleButton extends Button { 
 
-  CircleButton(PVector location, int isize, color icolor, color ihighlight) {
+  CircleButton(PVector location, float isize, color icolor, color ihighlight) {
     this.location = location;
+    adjustedLocation = new PVector(location.x*width/DEFAULT_GAME_WIDTH, location.y*height/DEFAULT_GAME_HEIGHT);
     size = isize;
+    adjustedSize = size*width/DEFAULT_GAME_WIDTH;
     basecolor = icolor;
     highlightcolor = ihighlight;
     currentcolor = basecolor;
@@ -31,7 +35,7 @@ class CircleButton extends Button {
   
   boolean over() {
     PVector mouse = new PVector(mouseX, mouseY);
-    isOver = PVector.dist(mouse,location) < (size/2);
+    isOver = PVector.dist(mouse,adjustedLocation) < (adjustedSize/2);
     return isOver;
   }
 
@@ -43,21 +47,26 @@ class CircleButton extends Button {
 }
 
 class RectButton extends Button {
-  int iheight;
-  int iwidth;
+  float iheight;
+  float iwidth;
+  float adjustedHeight;
+  float adjustedWidth;
 
-  RectButton(PVector location, int iwidth, int iheight, color icolor, color ihighlight) {
+  RectButton(PVector location, float iwidth, float iheight, color icolor, color ihighlight) {
     this.location = location;
+    adjustedLocation = new PVector(location.x*width/DEFAULT_GAME_WIDTH, location.y*height/DEFAULT_GAME_HEIGHT);
     this.iwidth = iwidth;
     this.iheight = iheight;
+    adjustedWidth = iwidth*width/DEFAULT_GAME_WIDTH;
+    adjustedHeight = iheight*height/DEFAULT_GAME_HEIGHT;
     basecolor = icolor;
     highlightcolor = ihighlight;
     currentcolor = basecolor;
   }
 
   boolean over() {
-    if (mouseX >= location.x && mouseX <= location.x+iwidth && 
-      mouseY >= location.y && mouseY <= location.y+iheight) {
+    if (mouseX >= adjustedLocation.x && mouseX <= adjustedLocation.x+adjustedWidth && 
+      mouseY >= adjustedLocation.y && mouseY <= adjustedLocation.y+adjustedHeight) {
       return isOver = true;
     } else {
       return isOver = false;

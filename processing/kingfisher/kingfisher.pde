@@ -65,18 +65,28 @@ Bird bird;
 ArrayList<Bubble> BUBBLES;
 
 void setup() {
-  size(1000,600);
+  size(1000, 600);
   FONT = createFont("Helvetica",16,true);
   
   frameRate(FRAME_RATE);
   ADJUSTED_SPEED = 60.0/frameRate;
   
   setupButtons();
-  
+  init();
+}
+
+void setSize(int newWidth, int newHeight) {
+  size(newWidth,newHeight);
+  setupButtons();
   init();
 }
 
 void draw() {
+
+  strokeWeight(STROKE_WEIGHT);
+  pushMatrix();
+  scale(width/DEFAULT_GAME_WIDTH, height/DEFAULT_GAME_HEIGHT);
+  
   runGame();
   
   if (SHOW_BUTTONS) {
@@ -88,6 +98,12 @@ void draw() {
   } else if (STATE == "GAME_OVER") {
     renderGameOver();
   }
+  
+  popMatrix();
+}
+
+void setShowButtons(boolean showButtons) {
+  SHOW_BUTTONS = showButtons;
 }
 
 void runButtons() {
@@ -126,8 +142,9 @@ void setupButtons() {
   color buttoncolor = color(0, 50);
   color highlight = color(0, 100);
   ellipseMode(CENTER);
-  leftButton = new CircleButton(new PVector(60, height/2), 100, buttoncolor, highlight);
-  rightButton = new CircleButton(new PVector(width-60, height/2), 100, buttoncolor, highlight);
+  float buttonWidth = DEFAULT_GAME_WIDTH*0.1;
+  leftButton = new CircleButton(new PVector(buttonWidth*0.6, DEFAULT_GAME_HEIGHT/2), buttonWidth, buttoncolor, highlight);
+  rightButton = new CircleButton(new PVector(DEFAULT_GAME_WIDTH-(buttonWidth*0.6), DEFAULT_GAME_HEIGHT/2), buttonWidth, buttoncolor, highlight);
   startButton = new RectButton(new PVector(280, 150), 440, 300, buttoncolor, highlight);
 }
 
@@ -167,25 +184,28 @@ void renderGameOver() {
 }
 
 void renderMenu(String menuTitle, String menuText) {
+  pushMatrix();
   float rectHeight = 250;
   fill(color(40, 150));
   stroke(0);
   strokeWeight(STROKE_WEIGHT*1.5);
-  rect(280, 150, 440, 300);
+  if (!SHOW_BUTTONS) {
+    rect(280, 150, 440, 300);
+  }
   textSize(16);
   textAlign(CENTER, CENTER);
   
   fill(255);
   textFont(FONT, 30);
-  text(menuTitle, width/2, (height/2)-rectHeight*0.31);
+  text(menuTitle, DEFAULT_GAME_WIDTH/2, (DEFAULT_GAME_HEIGHT/2)-rectHeight*0.31);
   textFont(FONT, 18);
-  text(menuText, width/2, (height/2)+rectHeight*0.12);
+  text(menuText, DEFAULT_GAME_WIDTH/2, (DEFAULT_GAME_HEIGHT/2)+rectHeight*0.12);
   
   strokeWeight(STROKE_WEIGHT);
   
   Bird dummyBird = new Bird(0,0,null);
   pushMatrix();
-  translate((width/2)-150, (height/2)-rectHeight*0.31);
+  translate((DEFAULT_GAME_WIDTH/2)-150, (DEFAULT_GAME_HEIGHT/2)-rectHeight*0.31);
   rotate(-PI/4);
   scale(1.3);
   dummyBird.render();
@@ -194,11 +214,12 @@ void renderMenu(String menuTitle, String menuText) {
   Fish dummyFish = new Fish(0,0,null);
   dummyFish.r = 14;
   pushMatrix();
-  translate((width/2)+150, (height/2)-rectHeight*0.31);
+  translate((DEFAULT_GAME_WIDTH/2)+150, (DEFAULT_GAME_HEIGHT/2)-rectHeight*0.31);
   rotate(PI/4);
   fill(FISH_COLOR);
   scale(1.3);
   dummyFish.render();
+  popMatrix();
   popMatrix();
 }
   
@@ -216,16 +237,11 @@ void runGame() {
       PAUSED = true;
     }
   }
-
-  strokeWeight(STROKE_WEIGHT);
-  pushMatrix();
-  scale(width/DEFAULT_GAME_WIDTH, height/DEFAULT_GAME_HEIGHT);
   
   background.render();
   renderInfo();
   runBoids();
   runBubbles();
-  popMatrix();
 }
 
 void addFish() {
