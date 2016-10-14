@@ -14,10 +14,10 @@ class Flock {
     animalColor = c;
   }
 
-  void run(boolean updateLogic) {
+  void run() {
     fill(animalColor);
     for (Boid b : boids) {
-      b.run(updateLogic);  // Passing the entire list of boids to each boid individually
+      b.run();  // Passing the entire list of boids to each boid individually
     }
   }
 

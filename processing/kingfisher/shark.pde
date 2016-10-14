@@ -94,6 +94,8 @@ public class Shark extends Boid {
       forces.put("gravity", gravityVector);
     }
     
+    tailPosition += tailSpeed*velocity.mag();
+    
     return forces;
   }
 
@@ -200,7 +202,6 @@ public class Shark extends Boid {
   }
   
   void renderTail() {
-    tailPosition += tailSpeed*velocity.mag();
     pushMatrix();
     // horizonatl scaling
     float tailDelta = -34.4 + (cos(tailPosition)*3.2);
