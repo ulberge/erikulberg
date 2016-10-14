@@ -5,10 +5,10 @@ String STATE = "START";
 boolean PAUSED = true;
 
 boolean SHOW_BUTTONS = false;
+String MOUSE_STATE = "NONE";
 
 PFont FONT;
 
-CircleButton leftButton, rightButton;
 RectButton startButton;
 boolean locked = false;
 
@@ -25,6 +25,8 @@ float SHARK_CAPTURE_DISTANCE = 10;
 
 float FISH_TIME_RATE = 1;
 float TARGET_FISH_POPULATION = 25;
+float STARTING_SHARKS = 5;
+float STARTING_HAWKS = 1;
 
 float SHARK_RATE = 20;
 float HAWK_RATE = 40;
@@ -111,40 +113,66 @@ void runButtons() {
   renderButtons();
 }
 
-void updateButtons() {
-  if(locked == false) {
-    leftButton.update();
-    rightButton.update();
-    startButton.update();
-  } else {
-    locked = false;
-  }
-  
-  if(mousePressed) {
-    if(leftButton.isOver) {
+void runKeyboard() {
+  if (keyPressed == true && key == CODED) {
+    if (keyCode == LEFT) {
+      // rotate bird counter clockwise
       bird.turnLeft();
-    } else if (rightButton.isOver) {
+    } else if (keyCode == RIGHT) {
+      // rotate bird clockwise
       bird.turnRight();
     }
+  }
+}
+
+void keyPressed() {
+  if (STATE == "START" && (keyCode == RETURN || keyCode == ENTER)) {
+    STATE = "RUNNING";
+    PAUSED = false;
+  } 
+  if (STATE == "GAME_OVER" && (keyCode == RETURN || keyCode == ENTER)) {
+    STATE = "RUNNING";
+    init();
+    PAUSED = false;
+  } 
+}
+
+void updateButtons() {
+  if (!PAUSED) {
+    if(MOUSE_STATE == "LEFT") {
+      bird.turnLeft();
+    } else if (MOUSE_STATE == "RIGHT") {
+      bird.turnRight();
+    }
+  }
+}
+
+void setMouseState(String state) {
+  MOUSE_STATE = state;  
+}
+
+void mouseClicked() {
+  if(startButton.over()) {
+    if (STATE == "START") {
+      STATE = "RUNNING";
+      PAUSED = false;
+    } else if (STATE == "GAME_OVER") {
+      STATE = "RUNNING";
+      init();
+      PAUSED = false;
+    } 
   }
 }
 
 void renderButtons() {
   if (STATE == "START" || STATE == "GAME_OVER") {
     startButton.display();
-  } else {
-    leftButton.display();
-    rightButton.display();
   }
 }
 
 void setupButtons() {
-  color buttoncolor = color(0, 50);
+  color buttoncolor = color(0, 127);
   color highlight = color(0, 100);
-  ellipseMode(CENTER);
-  float buttonWidth = DEFAULT_GAME_WIDTH*0.1;
-  leftButton = new CircleButton(new PVector(buttonWidth*0.6, DEFAULT_GAME_HEIGHT/2), buttonWidth, buttoncolor, highlight);
-  rightButton = new CircleButton(new PVector(DEFAULT_GAME_WIDTH-(buttonWidth*0.6), DEFAULT_GAME_HEIGHT/2), buttonWidth, buttoncolor, highlight);
   startButton = new RectButton(new PVector(280, 150), 440, 300, buttoncolor, highlight);
 }
 
@@ -167,10 +195,10 @@ void init() {
   
   bird = new Bird(DEFAULT_GAME_WIDTH/10, DEFAULT_GAME_HEIGHT/10, fishes.boids);
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < STARTING_SHARKS; i++) {
     addShark();
   }
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < STARTING_HAWKS; i++) {
     addHawk();
   }
 }
@@ -305,43 +333,6 @@ void runSpawn() {
     HAWK_TIMER -= HAWK_RATE;
   }
   HAWK_TIMER += 1.0/frameRate;
-}
-
-void runKeyboard() {
-  if (keyPressed == true && key == CODED) {
-    if (keyCode == LEFT) {
-      // rotate bird counter clockwise
-      bird.turnLeft();
-    } else if (keyCode == RIGHT) {
-      // rotate bird clockwise
-      bird.turnRight();
-    }
-  }
-}
-
-void keyPressed() {
-  if (STATE == "START" && (keyCode == RETURN || keyCode == ENTER)) {
-    STATE = "RUNNING";
-    PAUSED = false;
-  } 
-  if (STATE == "GAME_OVER" && (keyCode == RETURN || keyCode == ENTER)) {
-    STATE = "RUNNING";
-    init();
-    PAUSED = false;
-  } 
-}
-
-void mousePressed() {
-  if(startButton.isOver) {
-    if (STATE == "START") {
-      STATE = "RUNNING";
-      PAUSED = false;
-    } else if (STATE == "GAME_OVER") {
-      STATE = "RUNNING";
-      init();
-      PAUSED = false;
-    } 
-  } 
 }
 
 float getWaterLevel() {

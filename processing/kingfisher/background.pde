@@ -23,10 +23,10 @@ public class Background {
     maxWaveHeight = 8;
     maxPlantWave = 8;
     numWaves = 7;
-    birdHeight = 0;
     plantSpeed = 0.005*ADJUSTED_SPEED;
-    babyBirdSpeed = 3;
-    numPlants = 10;
+    babyBirdSpeed = 10;
+    birdHeight = 2;
+    numPlants = 6;
     
     float plantHeight = 100;
     float plantWidth = 8;
@@ -135,9 +135,8 @@ public class Background {
   
   void drawBabyBird(float seed) {
     pushMatrix();
-    float speed = babyBirdSpeed*(3-(TIMER/INIT_TIME));
-    float pos = abs(sin(TIMER*speed + seed));
-    float vpos = birdHeight*abs(sin(TIMER*speed + seed));
+    float pos = abs(sin(TIMER*babyBirdSpeed + seed));
+    float vpos = birdHeight*abs(sin(TIMER*babyBirdSpeed + seed));
     
     fill(BIRD_COLOR);
     translate(-1.25*vpos,-2.5*vpos);
