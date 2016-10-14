@@ -15,6 +15,7 @@ abstract class Button {
   void update() {
     if(over()) {
       currentcolor = highlightcolor;
+      isOver = true;
     } else {
       currentcolor = basecolor;
     }
@@ -35,8 +36,7 @@ class CircleButton extends Button {
   
   boolean over() {
     PVector mouse = new PVector(mouseX, mouseY);
-    isOver = PVector.dist(mouse,adjustedLocation) < (adjustedSize/2);
-    return isOver;
+    return isOver = PVector.dist(mouse,adjustedLocation) < (adjustedSize/2);
   }
 
   void display() {
@@ -74,7 +74,7 @@ class RectButton extends Button {
   }
 
   void display() {
-    stroke(0);
+    stroke(color(0,127));
     fill(currentcolor);
     rect(location.x, location.y, iwidth, iheight);
   }
