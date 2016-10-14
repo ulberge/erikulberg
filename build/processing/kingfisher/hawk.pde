@@ -57,10 +57,6 @@ public class Hawk extends Boid {
     capturedPrey = new ArrayList<Boid>();
   }
   
-  public void run(boolean updateLogic) {
-    super.run(updateLogic);
-  }
-  
   protected HashMap<String, PVector> getForces() {
     target.mult(0);
     HashMap<String, PVector> forces = new HashMap<String, PVector>();

@@ -8,9 +8,8 @@ public class Background {
   float maxWaveHeight;
   float maxPlantWave;
   float numWaves;
-  float birdTimer;
   float birdHeight;
-  float plantTimer;
+  float babyBirdSpeed;
   float plantSpeed;
   int numPlants;
   
@@ -24,10 +23,9 @@ public class Background {
     maxWaveHeight = 8;
     maxPlantWave = 8;
     numWaves = 7;
-    birdTimer = 0;
     birdHeight = 0;
-    plantTimer = 0;
-    plantSpeed = 0.005;
+    plantSpeed = 0.005*ADJUSTED_SPEED;
+    babyBirdSpeed = 3;
     numPlants = 10;
     
     float plantHeight = 100;
@@ -36,7 +34,7 @@ public class Background {
     plants = new ArrayList<Plant>();
     for (int i = 0; i < numPlants; i++) {
       float size = Math.min(1, 0.4 + (0.4*randomGaussian()));
-      plants.add(new Plant(plantHeight*size, plantWidth*size, plantSpread*size, random(-0.1, 1.1)*DEFAULT_GAME_WIDTH, random(1)>0.5));
+      plants.add(new Plant(plantHeight*size, plantWidth*size, plantSpread*size, plantSpeed, random(-0.1, 1.1)*DEFAULT_GAME_WIDTH, random(1)>0.5));
     }
   }
 
@@ -110,9 +108,6 @@ public class Background {
     pushMatrix();
     translate(120,89);
     
-    birdTimer += (3-(TIMER/INIT_TIME)) * 0.025 * ADJUSTED_SPEED;
-    birdHeight = 3-(TIMER/INIT_TIME);
-    
     pushMatrix();
     translate(20, 6);
     drawBabyBird(0);
@@ -140,9 +135,9 @@ public class Background {
   
   void drawBabyBird(float seed) {
     pushMatrix();
-    float speed = 3;
-    float pos = abs(sin(birdTimer*speed + seed));
-    float vpos = birdHeight*abs(sin(birdTimer*speed + seed));
+    float speed = babyBirdSpeed*(3-(TIMER/INIT_TIME));
+    float pos = abs(sin(TIMER*speed + seed));
+    float vpos = birdHeight*abs(sin(TIMER*speed + seed));
     
     fill(BIRD_COLOR);
     translate(-1.25*vpos,-2.5*vpos);
@@ -216,13 +211,12 @@ public class Background {
   
   void drawPlants() {
     stroke(0);
-    plantTimer += plantSpeed*ADJUSTED_SPEED;
     pushMatrix();
     translate(0, 601);
     fill(PLANT_COLOR);
     
     for (Plant plant: plants) {
-      plant.render(plantTimer);
+      plant.render(TIMER);
     }
     
     popMatrix();
@@ -241,15 +235,17 @@ public class Plant {
    float plantHeight;
    float plantWidth;
    float plantSpread;
+   float plantSpeed;
    float locX;
    boolean isReverse;
    
    ArrayList<PVector> vertices;
    
-   Plant(float plantHeight, float plantWidth, float plantSpread, float locX, boolean isReverse) {
+   Plant(float plantHeight, float plantWidth, float plantSpread, float plantSpeed, float locX, boolean isReverse) {
      this.plantHeight = plantHeight;
      this.plantWidth = plantWidth;
      this.plantSpread = plantSpread;
+     this.plantSpeed = plantSpeed;
      this.locX = locX;
      this.isReverse = isReverse;
      vertices = new ArrayList<PVector>();
@@ -268,7 +264,7 @@ public class Plant {
   void render(float plantTimer) {
     pushMatrix();
     translate(locX, 0);
-    rotate(-0.314159 + (noise(plantTimer+(locX*0.001))*0.6283));
+    rotate(-0.314159 + (noise((plantTimer*plantSpeed)+(locX*0.001))*0.6283));
     if (isReverse) {
       scale(-1,1);
     }

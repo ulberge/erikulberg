@@ -10,12 +10,14 @@ public class Bubble {
   }
   
   public void render() {
+    if (!PAUSED) {
      this.location.add(new PVector(0, -0.7));
+    }
      
-     pushMatrix();
-     translate(location.x, location.y);
-     ellipse(0,0,r,r);
-     popMatrix();
+    pushMatrix();
+    translate(location.x, location.y);
+    ellipse(0,0,r,r);
+    popMatrix();
   }
   
   public boolean isInWater() {
