@@ -10,13 +10,34 @@
   canvas.border {
     border: 2px solid @gray-dark;
   }
+  &.fullScreen {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: @gray-darker;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+
+    .gameContainer {
+      width: 100%;
+      padding: 2%;
+      padding-top: 8%;
+    }
+  }
   button {
     position: absolute;
     top: 40%;
-    padding: 40px;
+    padding: 7%;
     border-radius: 50%;
     opacity: 0.5;
-    border: 2px solid #000;
+    border: 2px solid @gray-darker;
+    display: none;
+  }
+  &.showButtons button {
+    display: block;
   }
   button.leftButton {
     left: 0;

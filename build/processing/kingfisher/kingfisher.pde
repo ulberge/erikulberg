@@ -4,7 +4,6 @@ boolean DEBUG=false;
 String STATE = "START";
 boolean PAUSED = true;
 
-boolean SHOW_BUTTONS = false;
 String MOUSE_STATE = "NONE";
 
 PFont FONT;
@@ -91,9 +90,7 @@ void draw() {
   
   runGame();
   
-  if (SHOW_BUTTONS) {
-    runButtons();
-  }
+  runButtons();
   
   if (STATE == "START") {
     renderStartMenu();
@@ -102,10 +99,6 @@ void draw() {
   }
   
   popMatrix();
-}
-
-void setShowButtons(boolean showButtons) {
-  SHOW_BUTTONS = showButtons;
 }
 
 void runButtons() {
@@ -141,6 +134,7 @@ void updateButtons() {
   if (!PAUSED) {
     if(MOUSE_STATE == "LEFT") {
       bird.turnLeft();
+      println("left");
     } else if (MOUSE_STATE == "RIGHT") {
       bird.turnRight();
     }
@@ -217,9 +211,7 @@ void renderMenu(String menuTitle, String menuText) {
   fill(color(40, 150));
   stroke(0);
   strokeWeight(STROKE_WEIGHT*1.5);
-  if (!SHOW_BUTTONS) {
-    rect(280, 150, 440, 300);
-  }
+  rect(280, 150, 440, 300);
   textSize(16);
   textAlign(CENTER, CENTER);
   
