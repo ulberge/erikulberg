@@ -9,29 +9,34 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
+          <h2 className="text-center">Art and programming projects by Erik Ulberg using Processing, Arduino, Javascript, watercolor, clay, etc.</h2>
+        </div>
+        <div className="row">
+          <div className="col-lg-4">
+            <LinkContainer to={{ pathname: '/kingfisher' }}>
+            <a className="homeLink" href="/#/kingfisher">
+              <div className="homeLink">
+                <h3>Kingfisher</h3>
+                <div className="imgContainer artImg">
+                  <img src={"./imgs/kingfisherScrnsht.jpg"} style={{ marginTop: '0px' }} alt="Kingfisher by Erik Ulberg"/>
+                  <div className="goIcon">⇨</div>
+                </div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>2D Action Game built with Processing.js</p>
+          </div>
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/studyokee' }}>
             <a className="homeLink" href="/#/studyokee">
               <h3>Project: Studyokee</h3>
               <div className="imgContainer">
-                <img src={"./imgs/studyokee.jpg"}/>
+                <img src={"./imgs/studyokee.jpg"} alt="Studyokee by Erik Ulberg"/>
                 <div className="goIcon">⇨</div>
               </div>
             </a>
             </LinkContainer>
-            <p>Design and Development for a language learning app using Node.js and Backbone.js</p>
-          </div>
-          <div className="col-lg-4">
-            <LinkContainer to={{ pathname: '/wes' }}>
-            <a className="homeLink" href="/#/wes">
-              <h3>Project: WES</h3>
-              <div className="imgContainer">
-                <img src={"./imgs/wes.jpg"}/>
-                <div className="goIcon">⇨</div>
-              </div>
-            </a>
-            </LinkContainer>
-            <p>Development for a financial literacy app using WordPress</p>
+            <p>Design and Development for a language learning through karaoke app using Node.js and Backbone.js</p>
           </div>
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/relief' }}>
@@ -39,13 +44,25 @@ export default class extends Component {
               <div className="homeLink">
                 <h3>Project: Dynamic Bas-Relief</h3>
                 <div className="imgContainer artImg">
-                  <img src={"./imgs/sculpturevideo.jpg"}/>
+                  <img src={"./imgs/sculpturevideo.jpg"} style={{ marginTop: '-40px' }} alt="Dynamic Bas-Relief by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
                 </div>
               </div>
             </a>
             </LinkContainer>
             <p>Real-time relief sculpture using Processing, Arduino, and 16 servos.</p>
+          </div>
+          <div className="col-lg-4 hidden">
+            <LinkContainer to={{ pathname: '/wes' }}>
+            <a className="homeLink" href="/#/wes">
+              <h3>Project: WES</h3>
+              <div className="imgContainer">
+                <img src={"./imgs/wes.jpg"} alt="WES Development by Erik Ulberg"/>
+                <div className="goIcon">⇨</div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>Development for a financial literacy app using WordPress</p>
           </div>
         </div>
         <div className="homeLink" className="row">
@@ -55,7 +72,7 @@ export default class extends Component {
               <div className="homeLink">
                 <h3>Paintings</h3>
                 <div className="imgContainer artImg" style={{ height: '225px' }}>
-                  <img src={"./imgs/ballpark.jpg"} style={{ marginTop: '-25px' }}/>
+                  <img src={"./imgs/ballpark.jpg"} style={{ marginTop: '-25px' }} alt="Paintings by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
                 </div>
               </div>
@@ -69,7 +86,7 @@ export default class extends Component {
               <div className="homeLink">
                 <h3>Sculpture</h3>
                 <div className="imgContainer artImg">
-                  <img src={"./imgs/gloria1.jpg"} style={{ marginTop: '-40px' }}/>
+                  <img src={"./imgs/gloria1.jpg"} style={{ marginTop: '-60px' }} alt="Sculpture by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
                 </div>
               </div>
@@ -78,18 +95,18 @@ export default class extends Component {
             <p>Sculptures in Plaster, Clay, and Plasticine</p>
           </div>
           <div className="col-lg-4">
-            <LinkContainer to={{ pathname: '/kingfisher' }}>
-            <a className="homeLink" href="/#/kingfisher">
+            <LinkContainer to={{ pathname: '/illustration' }}>
+            <a className="homeLink" href="/#/illustration">
               <div className="homeLink">
-                <h3>Kingfisher</h3>
+                <h3>Sculpture</h3>
                 <div className="imgContainer artImg">
-                  <img src={"./imgs/kingfisherScrnsht.jpg"} style={{ marginTop: '0px' }}/>
+                  <img src={"./imgs/seadragon_close.jpg"} style={{ marginTop: '-100px' }} alt="Illustration by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
                 </div>
               </div>
             </a>
             </LinkContainer>
-            <p>2D Action Game built with Processing.js</p>
+            <p>Sculptures in Plaster, Clay, and Plasticine</p>
           </div>
         </div>
       </div>

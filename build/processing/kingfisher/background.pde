@@ -23,7 +23,7 @@ public class Background {
     maxWaveHeight = 8;
     maxPlantWave = 8;
     numWaves = 7;
-    plantSpeed = 0.005*ADJUSTED_SPEED;
+    plantSpeed = 0.3*ADJUSTED_SPEED;
     babyBirdSpeed = 10;
     birdHeight = 2;
     numPlants = 6;
