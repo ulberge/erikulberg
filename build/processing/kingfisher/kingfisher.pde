@@ -18,7 +18,7 @@ float BUBBLE_RATE = 0.001;
 
 // Number of draw frames per second
 float FRAME_RATE = 50;
-float STROKE_WEIGHT = 1.4;
+float STROKE_WEIGHT = 1.5;
 
 float SHARK_CAPTURE_DISTANCE = 10;
 
@@ -78,6 +78,15 @@ void setup() {
 
 void setSize(int newWidth, int newHeight) {
   size(newWidth,newHeight);
+  setupButtons();
+  init();
+}
+
+void setParams(int fish, int sharks, int hawks, float bubbleRate) {
+  TARGET_FISH_POPULATION = fish;
+  STARTING_SHARKS = sharks;
+  STARTING_HAWKS = hawks;  
+  BUBBLE_RATE = bubbleRate;
   setupButtons();
   init();
 }

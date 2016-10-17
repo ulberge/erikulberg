@@ -16,9 +16,9 @@ export default class extends Component {
               </video>
               <div className="col-lg-6">
                 <h3>Project Description:</h3>
-                <p>This project was an attempt to build a machine that renders a live sculpture of a video feed. Seeing a 3D representation that updates in real-time would be closer to face-to-face interaction and an improvement over digital video.</p>
+                <p>This project was an attempt to build a machine that renders a live sculpture of a video feed. My goal was to explore how a 3D representation that updates in real-time would compare to face-to-face interaction and traditional video.</p>
                 <p></p>
-                <p>Digital video allows us to see objects and movements, but it lacks the physical and tactile understanding that comes with viewing an object in physical space. We lose information when we experience something digitally. A sculpture-video narrows that gap and brings us closer to full fidelity.</p>
+                <p>Digital video allows us to see objects and movements, but it lacks the physical and tactile understanding that comes with viewing an object in physical space. We lose information when we experience something digitally. A sculpture-video narrows that gap and brings us closer to full fidelity with real life.</p>
                 <p></p>
               </div>
             </div>
