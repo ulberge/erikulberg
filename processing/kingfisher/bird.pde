@@ -114,7 +114,6 @@ public class Bird extends Boid {
     }
 
     fill(BIRD_COLOR);
-    stroke(0);
     
     // tail
     pushMatrix();

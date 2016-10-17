@@ -18,7 +18,8 @@ float BUBBLE_RATE = 0.001;
 
 // Number of draw frames per second
 float FRAME_RATE = 50;
-float STROKE_WEIGHT = 1.5;
+float STROKE_WEIGHT = 2;
+color STROKE_COLOR = #343333;
 
 float SHARK_CAPTURE_DISTANCE = 10;
 
@@ -27,7 +28,7 @@ float TARGET_FISH_POPULATION = 25;
 float STARTING_SHARKS = 5;
 float STARTING_HAWKS = 1;
 
-float SHARK_RATE = 20;
+float SHARK_RATE = 15;
 float HAWK_RATE = 40;
 float INIT_TIME = 45;
 float WATER_LEVEL = 0.6;
@@ -94,6 +95,7 @@ void setParams(int fish, int sharks, int hawks, float bubbleRate) {
 void draw() {
 
   strokeWeight(STROKE_WEIGHT);
+  stroke(STROKE_COLOR);
   pushMatrix();
   scale(width/DEFAULT_GAME_WIDTH, height/DEFAULT_GAME_HEIGHT);
   
@@ -218,7 +220,6 @@ void renderMenu(String menuTitle, String menuText) {
   pushMatrix();
   float rectHeight = 250;
   fill(color(40, 150));
-  stroke(0);
   strokeWeight(STROKE_WEIGHT*1.5);
   rect(280, 150, 440, 300);
   textSize(16);
@@ -366,7 +367,6 @@ void renderTimer() {
   float barWidth = 60;
   float barHeight = 10;
   
-  stroke(0);
   fill(255);
   
   pushMatrix();
@@ -403,7 +403,6 @@ void renderScore() {
   
   pushMatrix();
   fill(60);
-  stroke(0);
   rect(0,0,34,24);
   popMatrix();
   
