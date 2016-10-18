@@ -42,15 +42,15 @@ export default class extends Component {
             <LinkContainer to={{ pathname: '/relief' }}>
             <a className="homeLink" href="/#/relief">
               <div className="homeLink">
-                <h3>Project: Dynamic Bas-Relief</h3>
+                <h3>Project: Real-Time Bas-Relief</h3>
                 <div className="imgContainer artImg">
-                  <img src={"./imgs/sculpturevideo.jpg"} style={{ marginTop: '-40px' }} alt="Dynamic Bas-Relief by Erik Ulberg"/>
+                  <img src={"./imgs/sculpturevideo.jpg"} style={{ marginTop: '-40px' }} alt="Real-Time Bas-Relief by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
                 </div>
               </div>
             </a>
             </LinkContainer>
-            <p>Real-time relief sculpture using Processing, Arduino, and 16 servos.</p>
+            <p>Dynamic relief sculpture using Processing, Arduino, and 16 servos.</p>
           </div>
           <div className="col-lg-4 hidden">
             <LinkContainer to={{ pathname: '/wes' }}>

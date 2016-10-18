@@ -7,7 +7,7 @@ export default class extends Component {
   render() {
     return (
         <div className={classnames(className, 'container')}>
-          <h2 className="text-center">Dynamic Bas-Relief</h2>
+          <h2 className="text-center">Real-Time Bas-Relief</h2>
           <div>
             <div className="row">
               <video className="col-lg-6" controls>
@@ -26,9 +26,9 @@ export default class extends Component {
             <div className="row">
               <div className="col-lg-6">
                 <h3>Relief Machine:</h3>
-                <p>I chose to approach this problem with relief, over sculpture in the full round, because it is easier to control a grid of heights versus free-floating points in space.</p>
+                <p>I chose to approach this problem with relief (instead of sculpture in the full round), because it is simpler to control a grid of heights versus free-floating points in space.</p>
                 <p></p>
-                <p>I first created a grid of moving arms attached to servo motors with a piece of fabric attached across the top.</p>
+                <p>I built a box with moving arms that poked out at programmable heights. An array of servo motors controlled the arms. I sewed a piece of fabric to their tips to catch the light and highlight the shapes created.</p>
                 <p></p>
                 <img src={"./imgs/sculpturevideoinprogress.jpg"} className="col-lg-6"/>
                 <img src={"./imgs/sculpturevideoupclose.jpg"} className="col-lg-6"/>
@@ -42,6 +42,8 @@ export default class extends Component {
                 <p>The servos were controlled by an Arduino that recieved a 2D array of heights through its Serial port. The height array was supplied by a video feed that I converted using Processing. I calculated the heights using the relative brightness of sections in the images. To assist with this process, I created a 3D simulation.</p>
                 <p></p>
                 <p>Since the sculpture-video machine only had a 4x4 grid, I was unable to create recognizable sculpture-videos of people. As a proof of concept, I reproduced just the center subsection of the grid on the sculpture-video machine. The subsection can be seen highlighted in green in the screenshot.</p>
+                <p></p>
+                <p>In retrospect, a Kinect would have been simpler and more accurate in reading the 3D space.</p>
                 <p></p>
               </div>
               <div className="col-lg-6">
