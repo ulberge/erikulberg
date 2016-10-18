@@ -98,7 +98,7 @@ export default class extends Component {
             <LinkContainer to={{ pathname: '/illustration' }}>
             <a className="homeLink" href="/#/illustration">
               <div className="homeLink">
-                <h3>Sculpture</h3>
+                <h3>Illustrations</h3>
                 <div className="imgContainer artImg">
                   <img src={"./imgs/seadragon_close.jpg"} style={{ marginTop: '-100px' }} alt="Illustration by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
@@ -106,7 +106,7 @@ export default class extends Component {
               </div>
             </a>
             </LinkContainer>
-            <p>Sculptures in Plaster, Clay, and Plasticine</p>
+            <p>Illustrations using watercolor and conté.</p>
           </div>
         </div>
       </div>
