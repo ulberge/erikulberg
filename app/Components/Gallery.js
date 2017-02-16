@@ -78,10 +78,14 @@ module.exports = React.createClass({
 
     return (
       <div className={classnames(className)}>
-        <Masonry className={classnames(className, 'my-gallery-class')} // default ''
+        <Masonry
+          className={classnames(className, 'my-gallery-class')} // default ''
           elementType={'ul'} // default 'div'
           options={masonryOptions} // default {}
           disableImagesLoaded={false} // default false
+          /*eslint-disable */
+          updateOnEachImageLoad={true}
+          /*eslint-enable */
         >
           {childElements}
         </Masonry>
