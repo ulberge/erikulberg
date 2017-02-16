@@ -77,10 +77,6 @@ public class Fish extends Boid {
     pushMatrix();
     rotate(theta);
     
-    pushMatrix();
-    
-    scale(4);
-    
     //noStroke();
     pushMatrix();
     beginShape(TRIANGLES);
@@ -91,12 +87,6 @@ public class Fish extends Boid {
     endShape();
     popMatrix();
     ellipse(0,0,12,12);
-    
-    popMatrix();
-    
-    fill(color(0,0,0));
-    text("Bauer", 0, 0);
-    fill(FISH_COLOR);
 
     popMatrix();
     
