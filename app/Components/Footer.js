@@ -6,7 +6,7 @@ import { className } from './Footer.less';
 export default class Footer extends Component {
   render() {
     return (
-      <div className={classnames(className, '')}>
+      <div className={classnames(className, 'footer')}>
       </div>
     );
   }
