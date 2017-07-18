@@ -15,6 +15,7 @@ import Studyokee from './Components/Studyokee';
 import WES from './Components/WES';
 import Kingfisher from './Components/Kingfisher';
 import Illustration from './Components/Illustration';
+import Garden from './Components/Garden';
 
 const history = createHashHistory({
   queryKey: false
@@ -72,6 +73,11 @@ render((
         name="Illustration"
         path="/illustration"
         component={Illustration}
+      />
+      <Route
+        name="Garden"
+        path="/garden"
+        component={Garden}
       />
       <Route
         path="*"
