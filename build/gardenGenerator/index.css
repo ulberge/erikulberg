@@ -1,17 +1,14 @@
 .header {
   text-align: center;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.75);
   position: fixed;
   width: 100%;
+  padding-top: 10px;
 }
 .header p {
-  padding-top: 20px;
   font-size: 16px;
 }
 #garden {
-  // margin-left: 10%;
-  // margin-top: 50px;
 }
 #garden canvas {
-  border: 1px solid #000;
 }

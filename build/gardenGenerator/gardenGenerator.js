@@ -13,7 +13,7 @@ var minDistanceBetweenPlants = 70;
 var minPlants = 40;
 var plantVariance = 20;
 var plantScale = 30;
-var bedPadding = 80;
+var bedPadding = 10;
 
 var container;
 var camera, controls, scene, renderer, effect, axes, zoomIn, zoomOut;
@@ -56,14 +56,16 @@ function init() {
 
   controls = new THREE.OrbitControls( camera );
   controls.maxPolarAngle = Math.PI*0.41; 
-  controls.maxAzimuthAngle = Math.PI * 0.75;
-  controls.minAzimuthAngle = -Math.PI * 0.25;
+  controls.maxAzimuthAngle = Math.PI * 0.5;
+  controls.minAzimuthAngle = -Math.PI * 0.5;
   controls.update();
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color( 0xfefefe );
-  var ambient = new THREE.AmbientLight( 0xFFFFFF );
+
+  var ambient = new THREE.AmbientLight( 0xFFFFFF, 1 );
   scene.add( ambient );
+
   var gridHelper = new THREE.GridHelper( worldSize, 10, 0x000000, 0x000000 );
   gridHelper.position.z = -100;
   scene.add( gridHelper );
@@ -88,10 +90,10 @@ function init() {
   $(window).keydown(function(event) {
     console.log(event.keyCode);
     switch(event.keyCode){
-      case 189 : 
+      case 187 : 
         zoomIn = true;
         break;
-      case 187 : 
+      case 189 : 
         zoomOut = true;
         break;
       case 32 : 
@@ -102,10 +104,10 @@ function init() {
   $(window).keyup(function(event) {
     console.log(event.keyCode);
     switch(event.keyCode){
-      case 189 : 
+      case 187 : 
         zoomIn = false;
         break;
-      case 187 : 
+      case 189 : 
         zoomOut = false;
         break;
     }
@@ -116,6 +118,18 @@ function init() {
   });
   $('.pauseLink').click(function() {
     running = !running;
+  });
+  $('.zoomInLink').mousedown(function() {
+    zoomIn = true;
+  });
+  $('.zoomInLink').mouseup(function() {
+    zoomIn = false;
+  });
+  $('.zoomOutLink').mousedown(function() {
+    zoomOut = true;
+  });
+  $('.zoomOutLink').mouseup(function() {
+    zoomOut = false;
   });
 
   effect = new THREE.OutlineEffect( renderer );
@@ -140,23 +154,25 @@ function onDocumentMouseMove( event ) {
 function animate() {
   requestAnimationFrame( animate );
 
-  if ((timer % updatePlantsRate) === (updatePlantsRate-1)) {
-    updatePlants();
-  }
+  if (running) {
+    if ((timer % updatePlantsRate) === (updatePlantsRate-1)) {
+      updatePlants();
+    }
 
-  if ((timer % updateCameraRate) === 0) {
-    cameraNewVector = new THREE.Vector3((Math.random()*1000)-500, (Math.random()*150)+250, (Math.random()*200)+400);
-    cameraMoveVector.copy(cameraNewVector);
-    cameraMoveVector.sub(camera.position);
-    cameraMoveVector.clampScalar(-200, 200);
-    cameraStartVector.copy(camera.position);
-  }  
+    if ((timer % updateCameraRate) === 0) {
+      cameraMoveVector = new THREE.Vector3((Math.random()*1000)-500, (Math.random()*150)+250, (Math.random()*200)+400);
+      cameraMoveVector.sub(camera.position);
+      cameraMoveVector.clampScalar(-200, 200);
+      cameraStartVector.copy(camera.position);
+    }
+  }
 
   render();
 
   if (running) {
     timer++;
   }
+
 }
 
 function render() {
@@ -168,13 +184,13 @@ function render() {
     camera.position.set(cameraX, cameraY, cameraZ);
   }
 
-  camera.lookAt( new THREE.Vector3(0, 100, 0) );
+  camera.lookAt( new THREE.Vector3(0, 50, 50) );
 
   if (zoomIn) {
-    camera.zoom = camera.zoom/zoomRate;
+    camera.zoom = camera.zoom*zoomRate;
   }
   if (zoomOut) {
-    camera.zoom = camera.zoom*zoomRate;
+    camera.zoom = camera.zoom/zoomRate;
   }
   camera.updateProjectionMatrix();
 
