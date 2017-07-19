@@ -1,9 +1,4 @@
 Plants = function () {
-  var minX = (-planeWidth/2) + bedPadding;
-  var maxX = (planeWidth/2) - bedPadding;
-  var minZ = (-planeDepth/2) + bedPadding;
-  var maxZ = (planeDepth/2) - bedPadding;
-
   var PLANTS = [
     {
       name: 'obj/plants/echinacea_text',
@@ -19,45 +14,45 @@ Plants = function () {
       name: 'obj/plants/rodgersia',
       offsetY: 45,
       scale: plantScale*1.5,
-      size: 2 * plantScale
+      size: 1.6 * plantScale
     },
     {
       name: 'obj/plants/cardoon',
       offsetY: 100,
       scale: plantScale*1.5,
-      size: 2 * plantScale
+      size: 2.3 * plantScale
     },
     {
       name: 'obj/plants/lavendar',
       offsetY: 20,
       scale: plantScale*1.5,
-      size: 1 * plantScale
+      size: 1.3 * plantScale
     },
     {
       name: 'obj/plants/rosemary',
       offsetY: 20,
-      size: 1 * plantScale
+      size: 0.6 * plantScale
     },
     {
       name: 'obj/plants/hydrangea',
       offsetY: 20,
-      size: 2 * plantScale
+      size: 2.3 * plantScale
     },
     {
       name: 'obj/plants/mukdenia',
       offsetY: 15,
       scale: plantScale*1.5,
-      size: 1 * plantScale
+      size: 1.4 * plantScale
     },
     {
       name: 'obj/plants/crocus',
       offsetY: 20,
-      size: 1 * plantScale
+      size: 0.6 * plantScale
     },
     {
       name: 'obj/plants/yellowbush',
       offsetY: 20,
-      size: 1.3 * plantScale,
+      size: 1.4 * plantScale,
       scale: plantScale*1.5
     },
     {
@@ -66,12 +61,12 @@ Plants = function () {
       size: 1.5 * plantScale,
       scale: plantScale*1
     },
-    // {
-    //   name: 'obj/plants/hosta2',
-    //   offsetY: 55,
-    //   size: 1.3 * plantScale,
-    //   scale: plantScale*1.5
-    // },
+    {
+      name: 'obj/plants/hosta2',
+      offsetY: 55,
+      size: 2 * plantScale,
+      scale: plantScale*1.5
+    },
     {
       name: 'obj/plants/euphorbia_dis',
       offsetY: 35,
@@ -90,7 +85,7 @@ Plants = function () {
     var plantsAdded = [];
 
     var numPlants = Math.floor(Math.random()*plantVariance) + minPlants;
-    var numTry = 200;
+    var numTry = 400;
     for (var i = 0; i < numTry; i++) {
       if (plantsAdded.length >= numPlants) {
         break;
@@ -102,6 +97,10 @@ Plants = function () {
       Object.assign(newPlant, PLANTS[plantIndex]);
 
       // Calculate random placement
+      var minX = (-planeWidth/2) + newPlant.size + bedPadding;
+      var maxX = (planeWidth/2) - newPlant.size - bedPadding;
+      var minZ = (-planeDepth/2) + newPlant.size + bedPadding;
+      var maxZ = (planeDepth/2) - newPlant.size - bedPadding;
       var posX = (Math.random()*(maxX-minX)) + minX;
       var posZ = (Math.random()*(maxZ-minZ)) + minZ;
       newPlant.pos2D = new THREE.Vector3( posX, 0, posZ );
@@ -126,6 +125,8 @@ Plants = function () {
 
       addPlant(plantList, newPlant, newPlant.pos3D, new THREE.Vector3(0,0,0), newPlant.scale);
     }
+    console.log('Plants added: ' + plantsAdded.length);
+    console.log('Plants desired: ' + numPlants);
   };
 
   function loadPlantFiles (currentPlant) {
@@ -217,15 +218,15 @@ Plants = function () {
 
         } );
 
-        addPlantObject(plantList, object, position, rotation, scale);
+        addPlantObject(plantList, plant, object, position, rotation, scale);
 
       }, onProgress, onError );
     } else {
-      addPlantObject(plantList, plant.obj.clone(), position, rotation, scale);
+      addPlantObject(plantList, plant, plant.obj.clone(), position, rotation, scale);
     }
   }
 
-  function addPlantObject(plantList, object, position, rotation, scale) {
+  function addPlantObject(plantList, plant, object, position, rotation, scale) {
     object.position.set( location.x, location.y, location.z );
     if (rotation) {
       object.rotation.y = rotation.y;
@@ -239,6 +240,18 @@ Plants = function () {
     object.position.x = position.x;
     object.position.y = position.y;
     object.position.z = position.z;
+
+    var geometry = new THREE.CircleGeometry( plant.size, 32 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x000000, transparent: true, opacity: 0.3, depthWrite: false } );
+    var circle = new THREE.Mesh( geometry, material );
+    circle.position.x = position.x;
+    circle.position.y = 0.1;
+    circle.position.z = position.z;
+    circle.rotation.x = -Math.PI/2;
+
+
+    scene.add( circle );
+    plantList.push(circle);
 
     scene.add( object );
     plantList.push(object);

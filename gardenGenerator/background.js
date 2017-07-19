@@ -23,35 +23,34 @@ Background = function () {
   }
 
   function addSoil() {
-    var soilTexture = new THREE.Texture();
-    var loader = new THREE.ImageLoader( manager );
-    loader.load( 'obj/other/groundextralow.png', function ( image ) {
+    // var soilTexture = new THREE.Texture();
+    // var loader = new THREE.ImageLoader( manager );
+    // loader.load( 'obj/other/groundextralow.png', function ( image ) {
 
-      soilTexture.image = image;
-      soilTexture.needsUpdate = true;
-      soilTexture.minFilter = THREE.LinearFilter;
+    //   soilTexture.image = image;
+    //   soilTexture.needsUpdate = true;
+    //   soilTexture.minFilter = THREE.LinearFilter;
 
-    } );
+    // } );
 
-    var loader = new THREE.OBJLoader( manager );
-    loader.load( 'obj/other/groundextralow.obj', function ( object ) {
+    // var loader = new THREE.OBJLoader( manager );
+    // loader.load( 'obj/other/groundextralow.obj', function ( object ) {
 
-      object.traverse( function ( child ) {
-        if ( child instanceof THREE.Mesh ) {
-          child.material.side = THREE.DoubleSide;
-          child.material.map = soilTexture;
-          // child.material.transparent = true;
-          // child.material.opacity = 0.75;
-        }
+    //   object.traverse( function ( child ) {
+    //     if ( child instanceof THREE.Mesh ) {
+    //       child.material.side = THREE.DoubleSide;
+    //       child.material.map = soilTexture;
+    //       child.receiveShadow = true;
+    //     }
 
-      } );
+    //   } );
 
-      object.scale.y = 50;
-      object.scale.x = 225;
-      object.scale.z = 200;
-      scene.add(object);
+    //   object.scale.y = 50;
+    //   object.scale.x = 225;
+    //   object.scale.z = 200;
+    //   scene.add(object);
 
-    }, onProgress, onError );
+    // }, onProgress, onError );
 
 
     var loader = new THREE.TextureLoader();
@@ -71,7 +70,6 @@ Background = function () {
       var ground = new THREE.Mesh( groundGeo, groundMat );
       ground.position.y = -5-height/2;
       ground.position.z = 0;
-      ground.receiveShadow = true;
 
       scene.add( ground );
     });
@@ -94,7 +92,6 @@ Background = function () {
 
       ground.position.y = -height*0.55;
       ground.position.z = planeDepth * 0.75;
-      ground.receiveShadow = true;
 
       scene.add( ground );
     });
@@ -119,7 +116,6 @@ Background = function () {
 
       ground.position.y = -height*0.5;
       ground.position.z = -planeDepth * 1;
-      ground.receiveShadow = true;
 
       scene.add( ground );
     });
