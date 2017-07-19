@@ -1,61 +1,35 @@
+/*
+*
+* background.js
+* By: Erik Ulberg
+* Date:7/18/2017
+*
+* Functions for adding a background and ground to the garden.
+*
+*/
+
 Background = function () {
+
+  this.create = function() {
+    addSoil();
+    addBackgroundPlants();
+    addSidewalk();
+    addGrass();
+  };
 
   var manager = new THREE.LoadingManager();
   manager.onProgress = function ( item, loaded, total ) {
     console.log( item, loaded, total );
   };
 
-  var onProgress = function ( xhr ) {
-    if ( xhr.lengthComputable ) {
-      var percentComplete = xhr.loaded / xhr.total * 100;
-      console.log( Math.round(percentComplete, 2) + '% downloaded' );
-    }
-  };
-
-  var onError = function ( xhr ) {
-  };
-
-  this.create = function() {
-    addSoil();
-    addPlants();
-    addSidewalk();
-    addGrass();
-  }
+  var onProgress = function ( xhr ) {};
+  var onError = function ( xhr ) {};
 
   function addSoil() {
-    // var soilTexture = new THREE.Texture();
-    // var loader = new THREE.ImageLoader( manager );
-    // loader.load( 'obj/other/groundextralow.png', function ( image ) {
-
-    //   soilTexture.image = image;
-    //   soilTexture.needsUpdate = true;
-    //   soilTexture.minFilter = THREE.LinearFilter;
-
-    // } );
-
-    // var loader = new THREE.OBJLoader( manager );
-    // loader.load( 'obj/other/groundextralow.obj', function ( object ) {
-
-    //   object.traverse( function ( child ) {
-    //     if ( child instanceof THREE.Mesh ) {
-    //       child.material.side = THREE.DoubleSide;
-    //       child.material.map = soilTexture;
-    //       child.receiveShadow = true;
-    //     }
-
-    //   } );
-
-    //   object.scale.y = 50;
-    //   object.scale.x = 225;
-    //   object.scale.z = 200;
-    //   scene.add(object);
-
-    // }, onProgress, onError );
-
 
     var loader = new THREE.TextureLoader();
     loader.load('obj/other/groundextralow.png', function ( texture ) {
-      var height = 30;
+      var height = 40;
 
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       texture.offset.set( 0, 0 );
@@ -68,7 +42,7 @@ Background = function () {
       });
 
       var ground = new THREE.Mesh( groundGeo, groundMat );
-      ground.position.y = -5-height/2;
+      ground.position.y = -height/2;
       ground.position.z = 0;
 
       scene.add( ground );
@@ -78,9 +52,11 @@ Background = function () {
   function addSidewalk() {
     var loader = new THREE.TextureLoader();
     loader.load('obj/other/sidewalk.png', function ( texture ) {
-      var height = 30;
+      var height = 40;
 
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      texture.offset.set( 0, 0 );
+      texture.repeat.set( 10, 2 );
 
       var groundGeo = new THREE.BoxBufferGeometry( worldSize, height, planeDepth/2 );
       var groundMat = new THREE.MeshBasicMaterial({
@@ -90,7 +66,7 @@ Background = function () {
 
       var ground = new THREE.Mesh( groundGeo, groundMat );
 
-      ground.position.y = -height*0.55;
+      ground.position.y = -height*0.5;
       ground.position.z = planeDepth * 0.75;
 
       scene.add( ground );
@@ -100,7 +76,7 @@ Background = function () {
   function addGrass() {
     var loader = new THREE.TextureLoader();
     loader.load('obj/other/grass.png', function ( texture ) {
-      var height = 30;
+      var height = 40;
 
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       texture.offset.set( 0, 0 );
@@ -121,41 +97,27 @@ Background = function () {
     });
   }
 
-  function addPlants() {
-    addPlant({name: 'obj/plants/test1_mid'}, new THREE.Vector3( 220, 150, -510 ), new THREE.Vector3( 0, -0.3, 0 ), 5);
-    addPlant({name: 'obj/plants/test1_back'}, new THREE.Vector3( -210, 50, -510 ), new THREE.Vector3( 0, -0.7, 0 ), 5);  
-  }
+  function addBackgroundPlants() {
+    Utilities.loadObjAndPng('obj/plants/test1_mid',
+      function(texture) {},
+      function(object) {
+        object.rotation.y = -0.3;
+        object.scale.multiplyScalar(5);
+        object.position.copy(new THREE.Vector3( 220, 150, -510 ));
 
-  function addPlant(plant, position, rotation, scale) {
-    var texture = new THREE.Texture();
-    var loader = new THREE.ImageLoader( manager );
-    loader.load( plant.name + '.png', function ( image ) {
+        scene.add(object);
+      }
+    );
 
-      texture.image = image;
-      texture.needsUpdate = true;
-      texture.minFilter = THREE.LinearFilter;
+    Utilities.loadObjAndPng('obj/plants/test1_back',
+      function(texture) {},
+      function(object) {
+        object.rotation.y = -0.7;
+        object.scale.multiplyScalar(5);
+        object.position.copy(new THREE.Vector3( -210, 50, -510 ));
 
-    } );
-      
-    var loader = new THREE.OBJLoader( manager );
-    loader.load( plant.name + '.obj', function ( object ) {
-
-      object.traverse( function ( child ) {
-        if ( child instanceof THREE.Mesh ) {
-          child.material.side = THREE.DoubleSide;
-          child.material.map = texture;
-        }
-
-      } );
-
-      object.rotation.y = rotation.y;
-      object.scale.multiplyScalar( scale );
-      object.position.x = position.x;
-      object.position.y = position.y;
-      object.position.z = position.z;
-
-      scene.add( object );
-
-    }, onProgress, onError );
+        scene.add(object);
+      }
+    );
   }
 };
