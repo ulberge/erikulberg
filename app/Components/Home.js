@@ -9,7 +9,7 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <h2 className="text-center">Art and programming projects by Erik Ulberg using Javascript, Arduino, watercolor, clay, etc.</h2>
+          <h2 className="text-center col-lg-12">Art and programming projects by Erik Ulberg using Javascript, Arduino, watercolor, clay, etc.</h2>
         </div>
         <div className="row">
 

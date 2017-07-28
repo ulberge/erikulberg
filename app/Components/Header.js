@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { Navbar, NavItem, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import $ from 'jquery';
 
 import { className } from './Header.less';
 
-export default class Header extends Component {
+module.exports = React.createClass({
+  componentDidMount: function componentDidMount() {
+    $('.navbar a').click(function navClick() {
+      $('.navbar-toggle').click();
+    });
+  },
   render() {
     return (
       <div className={classnames(className, '')}>
@@ -38,4 +44,4 @@ export default class Header extends Component {
       </div>
     );
   }
-}
+});
