@@ -4,5 +4,14 @@
   iframe {
     margin: 0 auto;
     display: block;
+    z-index: 1;
+    margin-top: -116px;
+    position: relative;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    iframe {
+      margin-top: 0;
+    }
   }
 }

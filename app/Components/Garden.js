@@ -1,18 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
+import $ from 'jquery';
 
 import { className } from './Garden.less';
 
 module.exports = React.createClass({
   componentDidMount: function componentDidMount() {
-    const navbar = document.getElementsByClassName('navbar');
-    navbar[0].style.display = 'none';
-    const footer = document.getElementsByClassName('footer');
-    footer[0].style.display = 'none';
-    const canvas = document.getElementById('gardenIframe');
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-    canvas.focus();
+    const garden = $('#gardenIframe');
+    garden.width('100%');
+    garden.height(window.innerHeight);
+    garden.focus();
   },
   iframe: function iframe() {
     return {

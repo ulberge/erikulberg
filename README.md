@@ -13,3 +13,9 @@ npm run deploy
 
 To lint:
 npm run lint
+
+To reset after failed lint during commit:
+git reset HEAD .
+
+To reset after bad commit:
+git reset --soft HEAD^
