@@ -9,9 +9,38 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <h2 className="text-center">Art and programming projects by Erik Ulberg using Processing, Arduino, Javascript, watercolor, clay, etc.</h2>
+          <h2 className="text-center">Art and programming projects by Erik Ulberg using Javascript, Arduino, watercolor, clay, etc.</h2>
         </div>
         <div className="row">
+
+          <div className="col-lg-4">
+            <LinkContainer to={{ pathname: '/garden' }}>
+            <a className="homeLink" href="/#/garden">
+              <div className="homeLink">
+                <h3>Garden Generator</h3>
+                <div className="imgContainer artImg">
+                  <img src={"./imgs/gardenScrnsht.png"} style={{ marginTop: '0px' }} alt="Garden Generator by Erik Ulberg"/>
+                  <div className="goIcon">⇨</div>
+                </div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>3D plant arrangements with ThreeJS</p>
+          </div>
+
+          <div className="col-lg-4">
+            <LinkContainer to={{ pathname: '/studyokee' }}>
+            <a className="homeLink" href="/#/studyokee">
+              <h3>Studyokee</h3>
+              <div className="imgContainer">
+                <img src={"./imgs/studyokee.jpg"} alt="Studyokee by Erik Ulberg"/>
+                <div className="goIcon">⇨</div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>Design and Development for a language learning through karaoke app using Node.js and Backbone.js</p>
+          </div>
+
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/kingfisher' }}>
             <a className="homeLink" href="/#/kingfisher">
@@ -26,23 +55,15 @@ export default class extends Component {
             </LinkContainer>
             <p>2D Action Game built with Processing.js</p>
           </div>
-          <div className="col-lg-4">
-            <LinkContainer to={{ pathname: '/studyokee' }}>
-            <a className="homeLink" href="/#/studyokee">
-              <h3>Project: Studyokee</h3>
-              <div className="imgContainer">
-                <img src={"./imgs/studyokee.jpg"} alt="Studyokee by Erik Ulberg"/>
-                <div className="goIcon">⇨</div>
-              </div>
-            </a>
-            </LinkContainer>
-            <p>Design and Development for a language learning through karaoke app using Node.js and Backbone.js</p>
-          </div>
+
+        </div>
+        <div className="homeLink" className="row">
+
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/relief' }}>
             <a className="homeLink" href="/#/relief">
               <div className="homeLink">
-                <h3>Project: Real-Time Bas-Relief</h3>
+                <h3>Real-Time Bas-Relief</h3>
                 <div className="imgContainer artImg">
                   <img src={"./imgs/sculpturevideo.jpg"} style={{ marginTop: '-40px' }} alt="Real-Time Bas-Relief by Erik Ulberg"/>
                   <div className="goIcon">⇨</div>
@@ -52,20 +73,7 @@ export default class extends Component {
             </LinkContainer>
             <p>Dynamic relief sculpture using Processing, Arduino, and 16 servos.</p>
           </div>
-          <div className="col-lg-4 hidden">
-            <LinkContainer to={{ pathname: '/wes' }}>
-            <a className="homeLink" href="/#/wes">
-              <h3>Project: WES</h3>
-              <div className="imgContainer">
-                <img src={"./imgs/wes.jpg"} alt="WES Development by Erik Ulberg"/>
-                <div className="goIcon">⇨</div>
-              </div>
-            </a>
-            </LinkContainer>
-            <p>Development for a financial literacy app using WordPress</p>
-          </div>
-        </div>
-        <div className="homeLink" className="row">
+
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/paintings' }}>
             <a href="/#/paintings">
@@ -80,6 +88,7 @@ export default class extends Component {
             </LinkContainer>
             <p>Paintings in Watercolor, Gouache, Oil</p>
           </div>
+
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/sculpture' }}>
             <a className="homeLink" href="/#/sculpture">
@@ -94,6 +103,24 @@ export default class extends Component {
             </LinkContainer>
             <p>Sculptures in Plaster, Clay, and Plasticine</p>
           </div>
+
+        </div>
+
+        <div className="homeLink" className="row">
+
+          <div className="col-lg-4">
+            <LinkContainer to={{ pathname: '/wes' }}>
+            <a className="homeLink" href="/#/wes">
+              <h3>Wealth Education Solutions</h3>
+              <div className="imgContainer">
+                <img src={"./imgs/wes.jpg"} alt="WES Development by Erik Ulberg"/>
+                <div className="goIcon">⇨</div>
+              </div>
+            </a>
+            </LinkContainer>
+            <p>Development for a financial literacy app using WordPress</p>
+          </div>
+
           <div className="col-lg-4">
             <LinkContainer to={{ pathname: '/illustration' }}>
             <a className="homeLink" href="/#/illustration">
@@ -108,6 +135,7 @@ export default class extends Component {
             </LinkContainer>
             <p>Illustrations using watercolor and conté.</p>
           </div>
+
         </div>
       </div>
     );
