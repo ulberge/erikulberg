@@ -38,7 +38,7 @@ export default class extends Component {
               </div>
             </a>
             </LinkContainer>
-            <p>Design and Development for a language learning through karaoke app using Node.js and Backbone.js</p>
+            <p>A language learning through karaoke web app using Node.js and Backbone.js</p>
           </div>
 
           <div className="col-lg-4">
