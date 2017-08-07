@@ -6,9 +6,13 @@ import { className } from './CV.less';
 module.exports = React.createClass({
   componentDidMount: function componentDidMount() {
     const canvas = document.getElementById('resume');
-    canvas.height = 900;
     canvas.width = '100%';
     canvas.style.maxWidth = '600px';
+    function adjustHeight() {
+      canvas.height = canvas.contentWindow.document.body.scrollHeight + 100 + 'px';
+    }
+    adjustHeight();
+    canvas.onload = adjustHeight;
   },
   iframe: function iframe() {
     return {
