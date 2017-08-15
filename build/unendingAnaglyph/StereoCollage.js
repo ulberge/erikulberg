@@ -150,7 +150,6 @@
 
     camera = new THREE.PerspectiveCamera( 60, 1.33, 0.1, 1000 );
     camera.position.z = 0;
-    camera.position.y = 2;
     camera.setFocalLength( 30 );
 
     scene = new THREE.Scene();
@@ -172,8 +171,8 @@
     effect = new THREE.StereoEffect( renderer );
     //effect.setEyeSeparation(0.1);
     //effect.setSize( window.innerHeight * 1.333, window.innerHeight );
-    //effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
-    effect.setSize( window.innerWidth, window.innerHeight );
+    effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
+    //effect.setSize( window.innerWidth, window.innerHeight );
         //
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -195,8 +194,7 @@
   }
 
   function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    effect.setSize( window.innerWidth, window.innerHeight );
+    effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
   }
 })();
