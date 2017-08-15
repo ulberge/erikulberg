@@ -16,6 +16,7 @@ import WES from './Components/WES';
 import Kingfisher from './Components/Kingfisher';
 import Illustration from './Components/Illustration';
 import Garden from './Components/Garden';
+import Anaglyph from './Components/Anaglyph';
 
 const history = createHashHistory({
   queryKey: false
@@ -78,6 +79,11 @@ render((
         name="Garden"
         path="/garden"
         component={Garden}
+      />
+      <Route
+        name="Anaglyph"
+        path="/anaglyph"
+        component={Anaglyph}
       />
       <Route
         path="*"
