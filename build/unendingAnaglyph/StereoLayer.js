@@ -8,7 +8,7 @@ class StereoLayer {
 
     this.originalY = vOffset ? vOffset : 3;
 
-    const h = 80
+    const h = 35;
     const w = h * 1.333; 
     this.scale = new THREE.Vector3(  w, h, 1  );
 
@@ -28,8 +28,8 @@ class StereoLayer {
     this.leftImage.position.z = this.position.z;
     this.rightImage.position.z = this.position.z;
 
-    this.leftImage.position.y = 0 + this.originalY + Math.pow((this.position.z+15) * 0.03, 2);
-    this.rightImage.position.y = 0 + this.originalY + Math.pow((this.position.z+15) * 0.03, 2);
+    this.leftImage.position.y = 2 + this.originalY + Math.pow((this.position.z+15) * 0.01, 2);
+    this.rightImage.position.y = 2 + this.originalY + Math.pow((this.position.z+15) * 0.01, 2);
 
   }
 
