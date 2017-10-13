@@ -141,6 +141,8 @@
   let layers = [];
   var camera, scene, renderer, effect;
 
+  var isAnaglyph = true;
+
   init();
   animate();
 
@@ -167,14 +169,16 @@
 
     container.appendChild( renderer.domElement );
 
-    //effect = new THREE.AnaglyphEffect( renderer );
-    effect = new THREE.StereoEffect( renderer );
-    //effect.setEyeSeparation(0.1);
-    //effect.setSize( window.innerHeight * 1.333, window.innerHeight );
-    effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
-    //effect.setSize( window.innerWidth, window.innerHeight );
-        //
+    setEffect();
+    
     window.addEventListener( 'resize', onWindowResize, false );
+
+    document.body.onkeyup = function(e){
+      if(e.keyCode == 32){
+          isAnaglyph = !isAnaglyph;
+          setEffect();
+      }
+    }
 
   }
 
@@ -191,6 +195,23 @@
 
     effect.render( scene, camera );
 
+  }
+
+  function setEffect() {
+    if (isAnaglyph) {
+      effect = new THREE.AnaglyphEffect( renderer );
+      camera.setFocalLength( 40 );
+    } else {
+      effect = new THREE.StereoEffect( renderer );
+      camera.setFocalLength( 30 );
+    }
+    effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
+    // //effect = new THREE.AnaglyphEffect( renderer );
+    // effect = new THREE.StereoEffect( renderer );
+    // //effect.setEyeSeparation(0.1);
+    // //effect.setSize( window.innerHeight * 1.333, window.innerHeight );
+    // effect.setSize( window.innerWidth, window.innerWidth * 0.75 );
+    // //effect.setSize( window.innerWidth, window.innerHeight );
   }
 
   function onWindowResize() {
