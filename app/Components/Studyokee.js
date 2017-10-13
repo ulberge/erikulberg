@@ -9,7 +9,8 @@ export default class extends Component {
       <div className={classnames(className, 'container')}>
         <h2 className="text-center">Project: Studyokee</h2>
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-md-6">
+            <p>I designed and built a web application to teach languages through songs. Users can learn Spanish or German through the lyrics of popular songs. There is a built-in dictionary and user vocabulary lists to study from. The vocabulary they know and are studying are highlighted in the scrolling lyrics.</p>
             <p><b>Website</b>: <a href="http://studyokee.com/" target="_blank">studyokee.com</a></p>
             <p><b>Front End</b>: Backbone.js, CoffeeScript, jQuery, Bootstrap, Handlebars, Stylus, RequireJS</p>
             <p><b>Server</b>: Node.js, JavaScript, mongodb</p>
@@ -23,29 +24,29 @@ export default class extends Component {
               <li>Flashcards for studying vocabulary</li>
             </ul>
           </div>
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <a className="homeLink" href="http://studyokee.com" target="_blank">
               <div className="imgContainer">
-                <img src={"./imgs/studyokee.jpg"}/>
+                <img src={"./imgs/studyokee2.jpg"}/>
               </div>
             </a>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4 text-center">
+          <div className="col-md-4 text-center">
             <a className="homeLink" href="http://studyokee.com" target="_blank">
               <div className="imgContainer">
                 <img src={"./imgs/studyokeemobile.jpg"}/>
               </div>
             </a>
           </div>
-          <div className="col-lg-8 text-center">
+          <div className="col-md-8 text-center">
             <a className="homeLink" href="http://studyokee.com" target="_blank">
               <div className="imgContainer">
                 <img src={"./imgs/vocabularyscreenshot.jpg"}/>
               </div>
             </a>
-            <a className="homeLink" href="http://studyokee.com" target="_blank" className="col-lg-6">
+            <a className="homeLink" href="http://studyokee.com" target="_blank" className="col-md-6">
               <div className="imgContainer">
                 <img src={"./imgs/dictionaryscreenshot.jpg"}/>
               </div>

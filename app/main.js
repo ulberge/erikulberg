@@ -17,6 +17,9 @@ import Kingfisher from './Components/Kingfisher';
 import Illustration from './Components/Illustration';
 import Garden from './Components/Garden';
 import Anaglyph from './Components/Anaglyph';
+import BirdNest from './Components/BirdNest';
+import Programming from './Components/Programming';
+import WCRemix from './Components/WCRemix';
 
 const history = createHashHistory({
   queryKey: false
@@ -84,6 +87,21 @@ render((
         name="Anaglyph"
         path="/anaglyph"
         component={Anaglyph}
+      />
+      <Route
+        name="BirdNest"
+        path="/birdnest"
+        component={BirdNest}
+      />
+      <Route
+        name="Programming"
+        path="/programming"
+        component={Programming}
+      />
+      <Route
+        name="WCRemix"
+        path="/wcremix"
+        component={WCRemix}
       />
       <Route
         path="*"

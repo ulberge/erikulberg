@@ -48,7 +48,7 @@ function init() {
   controls.update();
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0xfefefe );
+  scene.background = new THREE.Color( 0xdfdfdf );
 
   var ambient = new THREE.AmbientLight( 0xFFFFFF, 1 );
   scene.add( ambient );

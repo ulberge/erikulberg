@@ -3,9 +3,6 @@
 // --------------------------------------------------
 
 
-//== Colors
-//
-@metal: #494E56;
 
 //## Gray and brand colors for use across Bootstrap.
 
@@ -22,18 +19,21 @@
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
+//== Colors
+//
+@metal: darken(@gray-dark, 10%);//#494E56;
 
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               darken(#BFD7ED, 13.5%);
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @gray-darker;
 
 //** Global textual link color.
-@link-color:            @brand-primary;
+@link-color:            lighten(#A35A33, 5%);
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
@@ -70,7 +70,7 @@
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          @metal;
+@headings-color:          @gray-darker;
 
 
 //== Iconography

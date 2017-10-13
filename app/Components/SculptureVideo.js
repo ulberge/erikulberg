@@ -6,84 +6,89 @@ import { className } from './SculptureVideo.less';
 export default class extends Component {
   render() {
     return (
-        <div className={classnames(className, 'container')}>
-          <h2 className="text-center">Real-Time Bas-Relief</h2>
-          <div>
-            <div className="row">
-              <video className="col-lg-6" controls>
-                <source src={"imgs/sculpturevideo.mp4"} type="video/mp4"/>
+        <div className={classnames(className, 'container projectPage')}>
+          <h2>Auto Bas-Relief, 2016</h2>
+          <div className="row">
+            <div className="col-md-12">
+              <h3>Project Description</h3>
+            </div>
+            <div className="col-md-6">
+              <p><b>KEYWORDS:</b> Processing, Kinect, Arduino, Relief Sculpture</p>
+              <p>The Auto Bas-Relief takes a feed from a Kinect or a webcam and converts it into a 2D array of heights rendered in real-time as a relief sculpture.</p>
+              <p>I was interested in how video would appear in 3D. We don't currently have matter appropriate for real-time rendering in physical space, but we can control heights. This box represents a proof of concept. Its capacity for expression is limitied by its size. An example of a larger version that works better is the <a href="https://tangible.media.mit.edu/project/inform/">inFORM</a> from the MIT Media Lab.</p>
+              <p>While the inFORM is focused on physical presence a viewer can interact with, the Auto Bas-Relief is a physical display meant as a visual medium. By limiting its capacity, it can borrow ideas from relief sculptures and demonstrate possibilities for them as well. It is liberated from just compressing an axis. It can use trompe l'oeil to acheive more in the compressed space. It also is an intriguing tool for learning about relief sculptures, because it allows me to iterate on ideas faster than in plaster.</p>
+            </div>
+            <div className="col-md-6">
+              <video controls>
+                <source src={"imgs/relief_movie.mp4"} type="video/mp4"/>
                 Your browser does not support the video tag.
               </video>
-              <div className="col-lg-6">
-                <h3>Project Description:</h3>
-                <p>This project was an attempt to build a machine that renders a live sculpture of a video feed. My goal was to explore how a 3D representation that updates in real-time would compare to face-to-face interaction and traditional video.</p>
-                <p></p>
-                <p>Digital video allows us to see objects and movements, but it lacks the physical and tactile understanding that comes with viewing an object in physical space. We lose information when we experience something digitally. A sculpture-video narrows that gap and brings us closer to full fidelity with real life.</p>
-                <p></p>
-              </div>
             </div>
+          </div>
 
-            <div className="row">
-              <div className="col-lg-6">
-                <h3>Relief Machine:</h3>
-                <p>I chose to approach this problem with relief (instead of sculpture in the full round), because it is simpler to control a grid of heights versus free-floating points in space.</p>
-                <p></p>
-                <p>I built a box with moving arms that poked out at programmable heights. An array of servo motors controlled the arms. I sewed a piece of fabric to their tips to catch the light and highlight the shapes created.</p>
-                <p></p>
-                <img src={"./imgs/sculpturevideoinprogress.jpg"} className="col-lg-6"/>
-                <img src={"./imgs/sculpturevideoupclose.jpg"} className="col-lg-6"/>
+          <div className="row stateTiles">
+            <div className="col-md-8 col-md-offset-2">
+              <div>
+                <img src={"./imgs/pairs/v3.jpg"}/>
+                <img src={"./imgs/pairs/v0.jpg"}/>
+                <img src={"./imgs/pairs/v1.jpg"}/>
+                <img src={"./imgs/pairs/v2.jpg"}/>
               </div>
-              <img src={"./imgs/sculpturevideo.jpg"} className="col-lg-6"/>
+              <div>
+                <img src={"./imgs/pairs/r3.jpg"}/>
+                <img src={"./imgs/pairs/r0.jpg"}/>
+                <img src={"./imgs/pairs/r1.jpg"}/>
+                <img src={"./imgs/pairs/r2.jpg"}/>
+              </div>
+              <div><small>Example states</small></div>
             </div>
+          </div>
 
-            <div className="row">
-              <div className="col-lg-6">
-                <h3>Code:</h3>
-                <p>The servos were controlled by an Arduino that recieved a 2D array of heights through its Serial port. The height array was supplied by a video feed that I converted using Processing. I calculated the heights using the relative brightness of sections in the images. To assist with this process, I created a 3D simulation.</p>
-                <p></p>
-                <p>Since the sculpture-video machine only had a 4x4 grid, I was unable to create recognizable sculpture-videos of people. As a proof of concept, I reproduced just the center subsection of the grid on the sculpture-video machine. The subsection can be seen highlighted in green in the screenshot.</p>
-                <p></p>
-                <p>In retrospect, a Kinect would have been simpler and more accurate in reading the 3D space.</p>
-                <p></p>
-              </div>
-              <div className="col-lg-6">
-                <img src={"./imgs/sculpturevideoscreenshot.jpg"} style={{ marginTop: '0px' }}/>
-                <p>(Screenshot from Processing 3D simulation)</p>
-              </div>
+          <div className="row">
+            <div className="col-md-8 col-md-offset-2">
+              <h4>Physical Output</h4>
+              <p>The physical output of this project is a 4x4 grid of linear actuators controlled by an Arduino with a 16-channel servo shield. There are laser cut wooden parts to hold the servos in place and laser cut plastic arms to convert the circular motion into vertical motion.</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-offset-2 col-md-5">
+              <img src={"./imgs/autobas_sketch3.jpg"}/>
+            </div>
+            <div className="col-md-3">
+              <img src={"./imgs/autobas_sketch1.jpg"}/>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4 col-md-offset-2">
+              <img src={"./imgs/sculpturevideoinprogress.jpg"}/>
+            </div>
+            <div className="col-md-4">
+              <img src={"./imgs/sculpturevideo.jpg"} />
+            </div>
+          </div>
 
-              <div className="col-lg-12">
-                <h3>Pseudocode:</h3>
-                <p>Processing -></p>
-                <div><code>{'void draw() {'}</code></div>
-                <div><code>&nbsp;&nbsp;{'image = camera.get()'}</code></div>
-                <div><code>&nbsp;&nbsp;{'PImage image = crop(image)'}</code></div>
-                <div><code>&nbsp;&nbsp;{'PImage image = resize(image)'}</code></div>
-                <div><code>&nbsp;&nbsp;{'PImage image = flip(image)'}</code></div>
-                <div><code>&nbsp;&nbsp;{'PImage image = contrastAndBrightness(image)'}</code></div>
-                <div><code>{''}</code></div>
-                <div><code>&nbsp;&nbsp;{'float[][] triangulatedGrid = getGrayscaleTriangles(image)'}</code></div>
-                <div><code>{''}</code></div>
-                <div><code>&nbsp;&nbsp;{'float[][] heights = getHeights(triangulatedGrid)'}</code></div>
-                <div><code>{''}</code></div>
-                <div><code>&nbsp;&nbsp;{'// render simulation'}</code></div>
-                <div><code>{''}</code></div>
-                <div><code>&nbsp;&nbsp;{'// every 0.1s write to serial port'}</code></div>
-                <div><code>&nbsp;&nbsp;{'Serial.write(heights);'}</code></div>
-                <div><code>{'}'}</code></div>
-                <p></p>
-                <p>Arduino -></p>
-                <div><code>{'void loop() {'}</code></div>
-                <div><code>&nbsp;&nbsp;{'if (Serial.available()) {'}</code></div>
-                <div><code>&nbsp;&nbsp;&nbsp;&nbsp;{'heights = Serial.read()'}</code></div>
-                <div><code>&nbsp;&nbsp;{'}'}</code></div>
-                <div><code>{''}</code></div>
-                <div><code>&nbsp;&nbsp;{'for (int rowIndex = 0; rowIndex < rowSize; rowIndex++) {'}</code></div>
-                <div><code>&nbsp;&nbsp;&nbsp;&nbsp;{'for (int colIndex = 0; colIndex < colSize; colIndex++) {'}</code></div>
-                <div><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'setHeight(servo[rowIndex][colIndex], heights[rowIndex][colIndex])'}</code></div>
-                <div><code>&nbsp;&nbsp;&nbsp;&nbsp;{'}'}</code></div>
-                <div><code>&nbsp;&nbsp;{'}'}</code></div>
-                <div><code>{'}'}</code></div>
-              </div>
+          <div className="row">
+            <div className="col-md-8 col-md-offset-2">
+              <h4>Input and Processing</h4>
+              <p>The input is a Kinect or webcam controlled by a Processing sketch that converts the values to a 2D array of heights to send to the Arduino.</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-8 col-md-offset-2">
+              <img src={"./imgs/autobas_sketch4.jpg"}/>
+              <div><small>Sketch of project architecture</small></div>
+            </div>
+            <div className="col-md-8 col-md-offset-2">
+              <img src={"./imgs/autobas_processing.jpg"}/>
+              <div><small>Processing with Kinect sketch screenshot</small></div>
+            </div>
+            <div className="col-md-8 col-md-offset-2">
+              <img src={"./imgs/autobas_still4.jpg"}/>
+              <div><small>Whole setup with Kinect running</small></div>
+            </div>
+            <div className="col-md-8 col-md-offset-2">
+              <img src={"./imgs/sculpturevideoscreenshot.jpg"}/>
+              <div><small>Auto Bas-Relief version with webcam (makes a visual approximation of input image)</small></div>
             </div>
           </div>
         </div>

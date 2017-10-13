@@ -50,7 +50,7 @@ module.exports = React.createClass({
     const that = this;
     const childElements = this.props.images.map(function map(img, index) {
       return (
-        <li key={img.src} className="image-element-class col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <li key={img.src} className="image-element-class col-md-4 col-md-4 col-sm-6 col-xs-12">
           <span onClick={that.openLightbox} data-index={index}><img src={img.src} /></span>
         </li>
       );
