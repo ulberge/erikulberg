@@ -22,18 +22,19 @@
 //== Colors
 //
 @metal: darken(@gray-dark, 10%);//#494E56;
-
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
-
-//** Background color for `<body>`.
 @body-bg:               darken(#BFD7ED, 13.5%);
-//** Global text color on `<body>`.
+@link-color:            lighten(#A35A33, 5%);
 @text-color:            @gray-darker;
 
-//** Global textual link color.
-@link-color:            lighten(#A35A33, 5%);
+
+// New Palette
+@metal: #112E4B;
+@body-bg:               #CEEBFF;
+@link-color:            #C3BA28;
+@text-color:            @metal;
+
+
+
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
@@ -70,7 +71,7 @@
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          @gray-darker;
+@headings-color:          @metal;
 
 
 //== Iconography
