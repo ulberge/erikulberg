@@ -8,7 +8,7 @@ module.exports = React.createClass({
   componentDidMount: function componentDidMount() {
     const garden = $('#gardenIframe');
     garden.width('100%');
-    garden.height('480px');
+    garden.height('360px');
     $('.iframeOverlap').click(function focusGarden() {
       garden.focus();
     });
@@ -22,36 +22,32 @@ module.exports = React.createClass({
     return (
       <div className={classnames(className, 'container projectPage')}>
         <h2>Garden Generator, 2017</h2>
+        <h4>A tool for garden inspiration. Which combinations of shape, size, and color work?</h4>
         <div className="row">
-          <div className="col-md-12 iframeContainer clearFix">
-            <div dangerouslySetInnerHTML={ this.iframe() } />
-            <div className="iframeOverlap"></div>
-          </div>
           <div className="col-md-12">
-            <div className="well">
-              <b>CONTROLS:</b> (First click on Generator) <span className="text-info">pause</span>: &lt;space bar&gt;, <span className="text-info">zoom in</span>: &lt;+&gt;, <span className="text-info">zoom out</span>: &lt;-&gt;
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
             <h3>Project Description</h3>
-            <p><b>KEYWORDS:</b> Photogrammetry, Horticulture, Three.js, Photoscan, Meshlab</p>
-            <p>The Garden Generator is an interactive, 3D model populated with random combinations of plants from the South Seattle College Arboretum. I had an interest in garden design from when I took classes in Landscape Horticulture at South Seattle College and worked part-time as a gardener. I wanted to experiment with the use of size, shape, and color plants in different combinations by creating a tool that rapidly iterated over possibilities.</p>
-            <p>I also wanted to explore generative art and see what happens when one limits the output to pleasing materials and reduces the complexity of the system. I believe it leads to more aesthetically useful results than a generic image generator operating over the entire space of digital images.</p>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4 col-md-offset-2 text-center">
-            <img src="./imgs/garden_plants_drawings0.jpg" style={{ height: '400px', width: 'auto' }} alt="Plant Sketches"/>
+          <div className="col-md-6">
+            <p><b>KEYWORDS:</b> Photogrammetry, Horticulture, Three.js</p>
+            <p>An interactive, 3D model populated with random combinations of plants from the South Seattle College Arboretum.</p>
+            <p>I had an interest in garden design from when I took classes in Landscape Horticulture at South Seattle College and worked part-time as a gardener. I wanted to experiment with the use of size, shape, and color plants in different combinations by creating a tool that rapidly iterated over possibilities.</p>
+            <p>I also wanted to explore generative art and see what happens when one limits the output to pleasing materials and reduces the complexity of the system. I believe it leads to more aesthetically useful results than a generic image generator operating over the entire space of digital images.</p>
+            <p><br/></p>
+            <div className="col-md-5 col-md-offset-1 text-center">
+              <img src="./imgs/garden_plants_drawings0.jpg" alt="Plant Sketches"/>
+            </div>
+            <div className="col-md-5 text-center">
+              <img src="./imgs/garden_plants_drawings1.jpg" alt="Plant Sketches"/>
+            </div>
             <div>
               <small>Sketches from a class on perennials</small>
             </div>
           </div>
-          <div className="col-md-4 text-center">
-            <img src="./imgs/garden_plants_drawings1.jpg" style={{ height: '400px', width: 'auto' }} alt="Plant Sketches"/>
-            <div>
-              <small>More sketches</small>
+          <div className="col-md-6 iframeContainer clearFix">
+            <div dangerouslySetInnerHTML={ this.iframe() } />
+            <div className="iframeOverlap"></div>
+            <div className="well">
+              <b>CONTROLS:</b> (First click on Generator) <span className="text-info">pause</span>: &lt;space bar&gt;, <span className="text-info">zoom in</span>: &lt;+&gt;, <span className="text-info">zoom out</span>: &lt;-&gt;
             </div>
           </div>
         </div>

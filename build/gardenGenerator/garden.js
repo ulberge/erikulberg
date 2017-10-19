@@ -41,7 +41,7 @@ function init() {
 
   camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, - 500, 9999 );
   camera.position.set(cameraStartVector.x,cameraStartVector.y,cameraStartVector.z);
-  camera.zoom = 1.2;
+  camera.zoom = 0.5;
 
   controls = new THREE.OrbitControls( camera );
   controls.keyPanSpeed = 200;

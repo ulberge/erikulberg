@@ -8,6 +8,7 @@ export default class extends Component {
     return (
         <div className={classnames(className, 'container projectPage')}>
           <h2>Auto Bas-Relief, 2016</h2>
+          <h4>To understand relief sculpture, make a million of them.</h4>
           <div className="row">
             <div className="col-md-12">
               <h3>Project Description</h3>
@@ -23,6 +24,7 @@ export default class extends Component {
                 <source src={"imgs/relief_movie.mp4"} type="video/mp4"/>
                 Your browser does not support the video tag.
               </video>
+              <div><small>The Processing sketch and machine running with a Kinect</small></div>
             </div>
           </div>
 
@@ -53,17 +55,21 @@ export default class extends Component {
           <div className="row">
             <div className="col-md-offset-2 col-md-5">
               <img src={"./imgs/autobas_sketch3.jpg"}/>
+              <div><small>First sketches of machine</small></div>
             </div>
             <div className="col-md-3">
               <img src={"./imgs/autobas_sketch1.jpg"}/>
+              <div><small>First sketches of example states</small></div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-4 col-md-offset-2">
               <img src={"./imgs/sculpturevideoinprogress.jpg"}/>
+              <div><small>Attaching fabric</small></div>
             </div>
             <div className="col-md-4">
               <img src={"./imgs/sculpturevideo.jpg"} />
+              <div><small>Testing machine</small></div>
             </div>
           </div>
 
@@ -88,7 +94,7 @@ export default class extends Component {
             </div>
             <div className="col-md-8 col-md-offset-2">
               <img src={"./imgs/sculpturevideoscreenshot.jpg"}/>
-              <div><small>Auto Bas-Relief version with webcam (makes a visual approximation of input image)</small></div>
+              <div><small>Webcam version (before Kinect)</small></div>
             </div>
           </div>
         </div>
