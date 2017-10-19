@@ -10,8 +10,8 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <h2 className="text-center col-md-6 col-md-offset-3">
-            Hi, I’m Erik Ulberg. I’m an artist and programmer using software to explore the limits of creative possibilites. I build tools to help me make new art.
+          <h2 className="text-center col-md-8 col-md-offset-2">
+            Hi, I’m Erik Ulberg. I’m an artist and programmer interested in using software, physical computing, and machine learning to build custom tools for visual art and horticultural pursuits.
           </h2>
         </div>
         <div className="row">
