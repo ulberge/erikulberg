@@ -15,7 +15,7 @@ export default class extends Component {
           </h2>
         </div>
         <div className="row">
-          <Tile title="Transparent Collage" subtitle="Machine Learning + Watercolor, 2017" img="./imgs/wc_icon.png" link="/wcremix" styleName="col-md-3" />
+          <Tile title="Watercolor Tech (In Progress)" subtitle="Machine Learning + Watercolor, 2017" img="./imgs/wc_icon.png" link="/wcremix" styleName="col-md-3" />
           <Tile title="Garden Generator" subtitle="Generative Art + Photogrammetry, 2017" img="./imgs/garden4.jpg" link="/garden" styleName="col-md-3" />
           <Tile title="Endless Stereograph" subtitle="Stereography + 3D Animation, 2017" img="./imgs/forestflow_cube2.jpg" link="/anaglyph" styleName="col-md-3" />
           <Tile title="Auto Bas-Relief" subtitle="Image Processing + Sculpture, 2016" img="./imgs/autobas.jpg" link="/relief" styleName="col-md-3" />
