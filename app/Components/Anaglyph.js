@@ -45,7 +45,7 @@ module.exports = React.createClass({
               <img src="./imgs/forestflowd0.jpg" alt=""/>
               <div></div>
             </div>
-            <p>Above you can see an example of Donatello ignoring strict rules of perspective. He divides the space into layers and makes it clear which layer is in front of which. Once he has established a clear hierarchy of layers, he proceeds to depths within sublayers. Even if relative heights between objects in different layers do not follow normal proportions, human perception can comfortably understand the space.</p>
+            <p>Below you can see an example of Donatello ignoring strict rules of perspective. He divides the space into layers and makes it clear which layer is in front of which. Once he has established a clear hierarchy of layers, he proceeds to depths within sublayers. Even if relative heights between objects in different layers do not follow normal proportions, human perception can comfortably understand the space.</p>
             <div className="">
               <img src="./imgs/forestflowd4.jpg" alt=""/>
               <div></div>
