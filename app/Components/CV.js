@@ -107,12 +107,19 @@ module.exports = React.createClass({
           </div>
 
           <div className="row">
+            <h4>Exhibitions:</h4>
+            <hr/>
+            <div>2017 – NiiModo Pop-up Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
+            <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
+            <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
+          </div>
+
+          <div className="row">
             <h4>Skills:</h4>
             <hr/>
             <div><b>Programming Languages:</b> Java, JS, PHP, CSS, HTML</div>
             <div><b>Technologies:</b> Processing, Arduino, WordPress, Shopify, ThreeJS, ReactJS, NodeJS, Bootstrap, jQuery, BackboneJS, MongoDB, LESS, Grunt, git, npm, bower, TravisCI, Heroku, requireJS</div>
-            <div><b>Creative Tools:</b> Adobe Illustrator, Adobe Photoshop</div>
-            <div><b>Languages:</b> English (native), Spanish (advanced), German (beginning), French (beginning)</div>
+            <div><b>Languages:</b> English (native), Spanish (advanced), French (basic), German (basic)</div>
           </div>
         </div>
       </div>

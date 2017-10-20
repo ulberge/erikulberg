@@ -6,6 +6,7 @@ import Gallery from './Gallery';
 import { className } from './Art.less';
 
 const images = [
+  { src: './imgs/seadragon_midsize.jpg', zoom: './imgs/zoom/seadragon.jpg' },
   { src: './imgs/port.jpg', zoom: './imgs/zoom/port.jpg' },
   { src: './imgs/waterfall.jpg', zoom: './imgs/zoom/waterfall.jpg' },
   { src: './imgs/ballpark.jpg', zoom: './imgs/zoom/ballpark.jpg' },
