@@ -29,7 +29,7 @@ export default class extends Component {
             </div>
             <div className="col-md-1 hidden-xs hidden-sm" style={{ textAlign: 'center', paddingTop: '120px' }}><span style={{ fontSize: '30px' }} className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></div>
             <div className="col-md-2 text-center" style={{ paddingTop: '60px' }}>
-              <img src="./imgs/wc_post.png" />
+              <img src="./imgs/wc_post.jpg" />
               <small>Filter tools built with Machine Learning and Wekinator</small>
               <div className=" hidden-xs hidden-sm" style={{ textAlign: 'center', paddingTop: '60px' }}><span style={{ fontSize: '30px' }} className="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></div>
             </div>
