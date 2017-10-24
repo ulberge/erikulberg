@@ -18,7 +18,17 @@ Plants = function () {
   // Generate a random assortment of plants and add the plants and their shadows to the scene
   this.generateAndAddPlants = function(plantList) {
     var plantsToAdd = generatePlants();
-    addPlants(plantList, plantsToAdd);
+    addPlantsOnceLoaded(plantList, plantsToAdd);
+  };
+
+  function addPlantsOnceLoaded (plantList, plantsToAdd) {
+      if (Utilities.isLoadingPlants()) {
+        setTimeout(function() {
+          addPlantsOnceLoaded(plantList, plantsToAdd);
+        }, 50);
+        return;
+      } 
+      addPlants(plantList, plantsToAdd);
   };
 
   // Load the obj and png files for the plants into a cache for faster regeneration of gardens
@@ -37,6 +47,7 @@ Plants = function () {
 
   // Generate a random assortment of plants and return them
   function generatePlants () {
+
     var plantsAdded = [];
 
     var numPlants = Math.floor(Math.random()*plantVariance) + minPlants;
@@ -50,6 +61,7 @@ Plants = function () {
       var plantIndex = Math.floor(Math.random()*PLANTS.length);
       var newPlant = {};
       Object.assign(newPlant, PLANTS[plantIndex]);
+      newPlant.plantIndex = plantIndex;
 
       // Calculate random placement
       var minX = (-planeWidth/2) + newPlant.size + bedPadding;
@@ -97,16 +109,16 @@ Plants = function () {
 
   function addPlant(plantList, plant) {
     // If the plant files haven't been loaded yet for the static list, load them to prevent objects not showing up
-    if (!plant.obj || !plant.texture) {
-      Utilities.loadObjAndPng(plant.name,
-        function(texture) {},
-        function(object) {
-          addPlantObject(plantList, plant, object);
-        }
-      );
-    } else {
-      addPlantObject(plantList, plant, plant.obj.clone());
-    }
+    // if (!plant.obj || !plant.texture) {
+    //   Utilities.loadObjAndPng(plant.name,
+    //     function(texture) {},
+    //     function(object) {
+    //       addPlantObject(plantList, plant, object);
+    //     }
+    //   );
+    // } else {
+      addPlantObject(plantList, plant, PLANTS[plant.plantIndex].obj.clone());
+    //}
   }
 
   function addPlantObject(plantList, plant, object) {

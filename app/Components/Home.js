@@ -10,11 +10,6 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <h2 className="text-center col-md-8 col-md-offset-2">
-            Hi, I’m Erik Ulberg. I’m an <b>artist</b> and <b>programmer</b> interested in using <b>software</b>, <b>physical computing</b>, and <b>machine learning</b> to build custom tools for <b>visual art</b>, <b>horticulture</b>, and <b>language learning</b>.
-          </h2>
-        </div>
-        <div className="row">
           <Tile title="Watercolor Toolkit (In Progress)" subtitle="AR + ML + Watercolor, 2017" img="./imgs/wc_icon.png" link="/wcremix" styleName="col-md-3" />
           <Tile title="Garden Generator" subtitle="Generative Art + Photogrammetry, 2017" img="./imgs/garden4.jpg" link="/garden" styleName="col-md-3" />
           <Tile title="Endless Stereograph" subtitle="Stereography + 3D Animation, 2017" img="./imgs/forestflow_cube2.jpg" link="/anaglyph" styleName="col-md-3" />

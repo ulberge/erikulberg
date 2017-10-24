@@ -13,6 +13,15 @@ module.exports = React.createClass({
             <div>ulberge@gmail.com</div>
             <div>(206) 948-3348</div>
           </div>
+
+          <div className="row">
+            <h4>Statement:</h4>
+            <div>
+              <p>Erik Ulberg is an <b>artist</b> and <b>programmer</b> interested in using <b>software</b>, <b>physical computing</b>, and <b>machine learning</b> to build custom tools for <b>visual art</b>, <b>horticulture</b>, and <b>language learning</b>.
+              </p>
+            </div>
+          </div>
+
           <div className="row">
             <h4>Education:</h4>
             <hr/>
@@ -22,8 +31,7 @@ module.exports = React.createClass({
                 <span className="pull-right">2009</span>
               </div>
               <div>B.A. in Computer Science, 2009, GPA: 3.85, Major GPA: 3.97</div>
-              <div>Honors: <i>magna cum laude</i>, Distinction in Major</div>
-              <div>Distinction in Thesis: "Learning Through Gaming"</div>
+              <div>Honors: <i>magna cum laude</i>, Distinction in Major, Distinction in Thesis</div>
             </div>
             <br/>
             <h4>Additional Coursework:</h4>
@@ -32,7 +40,7 @@ module.exports = React.createClass({
                 <span className="pull-left"><b>University of Washington</b>, Seattle, WA, GPA: 4.0</span>
                 <span className="pull-right">2016-2017</span>
               </div>
-              <div>DXARTS courses: Photogrammetric Modeling, Sensing and Controlling Systems, Immersive Art</div>
+              <div>Center for Digital Art and Experimental Media: Photogrammetry, Sensing and Controlling Systems, Immersive Art</div>
             </div>
             <br/>
             <div>
@@ -40,7 +48,7 @@ module.exports = React.createClass({
                 <span className="pull-left"><b>South Seattle College</b>, Seattle, WA, GPA: 3.68</span>
                 <span className="pull-right">2017</span>
               </div>
-              <div>Landscape Horticulture courses: Soils, Permaculture, Edible Plants, Perennials</div>
+              <div>Landscape Horticulture Program: Soils, Permaculture, Edible Plants, Perennials</div>
             </div>
             <br/>
             <div>
@@ -53,12 +61,20 @@ module.exports = React.createClass({
             <br/>
             <div>
               <div className="clearfix">
-                <span className="pull-left"><b>Gage Academy of Art</b>, Seattle, WA</span>
+                <span className="pull-left"><b>Magrath Atelier in Sculpture</b>, Gage Academy of Art, Seattle, WA</span>
                 <span className="pull-right">2014-2016</span>
               </div>
-              <div>Magrath Atelier in Sculpture</div>
+              <div>Drawing and Modeling from Life, Anatomy, Relief, Mold Making, Casting, Fabrication</div>
               <div>Additional courses in: Watercolor, Drawing, Painting</div>
             </div>
+          </div>
+
+          <div className="row">
+            <h4>Exhibitions:</h4>
+            <hr/>
+            <div>2017 – NiiModo Pop-up Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
+            <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
+            <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
           </div>
 
           <div className="row">
@@ -104,14 +120,6 @@ module.exports = React.createClass({
                 <li>Fixed bugs in software used by scientists to collect, analyze, and share data from high-throughput experiments and observational studies.</li>
               </ul>
             </div>
-          </div>
-
-          <div className="row">
-            <h4>Exhibitions:</h4>
-            <hr/>
-            <div>2017 – NiiModo Pop-up Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
-            <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
-            <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
           </div>
 
           <div className="row">
