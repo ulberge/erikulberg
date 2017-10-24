@@ -75,7 +75,7 @@ Background = function () {
 
   function addGrass() {
     var loader = new THREE.TextureLoader();
-    loader.load('obj/other/grass.png', function ( texture ) {
+    loader.load('obj/other/grass.jpg', function ( texture ) {
       var height = 40;
 
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
