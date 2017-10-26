@@ -87,7 +87,7 @@ module.exports = React.createClass({
               </div>
               <ul>
                 <li>Built and edited WordPress and Shopify sites with JS, PHP, and Liquid.</li>
-                <li>Completed projects for over 30 clients ranging from small features to custom web applications.</li>
+                <li>Completed development and design projects for over 30 clients ranging from small features to custom web applications.</li>
               </ul>
             </div>
             <br/>
