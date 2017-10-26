@@ -26,7 +26,7 @@ module.exports = React.createClass({
             <h3>Project Description</h3>
             <p><b>KEYWORDS:</b> Stereo Vision, 3D Animation</p>
             <p>Endless Stereograph is a 3D animation composed of endlessly repeating stereoscopic images of a forest path.</p>
-            <p>This project was inspired by historical stereographs, like works by Muybridge, and my desire to plunge into them. I also used pictorial strategies from Donatello's relief sculptures in which the problem of resolving depth between layers is treated separately from resolving depth within a layer.</p>
+            <p>This project was inspired by historical stereographs, such as works by Muybridge, and my desire to plunge into them. I also used pictorial strategies from Donatello's relief sculptures in which the problem of resolving depth between layers is treated separately from resolving depth within a layer.</p>
           </div>
           <div className="col-md-6 iframeContainer clearFix">
             <div dangerouslySetInnerHTML={ this.iframe() } />
