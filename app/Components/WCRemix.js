@@ -14,7 +14,7 @@ export default class extends Component {
               <h3>Project Description</h3>
             </div>
             <div className="col-md-4">
-              <p><b>KEYWORDS:</b> User-Centered Design, Augmented Reality Projection, Machine Learning, Watercolor, <a href="http://www.wekinator.org/">Wekinator</a>, Processing</p>
+              <p><b>KEYWORDS:</b> Computer-Aided/User-Centered Design, Machine Learning, Augmented Reality Projection, Watercolor, <a href="http://www.wekinator.org/">Wekinator</a>, Processing</p>
               <p>A custom toolkit to make watercolor easier and allow me to focus on creating beautiful and expressive marks.</p>
               <h4>Tools:</h4>
               <ul>

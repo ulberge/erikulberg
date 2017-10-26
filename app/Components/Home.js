@@ -10,8 +10,8 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <Tile title="Watercolor Toolkit (In Progress)" subtitle="AR + ML + Watercolor, 2017" img="./imgs/wc_icon.png" link="/wcremix" styleName="col-md-3" />
-          <Tile title="Garden Generator" subtitle="Generative Art + Photogrammetry, 2017" img="./imgs/garden4.jpg" link="/garden" styleName="col-md-3" />
+          <Tile title="Watercolor Toolkit (In Progress)" subtitle="CAD + ML + Watercolor, 2017" img="./imgs/wc_icon.png" link="/wcremix" styleName="col-md-3" />
+          <Tile title="Garden Generator" subtitle="Generative Design + Photogrammetry, 2017" img="./imgs/garden4.jpg" link="/garden" styleName="col-md-3" />
           <Tile title="Endless Stereograph" subtitle="Stereography + 3D Animation, 2017" img="./imgs/forestflow_cube2.jpg" link="/anaglyph" styleName="col-md-3" />
           <Tile title="Auto Bas-Relief" subtitle="Image Processing + Sculpture, 2016" img="./imgs/autobas.jpg" link="/relief" styleName="col-md-3" />
         </div>
