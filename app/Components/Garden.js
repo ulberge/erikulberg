@@ -30,7 +30,7 @@ module.exports = React.createClass({
           <div className="col-md-6">
             <p><b>KEYWORDS:</b> Generative Design, Photogrammetry, Horticulture, Three.js</p>
             <p>An interactive, 3D model populated with random combinations of plants from the South Seattle College Arboretum.</p>
-            <p>I had an interest in garden design from when I took classes in Landscape Horticulture at South Seattle College and worked part-time as a gardener. I wanted to experiment with the use of size, shape, and color plants in different combinations by creating a tool that rapidly iterated over possibilities.</p>
+            <p>I had an interest in garden design from when I took classes in Landscape Horticulture at South Seattle College and worked part-time as a gardener. I wanted to experiment with the use of size, shape, and color in different combinations by creating a tool that rapidly iterated over possibilities.</p>
             <p>I also wanted to explore generative art and see what happens when one limits the output to pleasing materials and reduces the complexity of the system. I believe it leads to more aesthetically useful results than a generic image generator operating over the entire space of digital images.</p>
             <p><br/></p>
             <div className="col-md-5 col-md-offset-1 text-center">
