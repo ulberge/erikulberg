@@ -56,7 +56,7 @@ module.exports = React.createClass({
                 <span className="pull-left"><b>North Seattle College</b>, Seattle, WA, GPA: 4.0</span>
                 <span className="pull-right">2016-2017</span>
               </div>
-              <div>German 101, German 102</div>
+              <div>German 121, German 122</div>
             </div>
             <br/>
             <div>
