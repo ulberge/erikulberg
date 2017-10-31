@@ -17,7 +17,7 @@ module.exports = React.createClass({
           <div className="row">
             <h4>Statement:</h4>
             <div>
-              <p>Erik Ulberg is an <b>artist</b> and <b>programmer</b> interested in using <b>software</b>, <b>speculative design</b> and <b>machine learning</b> to design custom tools for <b>visual art</b>, <b>landscape architecture</b>, and <b>language learning</b>.
+              <p>Erik Ulberg is an <b>artist</b> and <b>programmer</b> interested in using <b>software</b>, <b>computational design</b> and <b>machine learning</b> to explore the fields of <b>visual art</b> and <b>landscape architecture</b>.
               </p>
             </div>
           </div>
