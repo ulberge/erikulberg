@@ -28,7 +28,7 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>Carleton College</b>, Northfield, MN</span>
-                <span className="pull-right">2009</span>
+                <span className="pull-right">2005-2009</span>
               </div>
               <div>B.A. in Computer Science, 2009, GPA: 3.85, Major GPA: 3.97</div>
               <div>Honors: <i>magna cum laude</i>, Distinction in Major, Distinction in Thesis</div>
