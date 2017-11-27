@@ -17,10 +17,10 @@ export default class extends Component {
                 <div className="goIcon">⇨</div>
               </div>
             </div>
+            <h4>{this.props.title} <small>{this.props.year}</small></h4>
+            <span>{this.props.subtitle}</span>
           </a>
           </LinkContainer>
-          <h4>{this.props.title}</h4>
-          <span>{this.props.subtitle}</span>
         </div>
     );
   }

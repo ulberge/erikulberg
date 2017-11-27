@@ -28,7 +28,7 @@ module.exports = React.createClass({
           <Navbar.Collapse>
             <Nav pullRight>
               <LinkContainer to={{ pathname: '/' }}>
-                <NavItem eventKey={1}>Work</NavItem>
+                <NavItem eventKey={1}>Portfolio</NavItem>
               </LinkContainer>
               <LinkContainer to={{ pathname: '/resume' }}>
                 <NavItem eventKey={3}>&nbsp;&nbsp;&nbsp;&nbsp;CV&nbsp;&nbsp;&nbsp;&nbsp;</NavItem>

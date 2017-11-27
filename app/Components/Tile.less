@@ -8,6 +8,21 @@
   h4 {
     margin-top: 10px;
     margin-bottom: 4px;
+    color: @text-color-light;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    small {
+      float: right;
+      padding-top: 3px;
+      color: lighten(@text-color, 10%);
+      color: darken(@brand-info, 10%);
+    }
+  }
+
+  span {
+    margin-left: 2px;
+    margin-right: 2px;
   }
 
   a {
@@ -27,7 +42,8 @@
 
     .goIcon {
       opacity: 0;
-      border: 2px solid @metal;
+      border: 2px solid @text-color;
+      color: @text-color;
       font-size: 24px;
       border-radius: 40px;
       height: 40px;
@@ -35,7 +51,6 @@
       line-height: 38px;
       text-align: center;
       padding-left: 2px;
-      color: @metal;
       left: 50%;
       top: 50%;
       margin-left: -20px;
@@ -52,8 +67,11 @@
       text-transform: uppercase;
       color: lighten(@metal, 0%);
     }
+    span {
+        color: lighten(@text-color, 10%);
+    }
   }
-  a:hover {
+  a:hover, a:active, a:focus {
     cursor: pointer;
     text-decoration: none;
 
@@ -61,15 +79,18 @@
       border-color: @metal;
     }
     img {
-      opacity: 0.5;
+      opacity: 0.8;
     }
     .goIcon {
       opacity: 1;
       transform: rotateY(0deg);
     }
 
-    h3 {
-        color: darken(@metal, 10%);
+    h3, h4 {
+        color: @text-color-light;
+    }
+    span {
+        color: @text-color;
     }
   }
 }

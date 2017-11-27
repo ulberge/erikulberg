@@ -28,7 +28,7 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>Carleton College</b>, Northfield, MN</span>
-                <span className="pull-right">2005-2009</span>
+                <span className="pull-right">Sept 2005 - June 2009</span>
               </div>
               <div>B.A. in Computer Science, 2009, GPA: 3.85, Major GPA: 3.97</div>
               <div>Honors: <i>magna cum laude</i>, Distinction in Major, Distinction in Thesis</div>
@@ -38,7 +38,7 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>University of Washington</b>, Seattle, WA, GPA: 4.0</span>
-                <span className="pull-right">2016-2017</span>
+                <span className="pull-right">Summers 2016-2017</span>
               </div>
               <div>Center for Digital Art and Experimental Media: Photogrammetry, Sensing and Controlling Systems, Immersive Art</div>
             </div>
@@ -46,7 +46,7 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>South Seattle College</b>, Seattle, WA, GPA: 3.68</span>
-                <span className="pull-right">2017</span>
+                <span className="pull-right">Jan 2017 - June 2017</span>
               </div>
               <div>Landscape Horticulture Program: Soils, Permaculture, Edible Plants, Perennials</div>
             </div>
@@ -54,7 +54,7 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>North Seattle College</b>, Seattle, WA, GPA: 4.0</span>
-                <span className="pull-right">2016-2017</span>
+                <span className="pull-right">Sept 2016 - Mar 2017</span>
               </div>
               <div>German 121, German 122</div>
             </div>
@@ -62,9 +62,9 @@ module.exports = React.createClass({
             <div>
               <div className="clearfix">
                 <span className="pull-left"><b>Magrath Atelier in Sculpture</b>, Gage Academy of Art, Seattle, WA</span>
-                <span className="pull-right">2014-2016</span>
+                <span className="pull-right">Sept 2014 - June 2016</span>
               </div>
-              <div>Drawing and Modeling from Life, Anatomy, Relief, Mold Making, Casting, Fabrication</div>
+              <div>15-21 hrs/week of Drawing and Modeling from Life, Anatomy, Relief, Mold Making, Casting, Fabrication</div>
               <div>Additional courses in: Watercolor, Drawing, Painting</div>
             </div>
           </div>
@@ -72,7 +72,7 @@ module.exports = React.createClass({
           <div className="row">
             <h4>Exhibitions:</h4>
             <hr/>
-            <div>2017 – NiiModo Pop-up Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
+            <div>2017 – NiiModo Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
             <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
             <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
           </div>
@@ -126,7 +126,9 @@ module.exports = React.createClass({
             <h4>Skills:</h4>
             <hr/>
             <div><b>Programming Languages:</b> Java, JS, PHP, CSS, HTML</div>
-            <div><b>Technologies:</b> Processing, Arduino, WordPress, Shopify, ThreeJS, ReactJS, NodeJS, Bootstrap, jQuery, BackboneJS, MongoDB, LESS, Grunt, git, npm, bower, TravisCI, Heroku, requireJS</div>
+            <div><b>Software:</b> Adobe Photoshop, Adobe Illustrator, Adobe After Effects/Cinema 4D, Agisoft Photoscan (Photogrammetry)</div>
+            <div><b>Making:</b> Arduino, Lasercutting, Mold Making, Casting, Fabrication in Wood</div>
+            <div><b>Technologies:</b> Processing, WordPress, ThreeJS, ReactJS, NodeJS, Bootstrap, jQuery, BackboneJS, MongoDB, LESS, Grunt, git, npm, bower, TravisCI, Heroku, requireJS</div>
             <div><b>Languages:</b> English (native), Spanish (advanced), French (basic), German (basic)</div>
           </div>
         </div>
