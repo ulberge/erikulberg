@@ -1,7 +1,44 @@
+@import "../variables.less";
+
 :local(.className) {
   padding-bottom: 100px;
 
   .projectPage {
     font-size: 18px;
+  }
+  .detailPageHeader {
+    text-align: left;
+    margin-bottom: 20px;
+
+    h2 {
+      margin-bottom: 4px;
+    }
+    div {
+      font-size: 1.15em;
+      color: lighten(@gray, 10%);
+    }
+
+    small {
+      color: darken(@brand-info, 10%);
+    }
+  }
+  .accentRow {
+    margin-top: 20px;
+    background-color: @gray-darker;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+    * {
+      color: #fff !important;
+    }
+  }
+  p {
+    font-family: "futura-pt", sans-serif;
+  }
+  .screenShot {
+    padding: 0;
+    border: 2px solid @gray-dark;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }

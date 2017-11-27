@@ -20,13 +20,17 @@ import Anaglyph from './Components/Anaglyph';
 import BirdNest from './Components/BirdNest';
 import Programming from './Components/Programming';
 import WCRemix from './Components/WCRemix';
+import WCAnalysis from './Components/WCAnalysis';
+import Gloria from './Components/Gloria';
+import SeaDragon from './Components/SeaDragon';
+import Kubota from './Components/Kubota';
 
 const history = createHashHistory({
   queryKey: false
 });
 
 render((
-  <Router history={history}>
+  <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
     <Route component={Layout}>
       <Route
         name="Work"
@@ -102,6 +106,26 @@ render((
         name="WCRemix"
         path="/wcremix"
         component={WCRemix}
+      />
+      <Route
+        name="WCAnalysis"
+        path="/wcanalysis"
+        component={WCAnalysis}
+      />
+      <Route
+        name="Gloria"
+        path="/gloria"
+        component={Gloria}
+      />
+      <Route
+        name="SeaDragon"
+        path="/seadragon"
+        component={SeaDragon}
+      />
+      <Route
+        name="Kubota"
+        path="/kubota"
+        component={Kubota}
       />
       <Route
         path="*"
