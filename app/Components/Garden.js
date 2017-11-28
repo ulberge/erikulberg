@@ -46,7 +46,7 @@ module.exports = React.createClass({
         <div className="accentRow row text-center">
           <div className="container">
             <div style={{ paddingTop: '10px' }}>
-              <h2>Method</h2>
+              <h3>Method</h3>
               <hr/>
               <div className="col-md-12" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
                 <p className="col-md-8 col-md-offset-2">3D models of plants were created using Photoscan photogrammetry software. The models are randomly placed (making sure they have enough space) in a 3D scene using Three.js.</p>

@@ -19,20 +19,20 @@ export default class extends Component {
             <div className="row">
               <div className="col-md-6">
                 <h3>Crop Tool</h3>
-                <p>Uses neural network to convert blank watercolor paper to transparency.</p>
+                <p>Uses a neural network in Wekinator to convert blank watercolor paper to transparency.</p>
                 <img className="col-md-10 col-md-offset-1 screenShot" src="./imgs/wc_croptool.jpg" />
               </div>
               <div className="col-md-6">
                 <h3>Transparency Tool</h3>
-                <p>Uses neural network to convert colors to transparent version while maintaining the color value over white background.</p>
+                <p>Uses a neural network in Wekinator to convert colors to transparent version while maintaining the color value over white background.</p>
                 <img className="col-md-8 col-md-offset-2 screenShot" src="./imgs/wc_transtool.jpg" />
               </div>
             </div>
           </div>
-          <div className="accentRow row text-center">
+          <div className="accentRow row text-center" style={{ marginBottom: '20px' }}>
             <div className="container">
               <div style={{ paddingTop: '10px' }}>
-                <h2>Work Flow</h2>
+                <h3>Work Flow</h3>
                 <hr/>
                 <div className="col-md-4 text-center" style={{ paddingTop: '20px' }}>
                   <img src="./imgs/wc_montage.png" />
@@ -52,39 +52,6 @@ export default class extends Component {
           </div>
 
           <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <h3>Goal</h3>
-                <div>
-                  <p>I want the frugal use of bold marks with dynamic and meaningful shapes, pigment blending freely wet-in-wet to create transparent and spontaneous mixes. I want to avoid fussiness, lack of contrast, boring colors mixed on the palette, or a focus on content over form.</p>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <h4>Good:</h4>
-                <div className="col-md-6">
-                  <p>
-                    <img src="./imgs/wc_good_0.jpg" />
-                  </p>
-                  <img src="./imgs/wc_good_1.jpg" />
-                </div>
-                <div className="col-md-6">
-                  <img src="./imgs/wc_good_2.jpg" />
-                  (JS Sargent)
-                </div>
-                <small></small>
-              </div>
-              <div className="col-md-6">
-                <h4>Bad:</h4>
-                <div className="col-md-6">
-                  <img src="./imgs/wc_bad_0.jpg" style={{ paddingBottom: '10px' }} />
-                  <img src="./imgs/wc_bad_1.jpg" />
-                </div>
-                <div className="col-md-6">
-                  <img src="./imgs/wc_bad_2.jpg" />
-                </div>
-                <small></small>
-              </div>
-            </div>
             <div className="row">
               <div className="col-md-6">
                 <h4>Program for training machine learning tool</h4>
