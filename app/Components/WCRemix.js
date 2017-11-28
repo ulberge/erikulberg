@@ -31,7 +31,7 @@ export default class extends Component {
           </div>
           <div className="accentRow row text-center">
             <div className="container">
-              <div className="row" style={{ paddingTop: '10px' }}>
+              <div style={{ paddingTop: '10px' }}>
                 <h2>Work Flow</h2>
                 <hr/>
                 <div className="col-md-4 text-center" style={{ paddingTop: '20px' }}>
