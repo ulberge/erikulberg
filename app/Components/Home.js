@@ -13,7 +13,7 @@ export default class extends Component {
           <Tile title="Garden Generator" year="2017" subtitle="Generative Design + Photogrammetry" img="./imgs/icons/gg0.jpg" link="/garden" styleName="col-md-3" />
           <Tile title="Auto Bas-Relief" year="2016" subtitle="Fabrication + Sensing Sculpture" img="./imgs/autobas.jpg" link="/relief" styleName="col-md-3" />
           <Tile title="Watercolor Collage Toolkit" year="2017" subtitle="ML + Image Processing" img="./imgs/icons/mlwc_sm.png" link="/wcremix" styleName="col-md-3" />
-          <Tile title="Endless Stereograph" year="2017" subtitle="Stereography + 3D Animation" img="./imgs/forestflow_cube2.jpg" link="/anaglyph" styleName="col-md-3" />
+          <Tile title="Endless Stereograph" year="2017" subtitle="Stereography + 3D Animation" img="./imgs/icons/anaglyph.jpg" link="/anaglyph" styleName="col-md-3" />
         </div>
         <div className="row">
           <Tile title="Watercolor Planning Tool" year="2017" subtitle="Computer-Aided Watercolor" img="./imgs/icons/wc_analysis_sm.jpeg" link="/wcanalysis" styleName="col-md-3" />
