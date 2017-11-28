@@ -18,15 +18,15 @@ export default class extends Component {
 
             <div className="row">
               <div className="col-md-3">
-                <h4><b>Helps with the following</b>:</h4>
+                <h4><b>Features</b>:</h4>
                 <ul>
                   <li>value and color studies</li>
-                  <li>measuring proportions</li>
-                  <li>testing out light/medium/dark layers</li>
+                  <li>measures proportions</li>
+                  <li>tests light/medium/dark layers</li>
                 </ul>
               </div>
               <div className="col-md-9">
-                <img src="./imgs/wc_analysis.jpg" style={{ paddingTop: '10px' }} />
+                <img className="screenShot" src="./imgs/wc_analysis.jpg" style={{ paddingTop: '10px' }} />
                 <small>Processing Sketch</small>
               </div>
             </div>

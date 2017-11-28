@@ -9,14 +9,14 @@
     }
 
     .navbar .container {
-        border-bottom: 2px solid lighten(@metal, 0%);
+        border-bottom: 2px solid lighten(@gray-light, 0%);
         padding-bottom: 1em;
     }
 
     .navbar-brand {
         font-size: 3em;
         line-height: 1.2em;
-        color: @text-color-light;
+        color: lighten(@text-color, 0%);
         font-family: "franklin-gothic-urw",sans-serif;
         font-weight: 400;
         letter-spacing: 8px;
@@ -38,13 +38,13 @@
     }
 
     .navbar-brand:hover {
-        color: darken(@metal, 10%);
+        color: @text-color-light;
     }
     .navbar .navbar-nav a {
         font-family: "futura-pt",sans-serif;
         text-transform: uppercase;
         font-weight: 400;
-        color: lighten(@metal, 0%);
+        color: lighten(@text-color, 0%);
         font-size: @font-size-h4;
         padding-top: 10px;
         padding-bottom: 11px;

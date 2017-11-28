@@ -5,26 +5,6 @@
   padding-left: 8px;
   padding-right: 8px;
 
-  h4 {
-    margin-top: 10px;
-    margin-bottom: 4px;
-    color: @text-color-light;
-    margin-left: 2px;
-    margin-right: 2px;
-
-    small {
-      float: right;
-      padding-top: 3px;
-      color: lighten(@text-color, 10%);
-      color: darken(@brand-info, 10%);
-    }
-  }
-
-  span {
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-
   a {
     display: block;
 
@@ -61,14 +41,24 @@
       position: absolute;
     }
 
-    h3 {
+    h3, h4 {
       padding: 0.2em 0;
-      text-align: center;
-      text-transform: uppercase;
-      color: lighten(@metal, 0%);
+      color: @text-color;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      margin-left: 2px;
+      margin-right: 2px;
+
+      small {
+        float: right;
+        padding-top: 3px;
+        color: @brand-info;
+      }
     }
     span {
-        color: lighten(@text-color, 10%);
+      color: @text-color-fade;
+      margin-left: 2px;
+      margin-right: 2px;
     }
   }
   a:hover, a:active, a:focus {
@@ -76,7 +66,7 @@
     text-decoration: none;
 
     .imgContainer {
-      border-color: @metal;
+      border-color: @text-color;
     }
     img {
       opacity: 0.8;
@@ -87,10 +77,11 @@
     }
 
     h3, h4 {
-        color: @text-color-light;
+        color: darken(@text-color, 20%);
+        text-decoration: underline;
     }
     span {
-        color: @text-color;
+        color: darken(@text-color-fade, 10%);
     }
   }
 }
