@@ -155,7 +155,7 @@
     camera.setFocalLength( 30 );
 
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2( 0xABCDEF, 0.001);
+    scene.fog = new THREE.FogExp2( 0xCCCCCC, 0.001);
 
     layers = new StereoLayerGroup(near, far);
     for (let layer of STEREO_LAYERS) {
