@@ -24,6 +24,7 @@ import WCAnalysis from './Components/WCAnalysis';
 import Gloria from './Components/Gloria';
 import SeaDragon from './Components/SeaDragon';
 import Kubota from './Components/Kubota';
+import Huckleberry from './Components/Huckleberry';
 
 const history = createHashHistory({
   queryKey: false
@@ -126,6 +127,11 @@ render((
         name="Kubota"
         path="/kubota"
         component={Kubota}
+      />
+      <Route
+        name="Huckleberry"
+        path="/huckleberry"
+        component={Huckleberry}
       />
       <Route
         path="*"

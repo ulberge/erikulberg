@@ -44,14 +44,20 @@
         font-family: "futura-pt",sans-serif;
         text-transform: uppercase;
         font-weight: 400;
-        color: lighten(@text-color, 0%);
+        color: lighten(@gray, 0%);
         font-size: @font-size-h4;
         padding-top: 10px;
         padding-bottom: 11px;
         margin-top: 34px;
     }
+    .navbar .navbar-nav .active a {
+        color: darken(@brand-info, 10%);
+    }
+    .navbar .navbar-nav .active a:hover {
+        color: darken(@brand-info, 20%);
+    }
     .navbar .navbar-nav a:hover {
-        color: @text-color-light;
+        color: darken(@brand-info, 20%);
     }
 
     .navbar .navbar-nav .socialMediaLink a span {

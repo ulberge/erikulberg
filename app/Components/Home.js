@@ -24,6 +24,7 @@ export default class extends Component {
         <div className="homeLink" className="row">
           <Tile title="Sea Dragon Mural" year="2015" subtitle="Watercolor Illustration" img="./imgs/seadragon.jpg" link="/seadragon" styleName="col-md-3" />
           <Tile title="Study of Gloria" year="2016" subtitle="Life-Size Clay Sculpture" img="./imgs/icons/gloria_icon_sm2.jpg" link="/gloria" styleName="col-md-3" />
+          <Tile title="Huckleberry Processor" year="2016-2017" subtitle="Mechanical Design" img="./imgs/icons/huckleberry.jpg" link="/huckleberry" styleName="col-md-3" />
         </div>
       </div>
     );
