@@ -29,7 +29,7 @@ module.exports = React.createClass({
 
           <div className="row">
             <div className="col-md-5">
-              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of endlessly repeating stereoscopic images with transparent holes cut out, layered in a virtual 3D space, and moving toward the viewer in a curved plane. &lt;<a href="/unendingAnaglyph/index.html">See Full Screen Version</a>&gt;</p>
+              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of repeating stereoscopic images with transparent holes cut out, layered in 3D space, and moving toward the viewer in a curved plane. &lt;<a href="/unendingAnaglyph/index.html">See Full Screen Version</a>&gt;</p>
               <img src="./imgs/portfolioassets/anaglyph/screenshot.jpg" alt=""/>
               <small>Alternate view</small>
             </div>
@@ -51,10 +51,12 @@ module.exports = React.createClass({
               <hr/>
             </div>
             <div className="col-md-8 col-xs-12">
+              <h4>Diagram</h4>
               <img src="./imgs/forestflowd0.jpg" alt=""/>
               <small>Depth between layers comes from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision.</small>
             </div>
             <div className="col-md-4 col-xs-12">
+              <h4>Inspiration</h4>
               <img src="./imgs/forestflowd4.jpg" alt=""/>
               <small>Donatello divides space into clear layers, then sculpts depth within layers.</small>
               <img src="./imgs/forestflowd5.jpg" alt=""/>
