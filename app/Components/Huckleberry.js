@@ -33,7 +33,6 @@ export default class extends Component {
               <h3>Rotating Water Filter</h3>
               <img className="screenShot" src="/imgs/portfolioassets/huckleberry/tube1.jpg" alt="Silicone Mold"/>
               <small>Water in bucket pushes berries into filter with different size holes. A small motor at the bottom turns the tube to keep the berries from sticking and to move them across the holes.</small>
-
               <div className="col-md-8 col-md-offset-2">
               </div>
             </div>
@@ -67,7 +66,7 @@ export default class extends Component {
         <div className="container">
           <div className="row">
             <h3>Concept Designs</h3>
-            <p>Drawing of a concept where small, self-driving airships collect berries and jettison their compost tea ballast during flight.</p> 
+            <p>Drawing of a concept where small, self-driving airships collect berries and jettison their compost tea ballast during flight.</p>
             <div className="col-md-6">
               <img className="screenShot" src="./imgs/portfolioassets/huckleberry/dream0.jpg" />
             </div>
