@@ -12,7 +12,7 @@ export default class extends Component {
             <h2>
               Huckleberry processor&nbsp;&nbsp;<small>2016-2017</small>
             </h2>
-            <div>Industrial Design, Wild Farming</div>
+            <div>Mechanical Engineering, Wild Farming</div>
           </div>
 
           <div className="row">
