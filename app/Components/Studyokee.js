@@ -17,7 +17,8 @@ export default class extends Component {
 
           <div className="row">
             <div className="col-md-5">
-              <p><b>Description</b>: A web application to teach languages through songs. Users can learn Spanish or German through the lyrics of popular songs. &lt;<a href="http://studyokee.com/" target="_blank">Go to app</a>&gt;</p>
+              <p><b>Description</b>: A web application to supplement and enrich traditional language learning. Users can improve their Spanish or German skills through the lyrics of popular songs. Songs are an enjoyable way to master pronunciation and rhythm, as well as to introduce interesting phrases and vocabulary.</p>
+              <a className="btn btn-danger" href="http://studyokee.com/" target="_blank">Launch Studyokee</a><br/><br/>
               <p><b>Front End</b>: Backbone.js, CoffeeScript, jQuery, Bootstrap, Handlebars, Stylus, RequireJS</p>
               <p><b>Server</b>: Node.js, JavaScript, mongodb</p>
               <p><b>Tools/Ops</b>: Grunt, Bower, npm, Heroku, Travis CI</p>
