@@ -24,12 +24,12 @@ module.exports = React.createClass({
             <h2>
               Endless Stereograph&nbsp;&nbsp;<small>2017</small>
             </h2>
-            <div>Stereo Vision, 3D Animation</div>
+            <div>Stereo Vision, 3D Animation, Three.js</div>
           </div>
 
           <div className="row">
             <div className="col-md-5">
-              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of repeating stereoscopic images with transparent holes cut out, layered in 3D space, and moving toward the viewer in a curved plane. &lt;<a href="/unendingAnaglyph/index.html">See Full Screen Version</a>&gt;</p>
+              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of repeating stereoscopic images with transparent holes cut out, layered in virtual space, and moving toward the viewer in a curved plane. It probes the boundaries of stereo vision optics by attempting to represent three dimensions with a small number of 2D images. Stereoscopic photos seem so real, but are normally frustrating, because you cannot dive into them. &lt;<a href="/unendingAnaglyph/index.html">See Full Screen Version</a>&gt;</p>
               <img src="./imgs/portfolioassets/anaglyph/screenshot.jpg" alt=""/>
               <small>Alternate view</small>
             </div>
