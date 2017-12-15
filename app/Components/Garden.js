@@ -30,7 +30,8 @@ module.exports = React.createClass({
           </div>
           <div className="row">
             <div className="col-md-4">
-              <p><b>Description</b>: A tool for garden inspiration. Explores combinations of shape, size, and color through an interactive, 3D model that rapidly iterates over combinations of plants from the South Seattle College Arboretum. &lt;<a href="/gardenGenerator/index.html">See Full Screen Version</a>&gt;</p>
+              <p><b>What combinations of size, shape, and color work? Are there certain rhythms that are more appealing?</b></p>
+              <p>This tool rapidly explores a subset of the garden design space by randomly generating combinations of plants. It uses photogrammetric models of species from the South Seattle College Arboretum. By observing and noting our reactions, we can find inspiration for designs. &lt;<a href="/gardenGenerator/index.html">See Full Screen Version</a>&gt;</p>
               <img src="./imgs/portfolioassets/garden/garden_illustration.png" alt="Illustration of Program"/>
               <small>Illustration of the program</small>
             </div>
@@ -46,11 +47,7 @@ module.exports = React.createClass({
         <div className="accentRow row text-center">
           <div className="container">
             <div style={{ paddingTop: '10px' }}>
-              <h3>Method</h3>
-              <hr/>
-              <div className="col-md-12" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-                <p className="col-md-8 col-md-offset-2">3D models of plants were created using Photoscan photogrammetry software. The models are randomly placed (making sure they have enough space) in a 3D scene using Three.js.</p>
-              </div>
+              <h3>Background</h3>
               <div className="col-md-4">
                 <img src="./imgs/portfolioassets/garden/drawing0.jpg"/>
                 <div>Drawings from a class on perennials</div>
