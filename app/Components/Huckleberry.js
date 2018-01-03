@@ -62,6 +62,17 @@ export default class extends Component {
             </div>
           </div>
         </div>
+
+        <div className="container">
+          <div className="row">
+            <div style={{ paddingTop: '10px' }}>
+              <h3 className="text-center">Bottling huckleberry wine and huckleberry-flavored cider</h3>
+            </div>
+            <div className="col-md-6 col-md-offset-3">
+              <img className="screenShot" src="./imgs/portfolioassets/huckleberry/wine.jpg" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
