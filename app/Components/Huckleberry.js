@@ -62,19 +62,6 @@ export default class extends Component {
             </div>
           </div>
         </div>
-
-        <div className="container">
-          <div className="row">
-            <h3>Concept Designs</h3>
-            <p>Drawing of a concept where small, self-driving airships collect berries and jettison their compost tea ballast during flight.</p>
-            <div className="col-md-6">
-              <img className="screenShot" src="./imgs/portfolioassets/huckleberry/dream0.jpg" />
-            </div>
-            <div className="col-md-6">
-              <img className="screenShot" src="./imgs/portfolioassets/huckleberry/dream1.jpg" />
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
