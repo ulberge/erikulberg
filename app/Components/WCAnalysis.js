@@ -18,7 +18,7 @@ export default class extends Component {
             <div className="row">
               <div className="col-md-4">
                 <p><b>A custom tool to make me more productive at painting in watercolor.</b></p>
-                <p>This program allows me to analyze source photos and produce approximations of what I will paint in each layer of a watercolor. I can select colors to make posterized versions of the photo comprised of the lightest, medium, or darkest colors. I can then project those versions of the source, a customized value study version, or warm/cool version onto a piece of watercolor to assist in the painting process. </p>
+                <p>This program allows me to analyze source photos and produce approximations of what I will paint in each layer of a watercolor. I can select colors to make posterized versions of the photo comprised of light, medium, or dark colors. I can then project those layers, a customized value study version, or a warm/cool version onto a piece of watercolor paper to assist in the painting process.</p>
                 <img src="./imgs/wc_proj.jpg" style={{ paddingTop: '10px' }} />
                 <small>Projection Setup</small>
               </div>

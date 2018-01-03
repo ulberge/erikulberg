@@ -12,7 +12,7 @@ export default class extends Component {
             <h2>
               Huckleberry processor&nbsp;&nbsp;<small>2016-2017</small>
             </h2>
-            <div>Mechanical Engineering, Wild Farming</div>
+            <div>Fabrication, Horticulture</div>
           </div>
 
           <div className="row">
@@ -44,7 +44,7 @@ export default class extends Component {
             <div style={{ paddingTop: '10px' }}>
               <h3>Optical Sorter</h3>
               <hr/>
-              <p className="text-left">Original design (inspired by blueberry sorters) included a slide that directed the berries across a digital, optical filter. The berries were too small and moisture caused them to stick to the slide.</p>
+              <p className="text-left">Original design included a slide that directed the berries across a digital, optical filter. This did not work because the berries were too small and moisture caused them to stick to the slide.</p>
             </div>
             <div className="col-md-6">
               <img className="screenShot" src="/imgs/portfolioassets/huckleberry/sketch.jpg" alt="Sketch of optical sorter"/>

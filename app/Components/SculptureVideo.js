@@ -18,7 +18,7 @@ export default class extends Component {
             <div className="row">
               <div className="col-md-4">
                 <p><b>How would video appear as a physical object?</b></p>
-                <p>We do not currently have matter appropriate for real-time rendering in physical space, but we can control heights. This box is a proof of concept. Its capacity for expression is limitied by its size. An example of a similar, larger device is the <a href="https://tangible.media.mit.edu/project/inform/">inFORM</a> from the MIT Media Lab. This machine takes a feed from a Kinect and renders it as a 4x4 relief sculpture.</p>
+                <p>We do not currently have matter appropriate for real-time rendering in physical space, but we can control heights. This box is a proof of concept. It takes a feed from a Kinect and renders it as a 4x4 relief sculpture. Its capacity for expression is limitied by its size. An example of a similar, but larger, device is the <a href="https://tangible.media.mit.edu/project/inform/">inFORM</a> from the MIT Media Lab.</p>
                 <img src="./imgs/portfolioassets/bas/guts_sm.jpg" alt="Interior Shot"/>
                 <small>Laser cut wood and plastic parts attach to 16 servos controlled by an Arduino</small>
               </div>
