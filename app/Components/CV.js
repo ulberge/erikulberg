@@ -31,7 +31,7 @@ module.exports = React.createClass({
                 <span className="pull-right">Sept 2005 - June 2009</span>
               </div>
               <div>B.A. in Computer Science, 2009, GPA: 3.85, Major GPA: 3.97</div>
-              <div>Honors: <i>magna cum laude</i>, Distinction in Major, Distinction in Thesis</div>
+              <div>Honors: <i>magna cum laude</i>, Distinction in Major, Distinction in Thesis, Annual Dean's List (2007, 2008)</div>
             </div>
             <br/>
             <h4>Additional Coursework:</h4>
@@ -67,14 +67,6 @@ module.exports = React.createClass({
               <div>15-21 hrs/week of Drawing and Modeling from Life, Anatomy, Relief, Mold Making, Casting, Fabrication</div>
               <div>Additional courses in: Watercolor, Drawing, Painting</div>
             </div>
-          </div>
-
-          <div className="row">
-            <h4>Exhibitions:</h4>
-            <hr/>
-            <div>2017 – NiiModo Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
-            <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
-            <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
           </div>
 
           <div className="row">
@@ -123,6 +115,14 @@ module.exports = React.createClass({
           </div>
 
           <div className="row">
+            <h4>Exhibitions:</h4>
+            <hr/>
+            <div>2017 – NiiModo Gallery@Mini Maker Faire – Museum of Pop Culture (Formerly EMP), Seattle – Group show</div>
+            <div>2016 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
+            <div>2015 – Magrath Atelier Show – Gage Academy of Arts, Seattle – Group Show</div>
+          </div>
+
+          <div className="row other">
             <h4>Skills:</h4>
             <hr/>
             <div><b>Programming Languages:</b> Java, JS, PHP, CSS, HTML</div>
@@ -130,6 +130,14 @@ module.exports = React.createClass({
             <div><b>Making:</b> Arduino, Lasercutting, Mold Making, Casting, Fabrication in Wood</div>
             <div><b>Technologies:</b> Processing, WordPress, ThreeJS, ReactJS, NodeJS, Bootstrap, jQuery, BackboneJS, MongoDB, LESS, Grunt, git, npm, bower, TravisCI, Heroku, requireJS</div>
             <div><b>Languages:</b> English (native), Spanish (advanced), French (basic), German (basic)</div>
+          </div>
+
+          <div className="row other">
+            <h4>Other Experience:</h4>
+            <hr/>
+            <div><b>Travel:</b> Studied Spanish and volunteered in after school program in Antigua, Guatemala for 10 weeks in 2011. Took 5 weeks of Spanish classes at UNAM in Mexico City in 2013.
+In total, spent ~14 months traveling in Latin America and Europe.</div>
+            <div><b>Horticulture:</b> Gained experience with landscape design, installation, and maintenance as a landscape technician for ~100 hrs with permaculture-focused gardening company (Oasis Edible Naturescapes), 2017</div>
           </div>
         </div>
       </div>
