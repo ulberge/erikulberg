@@ -1,7 +1,9 @@
+import 'babel-polyfill';
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route } from 'react-router';
-import { createHashHistory } from 'history';
+import ReactDom from 'react-dom';
+import {Router, Route, Switch, Redirect} from 'react-router-dom';
+import {createHashHistory} from 'history';
+
 import './main.less';
 
 import Layout from './Components/Layout';
@@ -25,118 +27,122 @@ import Gloria from './Components/Gloria';
 import SeaDragon from './Components/SeaDragon';
 import Kubota from './Components/Kubota';
 import Huckleberry from './Components/Huckleberry';
+import Sketch from './Components/Sketch';
 
-const history = createHashHistory({
-  queryKey: false
-});
+const history = createHashHistory();
 
-render((
+ReactDom.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
-    <Route component={Layout}>
-      <Route
-        name="Work"
-        path="/"
-        component={Home}
-      />
-      <Route
-        name="Paintings"
-        path="/paintings"
-        component={Art}
-      />
-      <Route
-        name="Resume"
-        path="/resume"
-        component={CV}
-      />
-      <Route
-        name="Contact"
-        path="/contact"
-        component={Contact}
-      />
-      <Route
-        name="Relief"
-        path="/relief"
-        component={SculptureVideo}
-      />
-      <Route
-        name="Sculpture"
-        path="/sculpture"
-        component={Sculpture}
-      />
-      <Route
-        name="Studyokee"
-        path="/studyokee"
-        component={Studyokee}
-      />
-      <Route
-        name="WES"
-        path="/wes"
-        component={WES}
-      />
-      <Route
-        name="Kingfisher"
-        path="/kingfisher"
-        component={Kingfisher}
-      />
-      <Route
-        name="Illustration"
-        path="/illustration"
-        component={Illustration}
-      />
-      <Route
-        name="Garden"
-        path="/garden"
-        component={Garden}
-      />
-      <Route
-        name="Anaglyph"
-        path="/anaglyph"
-        component={Anaglyph}
-      />
-      <Route
-        name="BirdNest"
-        path="/birdnest"
-        component={BirdNest}
-      />
-      <Route
-        name="Programming"
-        path="/programming"
-        component={Programming}
-      />
-      <Route
-        name="WCRemix"
-        path="/wcremix"
-        component={WCRemix}
-      />
-      <Route
-        name="WCAnalysis"
-        path="/wcanalysis"
-        component={WCAnalysis}
-      />
-      <Route
-        name="Gloria"
-        path="/gloria"
-        component={Gloria}
-      />
-      <Route
-        name="SeaDragon"
-        path="/seadragon"
-        component={SeaDragon}
-      />
-      <Route
-        name="Kubota"
-        path="/kubota"
-        component={Kubota}
-      />
-      <Route
-        name="Huckleberry"
-        path="/huckleberry"
-        component={Huckleberry}
-      />
-      <Route
-        path="*"
-        component={Home}
-      />
-    </Route>
-  </Router>
-), document.getElementById('main'));
+    <Layout>
+      <Switch>
+        <Route
+          name="Home"
+          path="/home"
+          component={Home}
+        />
+        <Route
+          name="Paintings"
+          path="/paintings"
+          component={Art}
+        />
+        <Route
+          name="Resume"
+          path="/resume"
+          component={CV}
+        />
+        <Route
+          name="Contact"
+          path="/contact"
+          component={Contact}
+        />
+        <Route
+          name="Relief"
+          path="/relief"
+          component={SculptureVideo}
+        />
+        <Route
+          name="Sculpture"
+          path="/sculpture"
+          component={Sculpture}
+        />
+        <Route
+          name="Studyokee"
+          path="/studyokee"
+          component={Studyokee}
+        />
+        <Route
+          name="WES"
+          path="/wes"
+          component={WES}
+        />
+        <Route
+          name="Kingfisher"
+          path="/kingfisher"
+          component={Kingfisher}
+        />
+        <Route
+          name="Illustration"
+          path="/illustration"
+          component={Illustration}
+        />
+        <Route
+          name="Garden"
+          path="/garden"
+          component={Garden}
+        />
+        <Route
+          name="Anaglyph"
+          path="/anaglyph"
+          component={Anaglyph}
+        />
+        <Route
+          name="BirdNest"
+          path="/birdnest"
+          component={BirdNest}
+        />
+        <Route
+          name="Programming"
+          path="/programming"
+          component={Programming}
+        />
+        <Route
+          name="WCRemix"
+          path="/wcremix"
+          component={WCRemix}
+        />
+        <Route
+          name="WCAnalysis"
+          path="/wcanalysis"
+          component={WCAnalysis}
+        />
+        <Route
+          name="Gloria"
+          path="/gloria"
+          component={Gloria}
+        />
+        <Route
+          name="SeaDragon"
+          path="/seadragon"
+          component={SeaDragon}
+        />
+        <Route
+          name="Kubota"
+          path="/kubota"
+          component={Kubota}
+        />
+        <Route
+          name="Huckleberry"
+          path="/huckleberry"
+          component={Huckleberry}
+        />
+        <Route
+          name="Sketch"
+          path="/sketch"
+          component={Sketch}
+        />
+        <Redirect path="*" to="/home" />
+      </Switch>
+    </Layout>
+  </Router>,
+  document.getElementById('main')
+);
