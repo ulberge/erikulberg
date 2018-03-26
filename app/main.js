@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
-import {Router, Route, Switch, Redirect} from 'react-router-dom';
-import {createHashHistory} from 'history';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { createHashHistory } from 'history';
 
 import './main.less';
 
