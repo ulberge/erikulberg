@@ -6,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
 import Chip from 'material-ui/Chip';
+import Slider from 'material-ui/Slider';
 
 import { className } from './Sketch.less';
 
@@ -27,6 +28,24 @@ export default class extends React.Component {
     $('.iframeOverlap').click(function focusGarden() {
       sketch.focus();
     });
+
+    if (!this.state.json) {
+      console.log('loading from file');
+      const setJSON = (json) => {
+        this.setState({
+          json: json
+        });
+      };
+      function reqListener(e) {
+        console.log(this.responseText);
+        setJSON(this.responseText);
+      }
+      var req = new XMLHttpRequest();
+      req.onload = reqListener;
+      req.open("get", "/sketch/default.js", true);
+      req.send();
+    }
+    
     setTimeout(() => this.updateSketchJson(this.state), 1000);
   }
 
@@ -42,35 +61,42 @@ export default class extends React.Component {
     };
   }
 
-  compileCheck = (state) => {
-    // check if fields are legal and update look
-    let isJsonLegal = true;
-    let isGeneratedLegal = true;
+  compileJsonCheck = (state) => {
+    let isJsonLegal = false;
 
     try {
       if (state.json) {
-        isJsonLegal = false;
         eval('(function(){' + state.json + '})')();
-        isJsonLegal = true;
       }
-        
-      if (state.generated) {
-        isGeneratedLegal = false;
-        eval('(function(){' + state.json.replace('return', 'var _ = ') + ' return {' + state.generated + '};})')();
-        isGeneratedLegal = true;
-      }
+      isJsonLegal = true;
     } catch(error) {
       console.log(error);
     }
 
     $('.json-tab').css('background', isJsonLegal ? '#5cb85c' : '#d9534f');
-    $('.generator-tab').css('background', isJsonLegal ? '#5cb85c' : '#d9534f');
 
-    return isJsonLegal && isGeneratedLegal;
+    return isJsonLegal;
+  };
+
+  compileGeneratedCheck = (state) => {
+    let isGeneratedLegal = false;
+
+    try {
+      if (state.generated) {
+        eval('(function(){' + state.json.replace('return', 'var _ = ') + ' return {' + state.generated + '};})')();
+      }
+      isGeneratedLegal = true;
+    } catch(error) {
+      console.log(error);
+    }
+
+    $('.generator-tab').css('background', isGeneratedLegal ? '#5cb85c' : '#d9534f');
+
+    return isGeneratedLegal;
   };
 
   updateSketchJson = (state) => {
-    if (!this.compileCheck(state)) {
+    if (!this.compileJsonCheck(state)) {
       return false;
     }
 
@@ -78,8 +104,9 @@ export default class extends React.Component {
       let sketchStr = '(function(){' + state.json + '})';
       var sketchJson = eval(sketchStr)();
 
-      if (state.generated) {
+      if (state.generated && this.compileGeneratedCheck(state)) {
         try {
+          console.log('adding generated');
           const evalStr = '(function(){' + state.json.replace('return', 'var _ = ') + ' return {' + state.generated + '}.generated;})';
           sketchJson['generated'] = eval(evalStr)();
         } catch(error) {
@@ -87,8 +114,6 @@ export default class extends React.Component {
         }
       }
 
-      console.log('Update Sketch JSON: ');
-      console.log(sketchJson);
       this.setState({sketchJson});
     } catch(error) {
       console.log(error);
@@ -266,7 +291,6 @@ export default class extends React.Component {
     Object.keys(materialMap).map(key => {
       const material = materialMap[key];
       const cutList = this.getCutList(96, 2, material.cuts);
-      console.log(cutList);
       let waste = 0;
       cutList.forEach(cut => waste+=cut.remaining);
       cutLists.push({
@@ -282,7 +306,6 @@ export default class extends React.Component {
     this.saveSketch();
     const filteredSketchJson = this.updateSketch();
     const materialMap = this.getMaterialMap(filteredSketchJson);
-    console.log(materialMap);
     var materials = this.getMaterials(materialMap);
     var cutLists = this.getCutLists(materialMap);
 
@@ -338,6 +361,7 @@ export default class extends React.Component {
                             <th>Type</th>
                             <th>Dimensions</th>
                             <th>Total</th>
+                            <th>Board Len</th>
                             <th># Boards</th>
                             <th>Waste</th>
                           </tr>
@@ -348,8 +372,15 @@ export default class extends React.Component {
                             <td>{material.label}</td>
                             <td>{material.dimensions}</td>
                             <td>{this.convertInchesToFeet(material.length)}</td>
-                            <td>{cutLists[index].numBoards}</td>
-                            <td>{this.convertInchesToFeet(cutLists[index].waste)}</td>
+                            <td><Slider
+                                min={0}
+                                max={100}
+                                step={1}
+                                value={50}
+                              /></td>
+                            <td style={{textAlign: 'center'}}>{cutLists[index].numBoards}</td>
+                            <td>{this.convertInchesToFeet(cutLists[index].waste)}
+                              </td>
                           </tr>
                         ) : null}
                         </tbody>
