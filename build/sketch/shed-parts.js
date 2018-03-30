@@ -10,7 +10,7 @@ class Unit {
     addTo(parent) {
         var group = new THREE.Group();
 
-        var material = new THREE.MeshToonMaterial( { color: this.color } );
+        var material = new THREE.MeshToonMaterial( { color: this.color ? this.color : '#fff' } );
         var geometry = new THREE.BoxGeometry( this.size[0], this.size[1], this.size[2] );
         var mesh = new THREE.Mesh( geometry, material );
 

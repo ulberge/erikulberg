@@ -65,7 +65,8 @@
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-dev-server": "^1.14.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
     "clean": "rimraf build/bundle.js build/bundle.js.map",

@@ -1,5 +1,8 @@
+var nodeExternals = require('webpack-node-externals');
+
 module.exports = {
   noParse: /highlight\.js\/lib\/languages\/.*\.js/,
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder 
   loaders: [{
     test: /\.jsx?$/,
     exclude: /node_modules/,
