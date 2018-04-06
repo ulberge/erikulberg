@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
 
 export default class Designer2DGroup extends Component {
@@ -8,6 +7,8 @@ export default class Designer2DGroup extends Component {
     clarity = 3;
     width = 480;
     height = 360;
+    offset = 36;
+    gridSize = 36;
 
     componentDidMount() {
         this.updateCanvas();
@@ -21,61 +22,107 @@ export default class Designer2DGroup extends Component {
         const canvas = this.refs.canvas;
         const ctx = this.refs.canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = '#000';
-        ctx.font = "4px Arial";
-        ctx.lineWidth = 0.5;
         
         this.drawGrid(ctx);
 
-        const json = this.props.json;
-        console.log(json);
-        if (json && Array.isArray(json)) {
+        const json = this.props.groupJson;
+        //console.log(json);
+        if (json && json.parts) {
+            const parts = json.parts;
             let textIndex = 0;
-            json.forEach(unit => {
+            let cuts = {};
+            parts.forEach(part => {
+                //console.log('part', part);
                 ctx.save();
-                ctx.scale(this.clarity, this.clarity);
-                ctx.translate(unit[2][0],(this.height/this.clarity)-unit[2][1]);
-                ctx.strokeRect(0,0, unit[1][0], -unit[1][1]);
+                ctx.beginPath();
+                ctx.lineWidth=1;
+                ctx.strokeStyle = '#000';
+                //console.log('x,y', (this.offset+(this.clarity*part[2][0])) + ', ' + (-this.offset+this.height-(this.clarity*part[2][1])));
+                ctx.translate(this.offset+(this.clarity*part[2][0]),this.height-this.offset-(this.clarity*part[2][1]));
+                ctx.strokeRect(0,0, this.clarity*part[1][0], this.clarity*-part[1][1]);
+                ctx.closePath();
 
-                if (unit[1][0] > unit[1][1]) {
+                ctx.beginPath();
+                ctx.font = "11px Arial";
+                ctx.strokeStyle = '#000';
+                let length;
+                if (part[1][0] > part[1][1]) {
                     // Print text on wide piece
-                    ctx.translate(-(8*textIndex)+10+unit[1][0]/2, -4);
-                    ctx.fillText(this.convertInchesToFeet(unit[1][0]),0,0);
+                    ctx.translate(-(28*textIndex)+this.clarity*part[1][0]/2, -26);
+                    ctx.fillText(this.convertInchesToFeet(part[1][0]),0,0);
+
+                    length = part[1][0];
                 } else {
                     // Print text on thin piece
-                    ctx.translate(2, -(4*textIndex)-unit[1][1]/2);
-                    ctx.fillText(this.convertInchesToFeet(unit[1][1]),0,0);
+                    ctx.translate(16, -(8*textIndex)-this.clarity*part[1][1]/2);
+                    ctx.fillText(this.convertInchesToFeet(part[1][1]),0,0);
+
+                    length = part[1][1];
                 }
+
+                if (cuts[part[0].label]) {
+                    cuts[part[0].label].push(length);
+                } else {
+                    cuts[part[0].label] = [length];
+                }
+
+                ctx.closePath();
+                ctx.restore();
 
                 // ctx.translate(unit[2][0]*3,height-unit[2][1]*3);
                 // ctx.rotate(-unit[3]*Math.PI/180);
-                ctx.restore();
                 textIndex++;
-                if (textIndex > 4) {
+                if (textIndex > 8) {
                     textIndex = 0;
                 }
             });
+
+            //console.log('cuts', cuts);
+            const compiled = {};
+            Object.keys(cuts).forEach(key => {
+                const cutList = cuts[key];
+                //console.log('cutList', cutList);
+                let result = {
+                    cuts: cutList.map(cut => this.convertInchesToFeet(cut)),
+                    total: 0
+                };
+                //console.log('result', result);
+                cutList.forEach(cut => result.total += cut);
+                result.total = this.convertInchesToFeet(result.total);
+                compiled[key] = result;
+            });
+            //console.log(this.props.name + ': ', JSON.stringify(compiled, null, 2).replace(new RegExp(/'/, 'g'), 'ft').replace(new RegExp(/\\"/, 'g'), 'in').replace(new RegExp(/"/, 'g'), '').replace(new RegExp(/ft/, 'g'), '\'').replace(new RegExp(/in/, 'g'), '"'));
         }
     }
 
     drawGrid(ctx) {
-        ctx.save();
+        ctx.beginPath();
         ctx.strokeStyle = '#bbb';
-        const gridSize = 12*this.clarity;
+        ctx.lineWidth=0.5;
 
-        for (var x = 0; x <= this.width; x += gridSize) {
+        for (var x = 0; x <= this.width; x += this.gridSize) {
             ctx.moveTo(x, 0);
             ctx.lineTo(x, this.height);
             ctx.stroke();
         }
 
-        for (var y = 0; y <= this.height; y += gridSize) {
-            ctx.moveTo(0, y);
-            ctx.lineTo(this.width, y);
+        for (var y = 0; y <= this.height; y += this.gridSize) {
+            ctx.moveTo(0, this.height-y);
+            ctx.lineTo(this.width, this.height-y);
             ctx.stroke();
         }
+        ctx.closePath();
 
-        ctx.restore();
+        ctx.beginPath();
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth=1;
+        ctx.moveTo(this.offset, this.height);
+        ctx.lineTo(this.offset, 0);
+        ctx.stroke();
+        ctx.moveTo(0, this.height-this.offset);
+        ctx.lineTo(this.width, this.height-this.offset);
+        ctx.stroke();
+        ctx.closePath();
     }
 
     convertInchesToFeet(l) {
@@ -86,45 +133,11 @@ export default class Designer2DGroup extends Component {
             
     render() {
         return (
-            <div className="">
-                <div className="col-md-4">
-                    <h3>
-                        <div style={{float: 'right'}}>
-                            <FlatButton label="Remove" secondary={true} style={{marginTop: '-6px'}}
-                                onClick={() => this.props.handleRemoveGroup(this.props.name)} />
-                        </div>
-                        <span>{this.props.name}</span>
-                    </h3>
-                    <Divider style={{width:'100%'}}/>
-                    <TextField 
-                        key="text"
-                        value={this.props.text}
-                        name="text"
-                        onChange={(event) => this.props.handleTextChange(event.target.value)}
-                        style={{width: '100%', fontSize: '14px'}}
-                        multiLine={true}
-                        rows={12}
-                        rowsMax={12}
-                    />
-                </div>
-                <div className="col-md-8">
-                    <canvas ref="canvas" height={this.height} width={this.width} 
-                        style={{padding: '20px', width: '100%', background: '#ddd'}}
-                    ></canvas>
-                </div>
+            <div>
+                <canvas ref="canvas" height={this.height} width={this.width} 
+                    style={{padding: '20px', width: '100%', background: '#ddd'}}
+                ></canvas>
             </div>
         );
     }
 }
-
-
-/*
-[
-['w',width,0,height-board_t,'h'],
-['w',width,0,height-(board_t*2),'h'],
-['w',height-(board_t*3),0,board_t,'v'],
-['w',height-(board_t*3),(width-board_t)/2,board_t,'v'],
-['w',height-(board_t*3),width-board_t,board_t,'v'],
-['w',width,0,0,'h'],
-]
-*/

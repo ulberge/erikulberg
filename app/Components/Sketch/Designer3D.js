@@ -63,10 +63,13 @@ export default class Designer3D extends React.Component {
         if (this.props.sketchJson && this.state.visibility) {
             // filter hidden groups based on visibility
             let filteredSketchJson = {};
-            Object.keys(this.props.sketchJson).forEach(key => {
+            Object.keys(this.props.sketchJson).forEach((key, index) => {
                 if (this.state.visibility[key] !== false) {
-                    filteredSketchJson[key] = this.props.sketchJson[key];
+                    const group = Object.assign({}, this.props.sketchJson[key]);
+                    group.isSelected = this.props.currentGroupIndex === index;
+                    filteredSketchJson[key] = group;
                 }
+
             });
             // render in iframe
             if (document.getElementById('sketchIframe') && document.getElementById('sketchIframe').contentWindow && document.getElementById('sketchIframe').contentWindow.updateSketch) {
@@ -81,28 +84,13 @@ export default class Designer3D extends React.Component {
         this.updateSketch();
 
         return (
-            <div>
-                <div className="col-md-5">
-                    <TextField 
-                        value={this.props.sketchText}
-                        name="jsonStr"
-                        onChange={(event) => this.props.handleTextChange(event.target.value)}
-                        style={{width: '100%', fontSize: '14px'}}
-                        multiLine={true}
-                        rows={21}
-                        rowsMax={21}
-                    />
-                </div>
-                <div className="col-md-7">
-                    <div className="iframeContainer clearFix">
-                        <div dangerouslySetInnerHTML={ this.iframe() } />
-                        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                            { this.props.groups    ? 
-                                Object.keys(this.props.groups).map(key => this.renderChip(key))
-                                : null
-                            }
-                        </div>
-                    </div>
+            <div className="iframeContainer clearFix">
+                <div dangerouslySetInnerHTML={ this.iframe() } />
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    { this.props.sketchJson    ? 
+                        Object.keys(this.props.sketchJson).map(key => this.renderChip(key))
+                        : null
+                    }
                 </div>
             </div>
         )
