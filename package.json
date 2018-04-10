@@ -33,7 +33,8 @@
     "react-spinkit": "^1.1.4",
     "react-three-renderer": "^3.2.4",
     "three": "^0.86.0",
-    "three-orbit-controls": "^82.1.0"
+    "three-orbit-controls": "^82.1.0",
+    "three-trackballcontrols": "0.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",

@@ -8,6 +8,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Chip from 'material-ui/Chip';
 import Slider from 'material-ui/Slider';
 
+import Materials from './Materials';
+import ThreeView from './ThreeView';
+
 export default class Designer3D extends React.Component {
 
     state = {
@@ -15,20 +18,7 @@ export default class Designer3D extends React.Component {
     };
 
     componentDidMount() {
-        const sketch = $('#sketchIframe');
-        sketch.width('100%');
-        sketch.height('480px');
-        $('.iframeOverlap').click(function focusIframe() {
-            sketch.focus();
-        });
-        
-        setTimeout(() => this.updateSketch(), 1000);
-    }
-
-    iframe() {
-        return {
-            __html: '<iframe id="sketchIframe" src="sketch/shed.html" frameBorder="0" scrolling="no"></iframe>'
-        };
+        setTimeout(() => this.render(), 1000);
     }
 
     handleToggleGroup = (key) => {
@@ -59,38 +49,31 @@ export default class Designer3D extends React.Component {
         );
     }
 
-    updateSketch() {
-        if (this.props.sketchJson && this.state.visibility) {
-            // filter hidden groups based on visibility
-            let filteredSketchJson = {};
-            Object.keys(this.props.sketchJson).forEach((key, index) => {
-                if (this.state.visibility[key] !== false) {
-                    const group = Object.assign({}, this.props.sketchJson[key]);
-                    group.isSelected = this.props.currentGroupIndex === index;
-                    filteredSketchJson[key] = group;
+    render() {
+        if (!this.props.sketchJson || !this.state.visibility) {
+            return null;
+        }
+
+        // filter hidden groups based on visibility
+        let filteredSketchJson = {};
+        Object.keys(this.props.sketchJson).forEach((key, index) => {
+            if (this.state.visibility[key] !== false) {
+                const group = Object.assign({}, this.props.sketchJson[key]);
+
+                group.isSelected = this.props.currentGroupIndex === index;
+                if (group.isSelected && group.parts[this.props.currentPartIndex]) {
+                    group.parts[this.props.currentPartIndex].push('selected');
                 }
 
-            });
-            // render in iframe
-            if (document.getElementById('sketchIframe') && document.getElementById('sketchIframe').contentWindow && document.getElementById('sketchIframe').contentWindow.updateSketch) {
-                document.getElementById('sketchIframe').contentWindow.updateSketch(filteredSketchJson);
+                filteredSketchJson[key] = group;
             }
-            return filteredSketchJson;
-        }
-        return null;
-    }
-
-    render() {
-        this.updateSketch();
+        });
 
         return (
-            <div className="iframeContainer clearFix">
-                <div dangerouslySetInnerHTML={ this.iframe() } />
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    { this.props.sketchJson    ? 
-                        Object.keys(this.props.sketchJson).map(key => this.renderChip(key))
-                        : null
-                    }
+            <div>
+                <ThreeView json={filteredSketchJson} onViewSelect={this.props.onViewSelect} />
+                <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 20px', padding: '10px 0 20px' }}>
+                    { Object.keys(this.props.sketchJson).map(key => this.renderChip(key)) }
                 </div>
             </div>
         )

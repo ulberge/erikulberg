@@ -27,7 +27,8 @@ function init() {
     controls.dynamicDampingFactor = 0.3;
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0xf0f0f0 );
+    //scene.background = new THREE.Color( 0xFDFDFB );
+    scene.background = new THREE.Color( 0xFFFFFF );
 
     // grid
     var gridSize = 20;
