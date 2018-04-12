@@ -136,8 +136,8 @@ ReactDom.render(
           component={Huckleberry}
         />
         <Route
-          name="2x4.js"
-          path="/2x4.js"
+          name="ScriptSketch"
+          path="/ScriptSketch"
           component={TwoByFour}
         />
         <Redirect path="*" to="/home" />

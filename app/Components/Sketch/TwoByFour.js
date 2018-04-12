@@ -54,7 +54,7 @@ export default class TwoByFour extends React.Component {
                     <div>
                         <div className="detailPageHeader">
                             <h2>
-                                2x4.JS&nbsp;&nbsp;<small>2018</small>
+                                ScriptSketch&nbsp;&nbsp;<small>2018</small>
                             </h2>
                         </div>
                         <div className="row" style={{marginBottom: '100px'}}>
