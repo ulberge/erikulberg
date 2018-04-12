@@ -72,6 +72,7 @@ export default class Designer extends React.Component {
                 <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 20px', padding: '10px 0 20px' }}>
                     { Object.keys(this.props.sketchJson).map(key => this.renderChip(key)) }
                 </div>
+                <Materials sketchJson={filteredSketchJson} />
             </div>
         )
     }

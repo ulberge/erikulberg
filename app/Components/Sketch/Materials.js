@@ -88,12 +88,10 @@ export default class Materials extends Component {
         const allGroupsEntries = Object.entries(allGroups);
         return allGroupsEntries.map(([groupKey, compiled]) => 
             <div style={{margin: '0'}} key={groupKey}>
-                { allGroupsEntries.length > 1 ? 
-                    <div>
-                        <h4 style={{textAlign: 'center', padding: '4px 10px', marginTop: '20px'}}>{ groupKey }</h4>
-                        <Divider/>
-                    </div>
-                     : null }
+                <div>
+                    <h4 style={{textAlign: 'center', padding: '4px 10px', marginTop: '20px'}}>{ groupKey }</h4>
+                    <Divider/>
+                </div>
                 { this.renderGroupMaterials(groupKey, compiled) }
             </div>
         );
