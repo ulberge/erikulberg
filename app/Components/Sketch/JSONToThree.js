@@ -55,43 +55,45 @@ class Unit {
         group.add( mesh );
         group.add( line );
 
-        if (settings && settings.font) {
-            var text;
-            var yOffset, xOffset;
-            if (this.size[0] > this.size[1]) {
-                // Print text on wide piece
-                text = this.convertInchesToFeet(this.size[0]);
-                yOffset = 0//5 + (allObjects.length % 3) * 4;
-                xOffset = -20 + (allObjects.length % 3) * 10;
-            } else {
-                // Print text on thin piece
-                text = this.convertInchesToFeet(this.size[1]);
-                yOffset = -10 + (allObjects.length % 2) * 10;
-                xOffset = 0//-20 + (allObjects.length % 4) * 10;
-            }
-            var textGeometry = new THREE.TextGeometry( text, {
-                font: settings.font,
-                size: 3,
-                height: 5
-            } );
-            var matLite = new THREE.MeshBasicMaterial( {
-                color: lineColor,
-                transparent: true,
-                opacity: 0.9,
-                side: THREE.DoubleSide
-            } );
-            textGeometry.computeBoundingBox();
-            var xMid = - 0.5 * ( textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x );
-            textGeometry.translate( xMid, 0, 0 );
-            var textMesh = new THREE.Mesh( textGeometry, matLite );
-            textMesh.position.z = 5;
-            textMesh.position.x = xOffset;
-            textMesh.position.y = yOffset;
-            group.add( textMesh );
-        }
+        // if (settings && settings.font) {
+        //     var text;
+        //     var yOffset, xOffset;
+        //     if (this.size[0] > this.size[1]) {
+        //         // Print text on wide piece
+        //         text = this.convertInchesToFeet(this.size[0]);
+        //         yOffset = 0//5 + (allObjects.length % 3) * 4;
+        //         xOffset = -20 + (allObjects.length % 3) * 10;
+        //     } else {
+        //         // Print text on thin piece
+        //         text = this.convertInchesToFeet(this.size[1]);
+        //         yOffset = -10 + (allObjects.length % 2) * 10;
+        //         xOffset = 0//-20 + (allObjects.length % 4) * 10;
+        //     }
+        //     var textGeometry = new THREE.TextGeometry( text, {
+        //         font: settings.font,
+        //         size: 3,
+        //         height: 5
+        //     } );
+        //     var matLite = new THREE.MeshBasicMaterial( {
+        //         color: lineColor,
+        //         transparent: true,
+        //         opacity: 0.9,
+        //         side: THREE.DoubleSide
+        //     } );
+        //     textGeometry.computeBoundingBox();
+        //     var xMid = - 0.5 * ( textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x );
+        //     textGeometry.translate( xMid, 0, 0 );
+        //     var textMesh = new THREE.Mesh( textGeometry, matLite );
+        //     textMesh.position.z = 5;
+        //     textMesh.position.x = xOffset;
+        //     textMesh.position.y = yOffset;
+        //     group.add( textMesh );
+        // }
 
         group.rotation.set( this.rotation[0], this.rotation[1], this.rotation[2] );
-        group.position.set( this.position[0] + (this.size[0]/2), this.position[1] + (this.size[1]/2), this.position[2] + (this.size[2]/2) );
+        // set position of the lowest x,y,z corner
+        var bbox = new THREE.Box3().setFromObject(group);
+        group.position.set( this.position[0] - bbox.min.x, this.position[1] - bbox.min.y, this.position[2] - bbox.min.z );
 
         parent.add( group );
         allObjects.push(mesh);

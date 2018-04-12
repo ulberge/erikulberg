@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import {Sketch, Group, Unit} from './Sketch';
+import {Sketch, Group, Unit} from './JSONToThree';
 import $ from 'jquery';
 
 export default class ThreeView2D extends Component {

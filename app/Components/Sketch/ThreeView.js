@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import TrackballControls from 'three-trackballcontrols';
-import {Sketch, Group, Unit} from './Sketch';
+import {Sketch, Group, Unit} from './JSONToThree';
 import $ from 'jquery';
 import IconButton from 'material-ui/IconButton';
 import BorderBottom from 'material-ui/svg-icons/editor/border-bottom';

@@ -1,18 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import $ from 'jquery';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import RaisedButton from 'material-ui/RaisedButton';
-import Chip from 'material-ui/Chip';
-import Slider from 'material-ui/Slider';
 
+import ThreeViewer from './ThreeViewer';
 import Materials from './Materials';
-import ThreeView from './ThreeView';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import Chip from 'material-ui/Chip';
 
-export default class Designer3D extends React.Component {
-
+export default class Designer extends React.Component {
+    
     state = {
         visibility: {}
     };
@@ -71,7 +68,7 @@ export default class Designer3D extends React.Component {
 
         return (
             <div>
-                <ThreeView json={filteredSketchJson} onViewSelect={this.props.onViewSelect} />
+                <ThreeViewer json={filteredSketchJson} />
                 <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 20px', padding: '10px 0 20px' }}>
                     { Object.keys(this.props.sketchJson).map(key => this.renderChip(key)) }
                 </div>

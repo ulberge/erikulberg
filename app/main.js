@@ -27,7 +27,7 @@ import Gloria from './Components/Gloria';
 import SeaDragon from './Components/SeaDragon';
 import Kubota from './Components/Kubota';
 import Huckleberry from './Components/Huckleberry';
-import JSONSketch from './Components/Sketch/JSONSketch';
+import TwoByFour from './Components/Sketch/TwoByFour';
 
 const history = createHashHistory();
 
@@ -136,9 +136,9 @@ ReactDom.render(
           component={Huckleberry}
         />
         <Route
-          name="JSONSketch"
-          path="/jsonsketch"
-          component={JSONSketch}
+          name="2x4.js"
+          path="/2x4.js"
+          component={TwoByFour}
         />
         <Redirect path="*" to="/home" />
       </Switch>

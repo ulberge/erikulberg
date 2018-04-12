@@ -1,41 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import classnames from 'classnames';
+import $ from 'jquery';
 
-import Designer2DGroup from './Designer2DGroup';
-
-import TextField from 'material-ui/TextField';
+import ThreeView2D from './ThreeView2D';
+import Materials from './Materials';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import Materials from './Materials';
+export default class Designer2D extends React.Component {
 
-export default class Designer2D extends Component {
+    componentDidMount() {
+        setTimeout(() => this.render(), 1000);
+    }
 
     render() {
-        let currentGroupIndex = 0;
-        if (this.props.currentGroupIndex >= 0) {
-            currentGroupIndex = this.props.currentGroupIndex;
+        if (!this.props.sketchJson) {
+            return null;
         }
-        //console.log('this.props.sketchJson', this.props.sketchJson);
-        const currentGroupKey = this.props.sketchJson ? Object.keys(this.props.sketchJson)[currentGroupIndex] : {};
-        const groupJson = this.props.sketchJson[currentGroupKey];
+        const {currentGroupKey, sketchJson} = this.props;
+
+        const groupKey = currentGroupKey ? currentGroupKey : 
+            sketchJson && Object.keys(sketchJson).length > 0 ? Object.keys(sketchJson)[0] : null;
+
+        const groupJson = Object.assign({}, sketchJson[groupKey]);
+        groupJson.rotation = [0,0,0];
+        groupJson.position = [0,0,0];
+        const currentJson = {};
+        currentJson[groupKey] = groupJson;
 
         return (
             <div>
-                { currentGroupKey ? 
-                    <Designer2DGroup 
-                        name={currentGroupKey}
-                        groupJson={groupJson}
-                        currentPartIndex={this.props.currentPartIndex}
-                    /> : null
-                }
+                { (groupKey) ?
+                    <ThreeView2D json={currentJson} onViewSelect={this.props.onViewSelect} />
+                    : null }
                 <SelectField
                     style={{margin: '0 20px'}}
                     floatingLabelText="Group"
-                    value={currentGroupIndex}
-                    onChange={(event, key, value) => this.props.handleSelectGroup(value)}
+                    value={groupKey}
+                    onChange={(event, index, value) => {
+                        this.props.handleSelectGroup(value)
+                    }}
                 >
-                    { this.props.sketchJson    ? 
-                        Object.keys(this.props.sketchJson).map((key, index) => <MenuItem key={key} value={index} primaryText={key} />)
+                    { sketchJson    ? 
+                        Object.keys(sketchJson).map((key, index) => <MenuItem key={key} value={key} primaryText={key} />)
                         : null
                     }
                 </SelectField>
@@ -43,6 +50,6 @@ export default class Designer2D extends Component {
                     sketchJson={{'_': groupJson}}
                 />
             </div>
-        );
+        )
     }
 }

@@ -34,6 +34,8 @@
     "react-three-renderer": "^3.2.4",
     "three": "^0.86.0",
     "three-orbit-controls": "^82.1.0",
+    "three-orthographic-trackball-controls": "^79.0.1",
+    "three-pointerlock": "0.0.2",
     "three-trackballcontrols": "0.0.7"
   },
   "devDependencies": {
