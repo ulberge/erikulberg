@@ -18,8 +18,21 @@ export default class NonLinearCurriculumStudentView extends React.Component {
         this.network.redraw();
     };
 
+    filterValues = (graph) => {
+        const filteredGraph = JSON.parse(JSON.stringify(graph));
+
+        filteredGraph.nodes.forEach((node) => {
+            node.value = 1;
+        });
+        filteredGraph.edges.forEach((edge, index) => {
+            edge.value = 1;
+        });
+
+        return filteredGraph;
+    };
+
     componentWillReceiveProps(nextProps) {
-        this.network.setData(nextProps.graph);
+        this.network.setData(this.filterValues(nextProps.graph));
         this.network.focus(this.props.currentNode, {scale:0.3});
         this.network.redraw();
     }
@@ -29,8 +42,9 @@ export default class NonLinearCurriculumStudentView extends React.Component {
           return (<div></div>);
         }
 
-        const graph = this.props.graph;
-        const edgeVotes = this.props.edgeVotes;
+        this.filteredGraph = this.filterValues(this.props.graph);
+
+        const graph = this.filteredGraph;
         graph.nodes.forEach((node, index) => {
             if (node.id === this.props.currentNode) {
                 node.color = '#76ff03';
@@ -107,7 +121,7 @@ export default class NonLinearCurriculumStudentView extends React.Component {
 
         return (
             <div>
-              <Graph key={this.state.i} graph={this.props.graph} options={options} events={events} getNetwork={this.getNetwork} />
+              <Graph key={this.state.i} graph={graph} options={options} events={events} getNetwork={this.getNetwork} />
             </div>
         )
     }

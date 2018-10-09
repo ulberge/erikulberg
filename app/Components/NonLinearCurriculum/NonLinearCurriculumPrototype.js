@@ -93,7 +93,7 @@ export default class NonLinearCurriculumPrototype extends React.Component {
                         graph: this.state.graph,
                     });
                     addVotes();
-                }, 200);
+                }, 100);
             }
             addVotes();
             
@@ -140,40 +140,8 @@ export default class NonLinearCurriculumPrototype extends React.Component {
                                     onSelect={this.vote}
                                 />
                             </div>
-                            <div className="studentPhone">
-                                <NonLinearCurriculumStudentView
-                                    key={this.state.i}
-                                    graph={this.state.graph}
-                                    currentNode={this.state.currentNode}
-                                    onSelect={this.vote}
-                                />
-                            </div>
-                            <div className="studentPhone">
-                                <NonLinearCurriculumStudentView
-                                    key={this.state.i}
-                                    graph={this.state.graph}
-                                    currentNode={this.state.currentNode}
-                                    onSelect={this.vote}
-                                />
-                            </div>
                         </div>
                         <div>
-                            <div className="studentPhone">
-                                <NonLinearCurriculumStudentView
-                                    key={this.state.i}
-                                    graph={this.state.graph}
-                                    currentNode={this.state.currentNode}
-                                    onSelect={this.vote}
-                                />
-                            </div>
-                            <div className="studentPhone">
-                                <NonLinearCurriculumStudentView
-                                    key={this.state.i}
-                                    graph={this.state.graph}
-                                    currentNode={this.state.currentNode}
-                                    onSelect={this.vote}
-                                />
-                            </div>
                             <div className="studentPhone">
                                 <NonLinearCurriculumStudentView
                                     key={this.state.i}
