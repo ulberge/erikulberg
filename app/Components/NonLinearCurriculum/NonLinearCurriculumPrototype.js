@@ -12,6 +12,7 @@ export default class NonLinearCurriculumPrototype extends React.Component {
     state = {
         currentNode: 2,
         i: 0,
+        isRunning: false,
         graph: {
             nodes: [
               {id: 1, label: 'Node 1', value: 1, level: 1, complete: true},
@@ -59,9 +60,49 @@ export default class NonLinearCurriculumPrototype extends React.Component {
         this.state.graph.nodes[nodeId-1].value = currentVotes+1;
         this.setState({
             graph: this.state.graph,
-            i: this.state.i+1,
+            //i: this.state.i+1,
         });
     };
+
+    componentDidMount() {
+        this.isRunning = false;
+
+        document.addEventListener('keypress', (event) => {
+          const keyName = event.key;
+          if (!this.isRunning) {
+            this.isRunning = true;
+
+            console.log('is running');
+            const addVotes = () => {
+                this.addVotesTimeout = setTimeout(() => {
+                    this.state.graph.nodes.forEach((node, index) => {
+                        if (index > 4 && index % 2 === 0) {
+                            return;
+                        }
+                        if ((Math.floor((Math.random() * this.state.graph.nodes.length) + 1)) === node.id &&
+                            !node.complete) {
+                            console.log(node.id);
+                            node.value = node.value + 1;
+                        }
+                    });
+                    this.setState({
+                        graph: this.state.graph,
+                    });
+                    addVotes();
+                }, 200);
+            }
+            addVotes();
+            
+          } else {
+            this.isRunning = false;
+            if (this.addVotesTimeout) {
+                clearTimeout(this.addVotesTimeout);
+            }
+            console.log('is not running');
+          }
+
+        });
+    }
 
     render() {
 

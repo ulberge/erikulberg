@@ -18,6 +18,12 @@ export default class NonLinearCurriculumStudentView extends React.Component {
         this.network.redraw();
     };
 
+    componentWillReceiveProps(nextProps) {
+        this.network.setData(nextProps.graph);
+        this.network.focus(this.props.currentNode, {scale:0.3});
+        this.network.redraw();
+    }
+
     render() {
         if (!this.props.graph) {
           return (<div></div>);
@@ -88,9 +94,9 @@ export default class NonLinearCurriculumStudentView extends React.Component {
                 if (nodes.length > 0) {
                   this.props.onSelect(nodes[0]);
                 }
-                this.setState({
-                  i: this.state.i+1,
-                });
+                // this.setState({
+                //   i: this.state.i+1,
+                // });
             }
         }
 
