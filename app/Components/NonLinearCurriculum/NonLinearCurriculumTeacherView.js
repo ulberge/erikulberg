@@ -61,14 +61,19 @@ export default class NonLinearCurriculumStudentView extends React.Component {
                 shape: 'dot',
                 size: 30,
                 font: {
-                    size: 32
+                    size: 22
                 },
                 borderWidth: 2,
                 shadow:true
             },
             edges: {
                 width: 3,
-                shadow:true
+                shadow:true,
+                arrows: {
+                  to: {
+                    enabled: false,
+                  }
+                }
             },
             interaction: {
                 dragNodes: false,
@@ -84,7 +89,7 @@ export default class NonLinearCurriculumStudentView extends React.Component {
               }
             },
             groups: {
-              complete: {color:{background:'red'}, borderWidth:3}
+              main: {font:{size:28}}
             }
         };
 
