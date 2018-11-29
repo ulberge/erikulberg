@@ -63,6 +63,7 @@ module.exports = React.createClass({
               <div className="col-md-4">
               </div>
             </div>
+            <a href="https://docs.google.com/presentation/d/1w2ZLmeZXKM4tcg2T31dPkfU8ebIWdJDr0gnfIHMKk5M/edit?usp=sharing">New Version</a>
           </div>
         </div>
       </div>
