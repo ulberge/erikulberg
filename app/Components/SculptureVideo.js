@@ -16,18 +16,15 @@ export default class extends Component {
             </div>
 
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <p><b>How would video appear as a physical object?</b></p>
                 <p>This machine takes a feed from a Kinect and renders it as a 4x4 relief sculpture. A Processing sketch controls an Arduino with 16 servos that move a laser-cut wood and plastic apparatus. </p>
                 <p>We do not currently have matter appropriate for real-time rendering in physical space, but we can control heights. This box is a proof of concept.  Its capacity for expression is limitied by its size. An example of a similar, but larger device, is the <a href="https://tangible.media.mit.edu/project/inform/">inFORM</a> from the MIT Media Lab.</p>
                 <img src="./imgs/portfolioassets/bas/guts_sm.jpg" alt="Interior Shot"/>
                 <small>Under construction</small>
               </div>
-              <div className="col-md-8 iframeContainer clearFix">
-                <video controls>
-                  <source src={"imgs/relief_movie.mp4"} type="video/mp4"/>
-                  Your browser does not support the video tag.
-                </video>
+              <div className="col-md-6 iframeContainer clearFix">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5o94N8MtwzU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
                 <div><small>The Processing sketch and machine running with a Kinect</small></div>
               </div>
             </div>
