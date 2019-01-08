@@ -36,8 +36,7 @@ module.exports = React.createClass({
               <LinkContainer className="socialMediaLink" to={{ pathname: '/contact' }}>
                 <NavItem eventKey={8} href="" target="_blank"><FontAwesome name="envelope" /></NavItem>
               </LinkContainer>
-              <NavItem eventKey={6} href="https://www.instagram.com/erikulberg/" className="socialMediaLink" target="_blank"><FontAwesome name="instagram" /></NavItem>
-              <NavItem eventKey={7} href="https://github.com/Studyokee/studyokee/" className="socialMediaLink" target="_blank"><FontAwesome name="github" /></NavItem>
+              <NavItem eventKey={7} href="https://github.com/ulberge" className="socialMediaLink" target="_blank"><FontAwesome name="github" /></NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

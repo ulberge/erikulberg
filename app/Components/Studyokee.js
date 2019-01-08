@@ -18,7 +18,7 @@ export default class extends Component {
           <div className="row">
             <div className="col-md-5">
               <p><b>Description</b>: A web application to supplement and enrich traditional language learning. Users can improve their Spanish or German skills through the lyrics of popular songs. Songs are an enjoyable way to master pronunciation and rhythm, as well as to introduce interesting phrases and vocabulary.</p>
-              <a className="btn btn-danger" href="http://studyokee.com/" target="_blank">Launch Studyokee</a><br/><br/>
+              <a className="btn btn-info" href="https://studyokee.herokuapp.com" target="_blank">Launch Studyokee</a><br/><br/>
               <p><b>Front End</b>: Backbone.js, CoffeeScript, jQuery, Bootstrap, Handlebars, Stylus, RequireJS</p>
               <p><b>Server</b>: Node.js, JavaScript, mongodb</p>
               <p><b>Tools/Ops</b>: Grunt, Bower, npm, Heroku, Travis CI</p>
@@ -31,9 +31,9 @@ export default class extends Component {
               </ul>
             </div>
             <div className="col-md-7">
-              <a className="homeLink" href="http://studyokee.com" target="_blank">
+              <a className="homeLink" href="https://studyokee.herokuapp.com" target="_blank">
                 <div className="imgContainer">
-                  <img src={"./imgs/studyokee2.jpg"}/>
+                  <img src={"./imgs/gifs/studyokee_start.gif"}/>
                 </div>
               </a>
             </div>
@@ -43,20 +43,11 @@ export default class extends Component {
         <div className="accentRow row text-center">
           <div className="container">
             <div style={{ paddingTop: '10px' }}>
-              <h3>Screenshots</h3>
+              <h3>Vocabulary Study</h3>
               <hr/>
             </div>
-            <div className="col-md-6 col-xs-12">
-              <img src={"./imgs/vocabularyscreenshot.jpg"}/>
-              <small>Vocabulary Study</small>
-            </div>
-            <div className="col-md-3 col-xs-12">
-              <img src={"./imgs/dictionaryscreenshot.jpg"}/>
-              <small>Dictionary</small>
-            </div>
-            <div className="col-md-3 col-xs-12">
-              <img src={"./imgs/studyokeemobile.jpg"}/>
-              <small>Mobile View</small>
+            <div className="col-md-12 col-xs-12">
+              <img src={"./imgs/gifs/studyokee_vocab.gif"}/>
             </div>
           </div>
         </div>

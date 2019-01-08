@@ -150,8 +150,12 @@
 
     container = document.getElementById( 'main' );
 
-    camera = new THREE.PerspectiveCamera( 60, 1.33, 0.1, 1000 );
-    camera.position.z = 0;
+    camera = new THREE.PerspectiveCamera( 60, 1.33, 0.1, 10000 );
+    // camera.position.z = 190;
+    // camera.position.x = 55;
+    // camera.position.y = 0;
+    // camera.rotation.y = 0.2;
+    camera.position.z = 1;
     camera.setFocalLength( 30 );
 
     scene = new THREE.Scene();
@@ -170,7 +174,7 @@
     container.appendChild( renderer.domElement );
 
     setEffect();
-    
+
     window.addEventListener( 'resize', onWindowResize, false );
 
     document.body.onkeyup = function(e){

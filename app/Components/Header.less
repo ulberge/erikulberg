@@ -9,18 +9,21 @@
     }
 
     .navbar .container {
-        border-bottom: 2px solid lighten(@gray-light, 0%);
+        border-bottom: 1px solid lighten(@gray-light, 0%);
         padding-bottom: 1em;
     }
 
     .navbar-brand {
         font-size: 3em;
         line-height: 1.2em;
-        color: lighten(@text-color, 0%);
-        font-family: "franklin-gothic-urw",sans-serif;
+        color: @text-color-dark;
+        font-family: @font-family-text;
         font-weight: 400;
         letter-spacing: 8px;
         text-transform: uppercase;
+    }
+    .navbar-brand:hover, .navbar-brand:active, .navbar-brand:hover {
+        color: @text-color-dark;
     }
 
     @media (max-width: @screen-sm-min) {
@@ -37,15 +40,12 @@
         }
     }
 
-    .navbar-brand:hover {
-        color: @text-color-light;
-    }
     .navbar .navbar-nav a {
-        font-family: "futura-pt",sans-serif;
+        font-family: @font-family-text;
         text-transform: uppercase;
         font-weight: 400;
         color: lighten(@gray, 0%);
-        font-size: @font-size-h4;
+        font-size: @font-size-h5;
         padding-top: 10px;
         padding-bottom: 11px;
         margin-top: 34px;

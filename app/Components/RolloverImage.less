@@ -1,0 +1,26 @@
+@import "../variables.less";
+
+:local(.className) {
+  .imgContainer {
+    position: relative;
+  }
+  .artImg {
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+  }
+  .gif {
+    display: none;
+  }
+
+  &:hover {
+    .still {
+      display: none;
+    }
+    .gif {
+      display: block;
+    }
+  }
+}

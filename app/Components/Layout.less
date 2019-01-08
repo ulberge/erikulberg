@@ -2,38 +2,64 @@
 
 :local(.className) {
 
-  .projectPage {
-    font-size: 18px;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: @font-family-header;
   }
+
   .detailPageHeader {
     text-align: left;
     margin-bottom: 20px;
 
     h2 {
       margin-bottom: 4px;
+      text-transform: none;
+      font-size: @font-size-h2;
+      font-weight: 600;
+      color: @text-color-dark;
     }
     div {
-      font-size: 1.15em;
-      color: lighten(@gray, 10%);
+      font-family: @font-family-header;
+      color: @text-color-light;
     }
 
     small {
       color: darken(@brand-info, 10%);
     }
   }
-  .accentRow {
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: @gray-darker;
-    padding-top: 10px;
-    padding-bottom: 40px;
+  // .accentRow {
+  //   margin-top: 0;
+  //   margin-bottom: 0;
+  //   background-color: @gray-darker;
+  //   padding-top: 10px;
+  //   padding-bottom: 40px;
 
-    * {
-      color: #fff !important;
-    }
-  }
+  //   * {
+  //     color: #fff !important;
+  //   }
+  // }
   p {
-    font-family: "futura-pt", sans-serif;
+    font-family: @font-family-text;
+    color: @text-color-light;
+  }
+
+  b {
+    font-weight: 600;
+    color: @text-color-dark;
+  }
+  hr {
+      border-top: 1px solid lighten(@gray-light, 0%);
+  }
+  a {
+    color: @link-color;
+  }
+  a:hover {
+    color: @link-hover-color;
+  }
+  .btn {
+    color: #fff;
+  }
+  .btn:hover {
+    color: #fff;
   }
   .screenShot {
     padding: 0;

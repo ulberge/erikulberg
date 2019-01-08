@@ -28,7 +28,6 @@ import SeaDragon from './Components/SeaDragon';
 import Kubota from './Components/Kubota';
 import Huckleberry from './Components/Huckleberry';
 import TwoByFour from './Components/Sketch/TwoByFour';
-import NonLinearCurriculumPrototype from './Components/NonLinearCurriculum/NonLinearCurriculumPrototype';
 
 const history = createHashHistory();
 
@@ -140,11 +139,6 @@ ReactDom.render(
           name="ScriptSketch"
           path="/ScriptSketch"
           component={TwoByFour}
-        />
-        <Route
-          name="Non-Linear Curriculum Designer"
-          path="/NonLinearCurriculum"
-          component={NonLinearCurriculumPrototype}
         />
         <Redirect path="*" to="/home" />
       </Switch>

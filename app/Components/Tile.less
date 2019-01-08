@@ -1,15 +1,11 @@
 @import "../variables.less";
 
 :local(.className) {
-  margin-bottom: 40px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 32px;
+  max-width: 400px;
 
-  a {
-    display: block;
-
+  a.rollover {
     .imgContainer {
-      border: 2px solid transparent;
       position: relative;
     }
     .artImg {
@@ -19,69 +15,40 @@
     img {
       width: 100%;
     }
-
-    .goIcon {
-      opacity: 0;
-      border: 2px solid @text-color;
-      color: @text-color;
-      font-size: 24px;
-      border-radius: 40px;
-      height: 40px;
-      width: 40px;
-      line-height: 38px;
-      text-align: center;
-      padding-left: 2px;
-      left: 50%;
-      top: 50%;
-      margin-left: -20px;
-      margin-top: -20px;
-      z-index: 1;
-      transform: rotateY(180deg);
-      transition: transform 0.4s ease;
-      position: absolute;
-    }
-
-    h3, h4 {
-      padding: 0.2em 0;
-      color: @text-color;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      margin-left: 2px;
-      margin-right: 2px;
-
-      small {
-        float: right;
-        padding-top: 3px;
-        color: @brand-info;
-      }
-    }
-    span {
-      color: @text-color-fade;
-      margin-left: 2px;
-      margin-right: 2px;
+    .gif {
+      display: none;
     }
   }
-  a:hover, a:active, a:focus {
-    cursor: pointer;
-    text-decoration: none;
+  a.rollover:hover {
+    .still {
+      display: none;
+    }
+    .gif {
+      display: block;
+    }
+  }
+  .tileBottom {
+    a {
+      color: @text-color-dark;
+      font-weight: 600;
+      font-family: @font-family-header;
+    }
+    a:hover {
+        color: darken(@brand-info, 20%);
+        text-decoration: none;
+    }
+    h3 {
+      font-size: @font-size-h4;
+    }
 
-    .imgContainer {
-      border-color: @text-color;
-    }
-    img {
-      opacity: 0.8;
-    }
-    .goIcon {
-      opacity: 1;
-      transform: rotateY(0deg);
+    small {
+      float: right;
+      line-height: 21px;
+      color: @text-color-light;
     }
 
-    h3, h4 {
-        color: darken(@text-color, 20%);
-        text-decoration: underline;
-    }
     span {
-        color: darken(@text-color-fade, 10%);
+      color: @text-color-light;
     }
   }
 }

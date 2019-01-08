@@ -33,12 +33,12 @@
     "react-router-dom": "^4.2.2",
     "react-spinkit": "^1.1.4",
     "react-three-renderer": "^3.2.4",
+    "source-map-explorer": "^1.6.0",
     "three": "^0.86.0",
     "three-orbit-controls": "^82.1.0",
     "three-orthographic-trackball-controls": "^79.0.1",
     "three-pointerlock": "0.0.2",
-    "three-trackballcontrols": "0.0.7",
-    "vis": "^4.21.0"
+    "three-trackballcontrols": "0.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
@@ -75,6 +75,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer build/bundle.*",
     "clean": "rimraf build/bundle.js build/bundle.js.map",
     "lint": "eslint app --ext .js --ext .jsx",
     "dev": "node server",

@@ -3,24 +3,31 @@ import classnames from 'classnames';
 
 import { className } from './Tile.less';
 import { LinkContainer } from 'react-router-bootstrap';
+import RolloverImage from './RolloverImage.js';
 
 export default class extends Component {
   render() {
     const absoluteLink = '/#' + this.props.link;
+
+    const { alt, img, gif } = this.props;
     return (
         <div className={classnames(className, this.props.styleName)}>
-          <LinkContainer to={{ pathname: this.props.link }}>
-          <a href={absoluteLink}>
             <div>
-              <div className="imgContainer artImg">
-                <img src={this.props.img} style={{ marginTop: '0px' }} alt={this.props.alt}/>
-                <div className="goIcon">⇨</div>
-              </div>
+              <LinkContainer to={{ pathname: this.props.link }}>
+              <a href={absoluteLink}>
+                <RolloverImage img={img} gif={gif} alt={alt} />
+              </a>
+              </LinkContainer>
             </div>
-            <h4>{this.props.title} <small>{this.props.year}</small></h4>
-            <span>{this.props.subtitle}</span>
-          </a>
-          </LinkContainer>
+            <div className="tileBottom">
+              <h3>
+                <LinkContainer to={{ pathname: this.props.link }}>
+                  <a href={absoluteLink}>{this.props.title}</a>
+                </LinkContainer>
+                <small>{this.props.year}</small>
+              </h3>
+              <span>{this.props.subtitle}</span>
+            </div>
         </div>
     );
   }
