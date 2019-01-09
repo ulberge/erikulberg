@@ -10,7 +10,7 @@ export default class extends Component {
           <div className="container">
             <div className="detailPageHeader">
               <h2>
-                Auto Bas-Relief&nbsp;&nbsp;<small>2016</small>
+                Auto Sculpture&nbsp;&nbsp;<small>2016</small>
               </h2>
               <div>Fabrication, Arduino, Processing, Kinect, Relief Sculpture</div>
             </div>

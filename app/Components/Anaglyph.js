@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import $ from 'jquery';
 import FontAwesome from 'react-fontawesome';
 
-import RolloverImage from './RolloverImage.js';
 import { className } from './Anaglyph.less';
 
 module.exports = React.createClass({
@@ -15,7 +14,7 @@ module.exports = React.createClass({
   },
   iframe: function iframe() {
     return {
-      __html: '<iframe id="iframe" src="unendingAnaglyph/index.html" frameBorder="0" scrolling="no"></iframe>'
+      __html: '<iframe id="iframe" src="/projects/unendingAnaglyph/index.html" frameBorder="0" scrolling="no"></iframe>'
     };
   },
   render() {
@@ -26,47 +25,66 @@ module.exports = React.createClass({
             <h2>
               Endless Stereograph&nbsp;&nbsp;<small>2017</small>
             </h2>
-            <div>Stereo Vision, 3D Animation, Three.js</div>
+            <div>Stereo Vision + 3D Animation</div>
           </div>
 
           <div className="row">
-            <div className="col-md-5">
-              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of repeating stereoscopic images with transparent holes cut out, layered in virtual space, and moving toward the viewer in a curved plane. It probes the boundaries of stereo vision optics by attempting to represent three dimensions with a small number of 2D images. Stereoscopic photos seem so real, but are normally frustrating, because you cannot dive into them.</p>
-              <RolloverImage img="./imgs/gifs/forest_walk_side_first.gif" gif="./imgs/gifs/forest_walk_side.gif" alt="Alternate View" />
-              <small>Alternate view</small>
+            <div className="col-md-6">
+              <p><b>Description</b>: Endless Stereograph is a 3D animation composed of repeating stereoscopic images with transparent holes cut out, layered in virtual space, and moving toward the viewer in a curved plane. It represents three dimensions with a small number of 2D images. Stereoscopic photos seem so real, but are normally frustrating, because you cannot dive into them. Now you can!</p>
+              <p><b>Technologies</b>: Three.js, Adobe Illustrator</p>
+              <div style={{ margin: '20px 0' }}>
+                <a href="/projects/unendingAnaglyph/index.html" target="_blank" className="btn btn-info">Full Screen Version <FontAwesome name="external-link" /></a>
+              </div>
+              <div style={{ paddingTop: '10px' }}>
+                <div dangerouslySetInnerHTML={ this.iframe() } />
+                <div className="iframeOverlap"></div>
+                <div style={{ 'margin': '10px 0' }}>Live Version</div>
+                <div className="well">
+                  <div><b>Toggle between stereo and anaglyph:</b> (First click on video) &lt;space bar&gt;</div>
+                </div>
+              </div>
             </div>
-            <div className="col-md-7 iframeContainer clearFix">
-              <div dangerouslySetInnerHTML={ this.iframe() } />
-              <div className="iframeOverlap"></div>
-              <div className="well">
-                <a href="/unendingAnaglyph/index.html" target="_blank" className="btn btn-info">Full Screen Version <FontAwesome name="external-link" /></a>
-                <br/><br/>
-                <div><b>Toggle between stereo and anaglyph:</b> (First click on video) &lt;space bar&gt;</div>
+            <div className="col-md-6 iframeContainer clearFix">
+              <div>
+                <img src="./imgs/stills/forest_walk_anaglyph.jpg" alt="Anaglyph view of video"/>
+                <span>Anaglyph view of video</span>
+              </div>
+              <div>
+                <img src="./imgs/stills/forest_walk_stereo.jpg" alt="Stereo view of video"/>
+                <span>Stereo view of video</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="accentRow row text-center">
-          <div className="container">
-            <div className="col-md-12 col-xs-12">
-              <h3>Diagram</h3>
-              <hr/>
-              <div className="col-md-offset-2 col-md-8 col-xs-12">
-                <img src="./imgs/forestflowd0.jpg" alt=""/>
-                <small>Depth between layers comes from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision.</small>
+          <div className="accentRow row">
+            <div className="container">
+              <div>
+                <h3 className="text-center">Diagram</h3>
+                <hr/>
+                <div className="col-md-6">
+                  <img src="./imgs/forestflowd0.jpg" alt="Depth between layers comes from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision"/>
+                  <span>Depth between layers is from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision</span>
+                </div>
+                <div className="col-md-6">
+                  <img src="./imgs/forestflowd1.jpg" alt="Diagram of process"/>
+                  <span>Diagram of process</span>
+                </div>
+                <div className="col-md-6 col-md-offset-3" style={{ marginTop: '20px' }} >
+                  <img src="./imgs/gifs/forest_walk_side.gif" alt="Side View"/>
+                  <span>Alternate angle and camera location shows how the animation works</span>
+                </div>
               </div>
-            </div>
-            <div className="col-md-12 col-xs-12" style={{ paddingTop: '10px' }}>
-              <h3>Inspiration</h3>
-              <hr/>
-              <div className="col-md-6 col-xs-12">
-                <img src="./imgs/forestflowd4.jpg" alt=""/>
-                <small>Donatello divides space into clear layers, then sculpts depth within layers.</small>
-              </div>
-              <div className="col-md-6 col-xs-12">
-                <img src="./imgs/forestflowd5.jpg" alt=""/>
-                <small>Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective.</small>
+              <div className="col-md-12 col-xs-12" style={{ paddingTop: '10px' }}>
+                <h3 className="text-center">Inspiration</h3>
+                <hr/>
+                <div className="col-md-6 col-xs-12">
+                  <img src="./imgs/forestflowd4.jpg" alt="Donatello divides space into clear layers, then sculpts depth within layers"/>
+                  <span>Donatello divides space into clear layers, then sculpts depth within layers</span>
+                </div>
+                <div className="col-md-6 col-xs-12">
+                  <img src="./imgs/forestflowd5.jpg" alt="Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective"/>
+                  <span>Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective</span>
+                </div>
               </div>
             </div>
           </div>

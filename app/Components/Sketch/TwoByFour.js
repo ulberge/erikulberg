@@ -49,12 +49,12 @@ export default class TwoByFour extends React.Component {
         console.log('Rerender Parent');
 
         return (
-            <div className="container-fluid projectPage json-sketch">
+            <div className="container projectPage json-sketch">
                 <MuiThemeProvider>
                     <div>
                         <div className="detailPageHeader">
                             <h2>
-                                ScriptSketch&nbsp;&nbsp;<small>2018</small>
+                                JSON-aided Design&nbsp;&nbsp;<small>2018</small>
                             </h2>
                         </div>
                         <div className="row" style={{marginBottom: '100px'}}>
@@ -102,6 +102,21 @@ export default class TwoByFour extends React.Component {
             return {};
         }
         try {
+            var bw = 3.5; // board width
+            var bt = 1.5; // board thickness
+            var WOOD = (length) => {
+              return { label: 'HemFir', dimensions: [length,bt,bw], color: '#E6DB74' };
+            };
+
+            function repeat(spreadLength, height, num) {
+              var repeat = [];
+              var dist = (spreadLength-bt)/(num-1);
+              for (var i = 0; i < num; i++) {
+                repeat.push([ WOOD(height), [ dist*i, bt, 0 ], '|' ]);
+              }
+              return repeat;
+            }
+
             return eval('(function() {' + sketchText + '}())');
         } catch(error) {
             console.log(error);
@@ -128,7 +143,7 @@ export default class TwoByFour extends React.Component {
                 rotation = [ 0, 0, Math.PI/2 ];
                 break;
         }
-        
+
         return [material, size, position, rotation];
     };
 

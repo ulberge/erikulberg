@@ -54,7 +54,7 @@ export default class Editor extends React.Component {
                         showGutter={true}
                         highlightActiveLine={true}
                         enableLiveAutocompletion={false}
-                        style={{width: '100%', height: '651px', borderTop: '10px solid #2F3024'}}
+                        style={{width: '100%', height: '1200px', borderTop: '10px solid #2F3024'}}
                     />
                 </div>
             </Paper>
