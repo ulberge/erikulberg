@@ -34,7 +34,7 @@ module.exports = React.createClass({
               <p><b>Description:</b> This tool randomly explores the garden design space. It uses photogrammetric models of species from the South Seattle College Arboretum. By observing and noting our reactions, we can find inspiration for designs.</p>
               <p><b>Technologies</b>: Three.js, Photogrammetry</p>
               <img src="./imgs/garden_plants0.jpg" alt="Cynara cardunculus at South Seattle College Arboretum"/>
-              <small>South Seattle College Arboretum</small>
+              <p>South Seattle College Arboretum</p>
             </div>
             <div className="col-md-8 iframeContainer clearFix">
               <div dangerouslySetInnerHTML={ this.iframe() } />
@@ -63,17 +63,17 @@ module.exports = React.createClass({
               <div className="col-md-8 col-md-offset-2">
                 <p>Plants of different size, foliage type, and color were chosen and photographed at the South Seattle College Arboretum. These images were converted to 3D models using photogrammetry software. The models are randomly arranged in a virtual environment (avoiding overlaps).</p>
               </div>
-              <div className="col-md-4">
-                <img src="./imgs/portfolioassets/garden/drawing0.jpg"/>
-                <div>Drawings from a class on perennials</div>
+              <div className="col-md-4 text-center">
+                <img src="./imgs/portfolioassets/garden/drawing0.jpg" style={{ maxHeight: '300px', width: 'auto' }}/>
+                <p>Drawings from a class on perennials</p>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 text-center">
                 <img src="./imgs/garden_plants_obj.jpg" alt="Virtual Cynara cardunculus in Meshlab"/>
-                <div>Virtual Cynara cardunculus in Meshlab</div>
+                <p>Virtual Cynara cardunculus in Meshlab</p>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 text-center">
                 <img src="./imgs/portfolioassets/garden/garden_illustration.png" alt="Illustration of Program"/>
-                <div>Illustration of the program</div>
+                <p>Illustration of the program</p>
               </div>
           </div>
         </div>

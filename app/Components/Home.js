@@ -15,14 +15,10 @@ export default class extends Component {
           <Tile title="JSON-aided Design" year="2018" subtitle="Scripting + CAD" img="./imgs/home/script_sketch_first.gif" gif="./imgs/home/script_sketch_rollover.gif" link="/sketch" styleName="col-md-4" />
         </div>
         <div className="row">
-          <Tile title="Random Garden" year="2017" subtitle="Photogrammetry + ThreeJS" img="./imgs/icons/gg0.jpg" gif="./imgs/home/gg.gif" link="/garden" styleName="col-md-4" />
+          <Tile title="Random Garden" year="2017" subtitle="Photogrammetry + Generative Design" img="./imgs/icons/gg0.jpg" gif="./imgs/home/gg.gif" link="/garden" styleName="col-md-4" />
           <Tile title="Auto Sculpture" year="2016" subtitle="Fabrication + Sensing Sculpture" img="./imgs/home/sculpture_video_first.gif" gif="./imgs/home/sculpture_video.gif" link="/relief" styleName="col-md-4" />
-          <Tile title="Watercolor Planner" year="2017" subtitle="Computer-Aided Watercolor" img="./imgs/icons/wc_analysis_sm.jpeg" link="/wcanalysis" styleName="col-md-4" />
+          <Tile title="Watercolor Planner" year="2017" subtitle="Computer-Aided Watercolor" img="./imgs/icons/wc_analysis_sm.jpeg" gif="./imgs/home/wc_rollover.gif" link="/wcanalysis" styleName="col-md-4" />
         </div>
-        {/*<div className="homeLink" className="row">
-          <Tile title="Watercolor Collage" year="2017" subtitle="ML + Image Processing" img="./imgs/icons/mlwc_sm.png" link="/wcremix" styleName="col-md-4" />
-          <Tile title="BirdNest" year="2017" subtitle="Sensing System + Animatronics" img="./imgs/birdnest.jpg" link="/birdnest" styleName="col-md-4" />
-        </div>*/}
         <div className="homeLink" className="row">
           <Tile title="Kubota Gardens" year="2017" subtitle="Plaster Relief Sculpture" img="./imgs/kubota.jpg" gif="./imgs/home/kubota_rollover.gif" link="/kubota" styleName="col-md-4" />
           <Tile title="Study of Gloria" year="2016" subtitle="Life-Size Clay Sculpture" img="./imgs/home/gloria_first.gif" gif="./imgs/home/gloria_rollover.gif" link="/gloria" styleName="col-md-4" />

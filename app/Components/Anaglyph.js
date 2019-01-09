@@ -47,11 +47,11 @@ module.exports = React.createClass({
             <div className="col-md-6 iframeContainer clearFix">
               <div>
                 <img src="./imgs/stills/forest_walk_anaglyph.jpg" alt="Anaglyph view of video"/>
-                <span>Anaglyph view of video</span>
+                <p>Anaglyph view of video</p>
               </div>
               <div>
                 <img src="./imgs/stills/forest_walk_stereo.jpg" alt="Stereo view of video"/>
-                <span>Stereo view of video</span>
+                <p>Stereo view of video</p>
               </div>
             </div>
           </div>
@@ -63,15 +63,15 @@ module.exports = React.createClass({
                 <hr/>
                 <div className="col-md-6">
                   <img src="./imgs/forestflowd0.jpg" alt="Depth between layers comes from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision"/>
-                  <span>Depth between layers is from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision</span>
+                  <p>Depth between layers is from linear perspective in 3D space. Depth within each layer is conveyed through stereoscopic vision</p>
                 </div>
                 <div className="col-md-6">
                   <img src="./imgs/forestflowd1.jpg" alt="Diagram of process"/>
-                  <span>Diagram of process</span>
+                  <p>Diagram of process</p>
                 </div>
                 <div className="col-md-6 col-md-offset-3" style={{ marginTop: '20px' }} >
                   <img src="./imgs/gifs/forest_walk_side.gif" alt="Side View"/>
-                  <span>Alternate angle and camera location shows how the animation works</span>
+                  <p>Alternate angle and camera location shows how the animation works</p>
                 </div>
               </div>
               <div className="col-md-12 col-xs-12" style={{ paddingTop: '10px' }}>
@@ -79,11 +79,11 @@ module.exports = React.createClass({
                 <hr/>
                 <div className="col-md-6 col-xs-12">
                   <img src="./imgs/forestflowd4.jpg" alt="Donatello divides space into clear layers, then sculpts depth within layers"/>
-                  <span>Donatello divides space into clear layers, then sculpts depth within layers</span>
+                  <p>Donatello divides space into clear layers, then sculpts depth within layers</p>
                 </div>
                 <div className="col-md-6 col-xs-12">
                   <img src="./imgs/forestflowd5.jpg" alt="Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective"/>
-                  <span>Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective</span>
+                  <p>Wolfenstein 3D imitated 3D space by placing 2D images in linear perspective</p>
                 </div>
               </div>
             </div>

@@ -30,9 +30,9 @@ module.exports = React.createClass({
               <LinkContainer to={{ pathname: '/' }}>
                 <NavItem eventKey={1}>Portfolio</NavItem>
               </LinkContainer>
-              <LinkContainer to={{ pathname: '/resume' }}>
+              {/*<LinkContainer to={{ pathname: '/resume' }}>
                 <NavItem eventKey={3}>&nbsp;&nbsp;&nbsp;&nbsp;CV&nbsp;&nbsp;&nbsp;&nbsp;</NavItem>
-              </LinkContainer>
+              </LinkContainer>*/}
               <LinkContainer className="socialMediaLink" to={{ pathname: '/contact' }}>
                 <NavItem eventKey={8} href="" target="_blank"><FontAwesome name="envelope" /></NavItem>
               </LinkContainer>
