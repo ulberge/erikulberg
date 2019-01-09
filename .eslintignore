@@ -1,4 +1,3 @@
 app/utils/ga.js
 app/Components/Tile.js
-app/Components/Sketch/*
-app/Components/NonLinearCurriculum/*
+app/Components/sketch/*

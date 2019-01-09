@@ -3,7 +3,6 @@ import classnames from 'classnames';
 
 import { className } from './Sketch.less';
 import { LinkContainer } from 'react-router-bootstrap';
-import FontAwesome from 'react-fontawesome';
 
 export default class Sketch extends Component {
   render() {
@@ -43,13 +42,13 @@ export default class Sketch extends Component {
             <hr/>
             <p className="text-center">The designs generated with the program were used by a group of friends and family to build this shed on Vashon Island.</p>
             <div className="col-md-3 text-center">
-              <img src={"./imgs/stills/shed_under_construction.jpeg"} style={{ height: '350px', width: 'auto' }}/>
+              <img src={"./imgs/stills/shed_under_construction.jpeg"} style={{ maxHeight: '350px', width: 'auto', maxWidth: '100%' }}/>
             </div>
             <div className="col-md-3 text-center">
-              <img src={"./imgs/stills/shed_completed.jpeg"} style={{ height: '350px', width: 'auto' }}/>
+              <img src={"./imgs/stills/shed_completed.jpeg"} style={{ maxHeight: '350px', width: 'auto', maxWidth: '100%' }}/>
             </div>
             <div className="col-md-6 text-center">
-              <img src={"./imgs/stills/shed_team.jpeg"} style={{ height: '350px', width: 'auto' }}/>
+              <img src={"./imgs/stills/shed_team.jpeg"} style={{ maxHeight: '350px', width: 'auto', maxWidth: '100%' }}/>
             </div>
           </div>
         </div>

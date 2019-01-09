@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 
 import { className } from './WCAnalysis.less';
-import RolloverImage from './RolloverImage.js';
 
 export default class extends Component {
   render() {

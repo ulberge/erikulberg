@@ -65,8 +65,8 @@ export default class extends Component {
             </div>
           </div>
 
-          <div className="accentRow row text-center">
-            <div className="container  iframeContainer clearFix">
+          <div className="accentRow row text-center hidden-xs hidden-sm">
+            <div className="container iframeContainer clearFix">
               <div style={{ paddingTop: '10px' }}>
                 <h3 className="text-center">Video</h3>
                 <hr/>
