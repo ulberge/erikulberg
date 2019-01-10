@@ -29,6 +29,7 @@ import Kubota from './Components/Kubota';
 import Huckleberry from './Components/Huckleberry';
 import TwoByFour from './Components/sketch/TwoByFour';
 import Sketch from './Components/Sketch';
+import About from './Components/About';
 
 const history = createHashHistory();
 
@@ -145,6 +146,11 @@ ReactDom.render(
           name="Sketch"
           path="/sketch"
           component={Sketch}
+        />
+        <Route
+          name="About"
+          path="/about"
+          component={About}
         />
         <Redirect path="*" to="/home" />
       </Switch>
