@@ -30,6 +30,7 @@ import Huckleberry from './Components/Huckleberry';
 import TwoByFour from './Components/sketch/TwoByFour';
 import Sketch from './Components/Sketch';
 import About from './Components/About';
+import BubblePop from './Components/Projects/BubblePop';
 
 const history = createHashHistory();
 
@@ -151,6 +152,11 @@ ReactDom.render(
           name="About"
           path="/about"
           component={About}
+        />
+        <Route
+          name="BubblePop"
+          path="/bubblepop"
+          component={BubblePop}
         />
         <Redirect path="*" to="/home" />
       </Switch>
