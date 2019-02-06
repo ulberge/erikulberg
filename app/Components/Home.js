@@ -10,7 +10,7 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <Tile title="My Two Other Faces" year="2019" subtitle="Face Recognition + P5.js" img="./imgs/home/mytwootherfaces_still.jpg" gif="./imgs/home/mytwootherfaces.gif" absoluteLink="/projects/MyTwoOtherFaces/" styleName="col-md-4" />
+          <Tile title="My Two Other Faces" year="2019" subtitle="Face Recognition + P5.js" img="./imgs/home/mytwootherfaces_still.gif" gif="./imgs/home/mytwootherfaces.gif" absoluteLink="/projects/MyTwoOtherFaces/" styleName="col-md-4" />
           <Tile title="Bubble Pop" year="2019" subtitle="Interaction + 2D Physics" img="./imgs/home/bubblepop_first.gif" gif="./imgs/home/bubblepop.gif" absoluteLink="/projects/bubblePop/" styleName="col-md-4" />
           <Tile title="JSON-aided Design" year="2018" subtitle="Scripting + CAD" img="./imgs/home/script_sketch_first.gif" gif="./imgs/home/script_sketch_rollover.gif" link="/#/sketch" styleName="col-md-4" />
         </div>
