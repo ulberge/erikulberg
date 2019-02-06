@@ -3,6 +3,11 @@
 
 // Modified by: Erik Ulberg
 
+// Add hack redirect for now
+if (location.protocol !== 'https:' && !window.location.href.includes('localhost')) {
+  window.location = window.location.href.replace('http', 'https');
+}
+
 let capture;
 let tracker;
 const w = 800;
