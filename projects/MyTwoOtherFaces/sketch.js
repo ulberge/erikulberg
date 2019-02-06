@@ -31,6 +31,7 @@ let adjustAngle = 0;
 let adjustScale = 1;
 
 function setup() {
+  console.log('setup');
   capture = createCapture({
     audio: false,
     video: {
@@ -78,6 +79,7 @@ function draw() {
         // all left
         const leftMask = getMask(meshPointsLeftFace, positions);
         toFilter.mask(leftMask);
+        leftMask.remove();
 
         push();
         translate(faceCenter[0], faceCenter[1]);
@@ -91,6 +93,7 @@ function draw() {
         // all right
         const rightMask = getMask(meshPointsRightFace, positions);
         toFilter.mask(rightMask);
+        rightMask.remove();
 
         push();
         translate(faceCenter[0], faceCenter[1]);
@@ -124,7 +127,6 @@ function drawThumbnail(positions, thumbScale=0.25) {
 
 function getMask(indexes, positions) {
   const pg = createGraphics(w, h);
-
   pg.background(255, 255, 255, 0);
   pg.fill(25, 25, 25, 255);
   pg.noStroke();
