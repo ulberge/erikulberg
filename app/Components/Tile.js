@@ -7,26 +7,44 @@ import RolloverImage from './RolloverImage.js';
 
 export default class extends Component {
   render() {
-    const absoluteLink = '/#' + this.props.link;
+    const { alt, img, gif, absoluteLink, link, year, subtitle, title, styleName } = this.props;
 
-    const { alt, img, gif } = this.props;
+    if (absoluteLink) {
+      return (
+        <div className={classnames(className, styleName)}>
+          <div>
+            <a href={absoluteLink}>
+              <RolloverImage img={img} gif={gif} alt={alt} />
+            </a>
+          </div>
+          <div className="tileBottom">
+            <h3>
+              <a href={absoluteLink}>{title}</a>
+              <small>{year}</small>
+            </h3>
+            <span>{subtitle}</span>
+          </div>
+        </div>
+      )
+    }
+
     return (
-        <div className={classnames(className, this.props.styleName)}>
+        <div className={classnames(className, styleName)}>
             <div>
-              <LinkContainer to={{ pathname: this.props.link }}>
-              <a href={absoluteLink}>
+              <LinkContainer to={{ pathname: link }}>
+              <a href={'/#' + link}>
                 <RolloverImage img={img} gif={gif} alt={alt} />
               </a>
               </LinkContainer>
             </div>
             <div className="tileBottom">
               <h3>
-                <LinkContainer to={{ pathname: this.props.link }}>
-                  <a href={absoluteLink}>{this.props.title}</a>
+                <LinkContainer to={{ pathname: link }}>
+                  <a href={'/#' + link}>{title}</a>
                 </LinkContainer>
-                <small>{this.props.year}</small>
+                <small>{year}</small>
               </h3>
-              <span>{this.props.subtitle}</span>
+              <span>{subtitle}</span>
             </div>
         </div>
     );
