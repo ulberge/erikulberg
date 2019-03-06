@@ -31,6 +31,7 @@ import TwoByFour from './Components/sketch/TwoByFour';
 import Sketch from './Components/Sketch';
 import About from './Components/About';
 import BubblePop from './Components/Projects/BubblePop';
+import CollageMaker from './Components/CollageMaker';
 
 const history = createHashHistory();
 
@@ -157,6 +158,11 @@ ReactDom.render(
           name="BubblePop"
           path="/bubblepop"
           component={BubblePop}
+        />
+        <Route
+          name="CollageMaker"
+          path="/collageMaker"
+          component={CollageMaker}
         />
         <Redirect path="*" to="/home" />
       </Switch>
