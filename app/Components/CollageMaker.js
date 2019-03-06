@@ -18,7 +18,7 @@ export default class CollageMaker extends Component {
               <p><b>Description</b>: The Wood Grain Collage Maker is a web-based tool (built with ReactJS, Fabric.js, and P5.js) for planning a collage using the grain in a piece of wood and a sketch. It allows users to drag, rotate, and scale selections and placements of wood to construct a collage. Once finished, the user can export the cut and layout files to make the collage IRL. </p>
               <p><b>Technologies</b>: ReactJS, Fabric.js, P5.js</p>
               <div style={{ margin: '20px 0' }}>
-                <a href="/projects/CollageMaker/index.html" target="_blank" className="btn btn-info">Full Screen Version <FontAwesome name="external-link" /></a>
+                <a href="/projects/collageMaker/index.html" target="_blank" className="btn btn-info">Full Screen Version <FontAwesome name="external-link" /></a>
               </div>
               <img src={"./imgs/stills/collage/scrn.jpg"}/>
               <p>Example collages</p>
