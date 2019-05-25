@@ -32,7 +32,6 @@ import Sketch from './Components/Sketch';
 import About from './Components/About';
 import BubblePop from './Components/Projects/BubblePop';
 import CollageMaker from './Components/CollageMaker';
-import Thesis from './Components/Thesis';
 import MLDraw from './Components/MLDraw';
 
 const history = createHashHistory();
@@ -165,11 +164,6 @@ ReactDom.render(
           name="CollageMaker"
           path="/collageMaker"
           component={CollageMaker}
-        />
-        <Route
-          name="Thesis"
-          path="/thesis"
-          component={Thesis}
         />
         <Route
           name="MLDraw"
