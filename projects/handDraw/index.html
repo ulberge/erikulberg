@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Experimental Archeology of CAD</title>
+    <meta name="description" content="A cool CAD recreation made with Glitch">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="p5.min.js"></script>
+    <script src="Vec2.js"></script>
+    <script src="AARON.js"></script>
+    <script src="RobotDrawer.js"></script>
+    <script src="index.js"></script>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body onload="init()">
+    <div class="container">
+      <h3>The Hand-Drawn Effect in AARON by Harold Cohen</h3>
+
+      <main>
+        <div class="row" style="position: relative;"">
+          <!-- This is the area where graphics are rendered -->
+          <div id="graphicsArea" class="" style="height: 402px; width: 602px; border: 1px solid #111;"></div>
+          <div id="debugArea" class="" style="height: 402px; width: 602px; position: absolute; top: 0; border: 1px solid #111;"></div>
+        </div>
+        <div style="margin: 20px;">
+          <button type="button" id="run">Restart</button>
+          <button type="button" id="toggleDebug">Toggle Debug</button>
+        </div>
+        <div>
+          <p>
+            This is a recreation of part of Harold Cohen’s painting machine AARON.
+          </p>
+          <p>AARON is a seminal project in the field of AI Art that was started in the early 1970’s. Harold Cohen worked on it until his death in 2016, but the code still exists. So, you could say the project is ongoing.</p>
+          <p>
+            This system is one of the few examples of computational art where I like the aesthetic outcome. For the purposes of this project, I focused on the hand-drawn effect. I felt that this was a crucial aspect to unpack because it is central to the aesthetic quality of AARON’s images. Cohen felt that human drawings are interesting mainly because they were made by humans. To make machine drawings interesting, they would have to be produced in a similar manner (Cohen, Harold. 1976. The Material of Symbols.). This examines a central question to the fields of AI and computational creativity: can machines make art?
+          </p>
+          <div>
+            <img src="handdraw.png" />
+            <img src="robot.png" />
+            <img src="color.png" />
+            <img src="control.png" />
+          </div>
+          <p>
+            Here, I focused on AARON’s dynamic feedback model. According to Cohen, “Right from the beginning, the program’s drawing mode was meant as a kind of dynamic model of freehand drawing, so that everything was run in feedback mode. There were no spline curves, no pre-planning of any of the lines it drew” (McCorduck, Pamela. 1991. Aaron’s Code: Meta-Art, Artificial Intelligence, and the Work of Harold Cohen.). I decided to specifically focus on the hand-drawn effect, because it is the simplest and most fundamental form embodying Cohen’s approach. There are feedback loops at every level of the program down to the bottom, where we have movement control. The lowest level of the system is the logical place to start development.
+          </p>
+          <p>
+            AARON’s drawings were executed in simulations of a robot or by an actual robot. Either way, the program navigated by controlling the speeds of two wheels. By controlling their ratio, the robot can draw arcs of different shapes. The distance they travel before readjusting their speeds determines how accurate they are. Cohen also added an element of randomness to imitate “arthritic joints” . At the line level, the robot knows where it is and what direction it is facing. It also knows where it wants to end up and at what direction. It determines a series of signposts along the way. As the robot gets far enough along towards a signpost, it moves on to the next signpost.
+          </p>
+        </div>
+      </main>
+
+      <footer>
+        <h3>Produced for CMU 48-749 - Experimental Archaeologies of CAD</h3>
+      </footer>
+    </div>
+  </body>
+</html>
