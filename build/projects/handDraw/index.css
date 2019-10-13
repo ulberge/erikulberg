@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Andale Mono, "Courier New", Courier, monospace;
+  margin: 0.5em;
+  font-weight: bold;
+  background: #FFF;
+  color: #000;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+.container {
+  margin: 50px 100px;
+}
+
+img {
+  height: 220px;
+}
