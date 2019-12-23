@@ -2,7 +2,11 @@ window.PVector = window.Vec2;
 
 /* global document */
 
-let debug = true;
+let debug = false;
+let state = {
+  p: null,
+  pDebug: null
+};
 
 function run() {
   let debugGraphics;
@@ -20,7 +24,7 @@ function run() {
       aaron.drawPicture();
     };
   }
-  new p5(sketch, document.getElementById('graphicsArea'));
+  state.p = new p5(sketch, document.getElementById('graphicsArea'));
 
   function debugSketch(p) {
     p.setup = function setup() {
@@ -33,7 +37,7 @@ function run() {
       }
     };
   }
-  new p5(debugSketch, document.getElementById('debugArea'));
+  state.pDebug = new p5(debugSketch, document.getElementById('debugArea'));
 }
 
 function init() {
@@ -48,11 +52,16 @@ function init() {
   };
 
   document.getElementById('run').onclick = () => {
+    if (state.p) {
+      state.p.remove();
+    }
+    if (state.pDebug) {
+      state.pDebug.remove();
+    }
+
     document.getElementById('graphicsArea').innerHTML = '';
     document.getElementById('debugArea').innerHTML = '';
-    setTimeout(() => {
-      run();
-    }, 15000);
+    run();
   };
 
   run();

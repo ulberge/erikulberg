@@ -33,6 +33,7 @@ import About from './Components/About';
 import BubblePop from './Components/Projects/BubblePop';
 import CollageMaker from './Components/CollageMaker';
 import MLDraw from './Components/MLDraw';
+import SketchRepeat from './Components/SketchRepeat';
 
 const history = createHashHistory();
 
@@ -169,6 +170,11 @@ ReactDom.render(
           name="MLDraw"
           path="/conversationwithamachine"
           component={MLDraw}
+        />
+        <Route
+          name="SketchRepeat"
+          path="/sketchrepeater"
+          component={SketchRepeat}
         />
         <Redirect path="*" to="/home" />
       </Switch>
