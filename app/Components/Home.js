@@ -10,7 +10,7 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <Tile title="Sketch Repeater" year="2019" subtitle="Line Drawing + ML (JS, Python)" img="./imgs/home/sketchrepeat_first.gif" gif="./imgs/home/sketchrepeat.gif" link="/sketchrepeater" styleName="col-md-4" />
+          <Tile title="Sketch Repeater" year="2019" subtitle="Line Drawing + ML (Python, JS)" img="./imgs/home/sketchrepeat_first.gif" gif="./imgs/home/sketchrepeat.gif" link="/sketchrepeater" styleName="col-md-4" />
           <Tile title="Visual Concepts in Sketch-A-Net" year="2019" subtitle="Line Drawing + ML Interpretability (JS)" img="./imgs/home/visualconcepts_first.gif" gif="./imgs/home/visualconcepts.gif" absoluteLink="https://github.com/ulberge/SketchANetClustering" styleName="col-md-4" />
           <Tile title="Hand Drawn Effect in AARON" year="2019" subtitle="Line Drawing + Expert AI (JS)" img="./imgs/home/aaron_first.gif" gif="./imgs/home/aaron.gif" absoluteLink="/projects/handDraw/" styleName="col-md-4" />
         </div>

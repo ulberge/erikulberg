@@ -41,7 +41,7 @@ export default class SketchRepeat extends Component {
             <h3 className="text-center">How it works</h3>
             <hr/>
             <p>When a user makes a mark, the system records the mark, the state of the canvas at its location before the mark, and the state after the mark. The before state is matched to other areas in the current canvas and the mark is matched to a corpus of chopped up human sketches (from the <a href="http://cybertron.cg.tu-berlin.de/eitz/projects/classifysketch/">TU Berlin dataset</a> and the <a href="https://quickdraw.withgoogle.com/data">Google "Quick, Draw" dataset</a>). These matches are used to generate suggestions which are compared to the after state. The best suggestions are sent back and displayed.</p>
-            <p>Matching happens at different levels of abstraction by matching activations at different layers of a pre-trained Sketch-A-Net convolutional neural network. </p>
+            <p>Matching happens at different levels of abstraction by matching activations at different layers of a pre-trained <a href="http://sketchx.eecs.qmul.ac.uk/downloads/">Sketch-A-Net</a>"model_without_order_info_224.matmodel_without_order_info_224.mat" convolutional neural network. </p>
             <div className="imgContainer" className="text-center">
               <img src={"./imgs/stills/ballontri.png"} style={{ maxHeight: '350px', width: 'auto', maxWidth: '100%' }}/>
             </div>
