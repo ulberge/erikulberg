@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
-import Gallery from './Gallery';
+import Tile from './Tile';
 
-import { className } from './Art.less';
-
-const images = [
-  { src: './imgs/seadragon_midsize.jpg', zoom: './imgs/zoom/seadragon.jpg' },
-  { src: './imgs/port.jpg', zoom: './imgs/zoom/port.jpg' },
-  { src: './imgs/waterfall.jpg', zoom: './imgs/zoom/waterfall.jpg' },
-  { src: './imgs/ballpark.jpg', zoom: './imgs/zoom/ballpark.jpg' },
-  { src: './imgs/chickens.jpg', zoom: './imgs/zoom/chickens.jpg' },
-  { src: './imgs/carl_cigar.jpg', zoom: './imgs/zoom/carl_cigar.jpg' },
-  { src: './imgs/cubanfeast.jpg', zoom: './imgs/zoom/cubanfeast.jpg' },
-  { src: './imgs/falltrees.jpg', zoom: './imgs/zoom/falltrees.jpg' },
-  { src: './imgs/dolores_park.jpg', zoom: './imgs/zoom/dolores_park.jpg' }
-];
+import { className } from './Home.less';
 
 export default class extends Component {
   render() {
     return (
-        <div className={classnames(className, 'container')}>
-          <div className="row">
-            <h2 className="text-center col-md-6 col-md-offset-3">
-              Painting
-            </h2>
-          </div>
-          <Gallery images={images}/>
+      <div className={classnames(className, 'container')}>
+        <div className="homeLink" className="row">
+          <Tile title="Painting" subtitle="Works in Watercolor, Gouche, Mixed Media" img="./imgs/zoom/vashon2_icon.jpg" link="/watercolor" styleName="col-md-4" />
+          <Tile title="Sculpture" subtitle="Works in Clay and Plaster" img="./imgs/zoom/reliefmeandcarl_icon.jpg" link="/sculpture" styleName="col-md-4" />
+          <Tile title="Painting" subtitle="Works in Oil" img="./imgs/zoom/chickens_icon.jpg" link="/oil" styleName="col-md-4" />
         </div>
+        <div className="homeLink" className="row">
+          <Tile title="Kubota Gardens" year="2017" subtitle="Plaster Relief Sculpture" img="./imgs/kubota.jpg" gif="./imgs/home/kubota_rollover.gif" link="/kubota" styleName="col-md-4" />
+          <Tile title="Study of Gloria" year="2016" subtitle="Life-Size Clay Sculpture" img="./imgs/home/gloria_first.gif" gif="./imgs/home/gloria_rollover.gif" link="/gloria" styleName="col-md-4" />
+          <Tile title="Sea Dragon Mural" year="2015" subtitle="Watercolor Illustration" img="./imgs/seadragon.jpg" link="/seadragon" styleName="col-md-4" />
+        </div>
+      </div>
     );
   }
 }

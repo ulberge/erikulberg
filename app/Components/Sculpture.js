@@ -10,7 +10,6 @@ const images = [
   { src: './imgs/reliefmeandcarl.jpg', zoom: './imgs/zoom/reliefmeandcarl.jpg' },
   { src: './imgs/gloria.jpg', zoom: './imgs/gloria.jpg' },
   { src: './imgs/7.jpg', zoom: './imgs/7.jpg' },
-  { src: './imgs/5.jpg', zoom: './imgs/5.jpg' },
   { src: './imgs/9.jpg', zoom: './imgs/9.jpg' }
 ];
 

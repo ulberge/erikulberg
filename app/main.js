@@ -11,6 +11,8 @@ import Home from './Components/Home';
 import Contact from './Components/Contact';
 import CV from './Components/CV';
 import Art from './Components/Art';
+import Watercolor from './Components/Watercolor';
+import Oil from './Components/Oil';
 import SculptureVideo from './Components/SculptureVideo';
 import Sculpture from './Components/Sculpture';
 import Studyokee from './Components/Studyokee';
@@ -34,6 +36,7 @@ import BubblePop from './Components/Projects/BubblePop';
 import CollageMaker from './Components/CollageMaker';
 import MLDraw from './Components/MLDraw';
 import SketchRepeat from './Components/SketchRepeat';
+import Thesis from './Components/Thesis';
 
 const history = createHashHistory();
 
@@ -47,9 +50,19 @@ ReactDom.render(
           component={Home}
         />
         <Route
-          name="Paintings"
-          path="/paintings"
+          name="Art"
+          path="/art"
           component={Art}
+        />
+        <Route
+          name="Oil"
+          path="/oil"
+          component={Oil}
+        />
+        <Route
+          name="Watercolor"
+          path="/watercolor"
+          component={Watercolor}
         />
         <Route
           name="Resume"
@@ -175,6 +188,11 @@ ReactDom.render(
           name="SketchRepeat"
           path="/sketchrepeater"
           component={SketchRepeat}
+        />
+        <Route
+          name="Thesis"
+          path="/thesis"
+          component={Thesis}
         />
         <Redirect path="*" to="/home" />
       </Switch>

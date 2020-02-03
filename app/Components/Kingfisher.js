@@ -25,7 +25,7 @@ module.exports = React.createClass({
       'processing/kingfisher/bird.pde',
       'processing/kingfisher/hawk.pde',
       'processing/kingfisher/button.pde'
-    ];
+    ].map(src => 'projects/' + src);
     const that = this;
     window.Processing.loadSketchFromSources('kingfisher', sources, function onLoad() {
       const canvas = document.getElementById('kingfisher');
