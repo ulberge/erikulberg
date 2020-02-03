@@ -18,7 +18,7 @@ float BUBBLE_RATE = 0.001;
 
 // Number of draw frames per second
 float FRAME_RATE = 50;
-float STROKE_WEIGHT = 2;
+float STROKE_WEIGHT = 1;
 color STROKE_COLOR = #343333;
 
 float SHARK_CAPTURE_DISTANCE = 10;
@@ -69,10 +69,10 @@ ArrayList<Bubble> BUBBLES;
 void setup() {
   size(1000, 600);
   FONT = createFont("Helvetica",16,true);
-  
+
   frameRate(FRAME_RATE);
   ADJUSTED_SPEED = 60.0/frameRate;
-  
+
   setupButtons();
   init();
 }
@@ -86,7 +86,7 @@ void setSize(int newWidth, int newHeight) {
 void setParams(int fish, int sharks, int hawks, float bubbleRate) {
   TARGET_FISH_POPULATION = fish;
   STARTING_SHARKS = sharks;
-  STARTING_HAWKS = hawks;  
+  STARTING_HAWKS = hawks;
   BUBBLE_RATE = bubbleRate;
   setupButtons();
   init();
@@ -98,17 +98,17 @@ void draw() {
   stroke(STROKE_COLOR);
   pushMatrix();
   scale(width/DEFAULT_GAME_WIDTH, height/DEFAULT_GAME_HEIGHT);
-  
+
   runGame();
-  
+
   runButtons();
-  
+
   if (STATE == "START") {
     renderStartMenu();
   } else if (STATE == "GAME_OVER") {
     renderGameOver();
   }
-  
+
   popMatrix();
 }
 
@@ -133,12 +133,12 @@ void keyPressed() {
   if (STATE == "START" && (keyCode == RETURN || keyCode == ENTER)) {
     STATE = "RUNNING";
     PAUSED = false;
-  } 
+  }
   if (STATE == "GAME_OVER" && (keyCode == RETURN || keyCode == ENTER)) {
     STATE = "RUNNING";
     init();
     PAUSED = false;
-  } 
+  }
 }
 
 void updateButtons() {
@@ -153,7 +153,7 @@ void updateButtons() {
 }
 
 void setMouseState(String state) {
-  MOUSE_STATE = state;  
+  MOUSE_STATE = state;
 }
 
 void mouseClicked() {
@@ -165,7 +165,7 @@ void mouseClicked() {
       STATE = "RUNNING";
       init();
       PAUSED = false;
-    } 
+    }
   }
 }
 
@@ -187,7 +187,7 @@ void init() {
   MAX_TIME = INIT_TIME;
   SHARK_TIMER = 0;
   HAWK_TIMER = 0;
-  
+
   background = new Background(WATER_LEVEL);
   fishes = new Flock(FISH_COLOR);
   sharks = new Flock(SHARK_COLOR);
@@ -197,7 +197,7 @@ void init() {
   for (int i = 0; i < TARGET_FISH_POPULATION; i++) {
     addFish();
   }
-  
+
   bird = new Bird(DEFAULT_GAME_WIDTH/10, DEFAULT_GAME_HEIGHT/10, fishes.boids);
 
   for (int i = 0; i < STARTING_SHARKS; i++) {
@@ -224,15 +224,15 @@ void renderMenu(String menuTitle, String menuText) {
   rect(280, 150, 440, 300);
   textSize(16);
   textAlign(CENTER, CENTER);
-  
+
   fill(255);
   textFont(FONT, 30);
   text(menuTitle, DEFAULT_GAME_WIDTH/2, (DEFAULT_GAME_HEIGHT/2)-rectHeight*0.31);
   textFont(FONT, 18);
   text(menuText, DEFAULT_GAME_WIDTH/2, (DEFAULT_GAME_HEIGHT/2)+rectHeight*0.12);
-  
+
   strokeWeight(STROKE_WEIGHT);
-  
+
   Bird dummyBird = new Bird(0,0,null);
   pushMatrix();
   translate((DEFAULT_GAME_WIDTH/2)-150, (DEFAULT_GAME_HEIGHT/2)-rectHeight*0.31);
@@ -240,7 +240,7 @@ void renderMenu(String menuTitle, String menuText) {
   scale(1.3);
   dummyBird.render();
   popMatrix();
-  
+
   Fish dummyFish = new Fish(0,0,null);
   dummyFish.r = 14;
   pushMatrix();
@@ -252,22 +252,22 @@ void renderMenu(String menuTitle, String menuText) {
   popMatrix();
   popMatrix();
 }
-  
+
 void runGame() {
   if (!PAUSED) {
     ADJUSTED_SPEED = 60.0/frameRate;
     runKeyboard();
-    
+
     MAX_TIME -= MAX_TIME_DECREASE_RATE/frameRate;
     runSpawn();
-    
+
     TIMER -= 1.0/frameRate;
     if (TIMER <= 0 || bird.capturer != null) {
       STATE = "GAME_OVER";
       PAUSED = true;
     }
   }
-  
+
   background.render();
   renderInfo();
   runBoids();
@@ -293,7 +293,7 @@ void runBoids() {
   fishes.run();
   sharks.run();
   hawks.run();
-  
+
   if (bird.capturer == null) {
     bird.run();
   }
@@ -323,13 +323,13 @@ void runSpawn() {
   if (random(1) < fishProbability) {
     addFish();
   }
-  
+
   if (SHARK_TIMER > SHARK_RATE && !bird.isInWater()) {
     addShark();
     SHARK_TIMER -= SHARK_RATE;
   }
   SHARK_TIMER += 1.0/frameRate;
-  
+
   if (HAWK_TIMER > HAWK_RATE && bird.isInWater()) {
     addHawk();
     HAWK_TIMER -= HAWK_RATE;
@@ -342,7 +342,7 @@ float getWaterLevel() {
 }
 
 PVector getNestLocation() {
-  return background.getNestLocation();  
+  return background.getNestLocation();
 }
 
 void depositFish(int fishCount) {
@@ -359,23 +359,23 @@ void renderInfo() {
   renderTimer();
   translate(DEFAULT_GAME_WIDTH*0.115, 0);
   renderScore();
-  popMatrix(); 
+  popMatrix();
 }
 
 void renderTimer() {
   float clockSize = 16;
   float barWidth = 60;
   float barHeight = 10;
-  
+
   fill(255);
-  
+
   pushMatrix();
   translate(0,(clockSize*0.0625)+barHeight/2);
   ellipse(0,0,clockSize,clockSize);
   ellipse(0,-clockSize*0.625,clockSize*0.375,clockSize*0.125);
   line(0,0,clockSize*0.25,-clockSize*0.1875);
   popMatrix();
-  
+
   pushMatrix();
   translate(clockSize,0);
   fill(255);
@@ -389,7 +389,7 @@ void renderTimer() {
 
 void renderScore() {
   float barHeight = 10;
-  
+
   Fish dummyFish = new Fish(0,0,null);
   dummyFish.r = 14;
   pushMatrix();
@@ -397,15 +397,15 @@ void renderScore() {
   fill(FISH_COLOR);
   dummyFish.render();
   popMatrix();
-  
+
   pushMatrix();
   translate(dummyFish.r,-6);
-  
+
   pushMatrix();
   fill(60);
   rect(0,0,34,24);
   popMatrix();
-  
+
   pushMatrix();
   translate(17,12);
   fill(255);
@@ -414,6 +414,6 @@ void renderScore() {
   textAlign(CENTER, CENTER);
   text(FISH_CAPTURED, 0, 0);
   popMatrix();
-  
+
   popMatrix();
 }
