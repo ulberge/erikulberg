@@ -46,7 +46,7 @@ export default function Thesis() {
             <p><b>Description</b>:</p>
             <p>This thesis presents a series of web tools for directly crafting the weights of convolutional neural networks (CNNs) to make line drawings. The goal is to make art and to better understand how CNNs encode visual concepts.</p>
             <p><b>Technologies</b>: TensorFlow.js, ReactJS</p>
-            <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network/">https://ulberge.github.io/interactive-network/</a></p>
+            <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network">https://ulberge.github.io/interactive-network/</a></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network">github.com/ulberge/interactive-network</a></p>
             <p><b>Abstract</b>:</p>
             <p>Recent advances in generative techniques using convolutional neural networks (CNNs), such as GANs and convolutional autoencoders, have enabled data-driven approaches for creating <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)">visual art</a>. However, the representations contained within these deep networks are not well understood and thus creative control is limited to trial and error. In order to further explore the aesthetic potential of CNNs we need to master the basic process of abstraction that occurs within them. This thesis presents an approach to manually crafting and debugging the internal weights of a CNN that recognizes line drawings. It demonstrates a tool and documents a set of recipes for encoding abstract visual concepts.</p>
