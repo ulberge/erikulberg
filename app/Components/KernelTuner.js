@@ -117,8 +117,9 @@ export default function KernelTuner() {
         <hr/>
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
-            <h3 className="text-center">About</h3>
-            <p>The first step to crafting the weights of a CNN is to make the kernels of the first layer. Typically, we leave it to the machine to infer the weights of the kernels from training data. This thesis attempts to generate the kernels parametrically. Previous research has shown that the first layer of a line drawing CNN ended up with kernels resembling Gabor filters {cite(6)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach.</p>
+            <h3 className="text-center">Background</h3>
+            <h4>Why not do it ourselves?</h4>
+            <p>The first step to crafting the weights of a CNN is to make the kernels of the first layer. Typically, we leave it to the machine to infer the weights from training data. This thesis generates the kernels parametrically. Previous research has shown that the first layer of a line drawing CNN ended up with kernels resembling Gabor filters {cite(6)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach. If we know what we want the result to be, why not do it ourselves?</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -134,13 +135,13 @@ export default function KernelTuner() {
               </div>
             </div>
 
-            <p>One concern with generating the first layer ourselves is that we could easily miss features that the machine finds useful for classification. Patterns spread across vast troves of data are easier to detect for computers cranking out billions of calculations per second than for a human. If we let the machine shape the kernels through training, we hope that the algorithm covers its bases.</p>
+            <p>One concern with generating the first layer ourselves is that we could easily miss features that the machine finds useful for classification. Patterns spread across vast troves of data can be easier to detect for computers cranking out billions of calculations per second than for a human. If we let the machine shape the kernels through training, it can hopefully cover its own needs.</p>
 
-            <p>But what if the algorithm is not perfect? This could be a problem because humans have difficulty evaluating what machine learning algorithms produce. The neural networks they use as representations are not well understood. We tolerate this lack of interpretability because we assume that their mystery is a result of them understanding concepts that we cannot grasp.</p>
+            <p>But what if machine learning algorithms are not perfect at discovering those needs? This could be a problem because humans have difficulty evaluating the kernels inside neural networks. When something goes wrong, we struggle to accurately diagnose it. As a form of representation, neural networks are not well understood past one or two layers deep. We tolerate this lack of interpretability because we assume that their mystery is a result of networks understanding concepts that we cannot grasp. Thus there is a commonly held belief that the machine knows best and that a tradeoff must be made between accuracy and interpretability.</p>
 
-            <p>However, the commonly held belief that the machine knows best and that a tradeoff must be made between accuracy and interpretability rests on shaky ground. Some critics argue that the default use of 'black box' networks emerged from industries focused on low stakes decisions (i.e. serving ads) {cite(9)}. These networks are not necessarily appropriate or useful in other situations such as determining parole or giving bank loans. They also seem inappropriate for artists seeking creative control. Allowing the training process to shape the kernels avoids the risk of losing valuable information by doing it ourselves. But there are benefits to exercising human control.</p>
+            <p>However, this belief rests on shaky ground. Some critics argue that the default use of 'black box' networks emerged from industries focused on low stakes decisions such as serving ads {cite(9)}. These networks are not necessarily appropriate for determining parole or credit scores. They also seem inappropriate for artists seeking creative control. One must understand a material to mold it. Allowing the training process to shape the kernels avoids some risk, but there are benefits to exercising human control.</p>
 
-            <p>The Kernel Tuner creates kernels that are evenly distributed and human-comprehensible. The Gabor-like filters that emerged in Sketch-A-Net are messy. They are often offset or incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly distributed by angle and correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
+            <p>The Kernel Tuner creates kernels that are well distributed and human-comprehensible. The Gabor-like filters that emerged in the first layer of Sketch-A-Net are messy. They are offset and incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly spaced by angle and that correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -157,15 +158,10 @@ export default function KernelTuner() {
             </div>
 
             <p>The goal of the Kernel Tuner is to replace the machine-trained kernels in the first layer of a CNN. The kernels can be exported from the tool and inserted as fixed, pretrained weights in a CNN. By crafting them ourselves, we can ensure their even distribution and match them to human-comprehensible visual concepts.</p>
-          </div>
-        </div>
-        <hr/>
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <h3 className="text-center">Background</h3>
+
             <h4>Abstraction through Convolution</h4>
 
-            <p>The Kernel Tuner produces kernels that translate an image from pixel values to higher order features. It does this through a process called <i>convolution</i> in which the kernels are applied as sliding windows across an image. After these kernels are applied, each pixel location is given a more meaningful name like “vertical line” or “T-intersection at 45 degrees.” In reality, they are being given values corresponding to each name, but we can think of the channel with the highest value as the location's assigned name.</p>
+            <p>The Kernel Tuner produces kernels that translate an image from pixel values to higher order features. It does this through a process called <i>convolution</i> in which the kernels are applied as a sliding window across an image. After these kernels are convolved, each pixel location is given more meaningful names like “vertical line” or “corner facing down and right.” By pulling out this information, we can interact with the canvas at a higher level of abstraction.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -190,9 +186,9 @@ export default function KernelTuner() {
               </div>
             </div>
 
-            <p>By pulling out this information, we can interact with the canvas at a higher level of abstraction. CNNs use this process to classify images as abstract entities. The prevailing wisdom is that each layer of a network produces a higher order of information than the previous layer {cite(5)}. This may or may not be the case, but it is at least a useful starting point for thinking about how networks learn {cite(4)}.</p>
+            <p>CNNs use convolution to classify images as abstract entities. The prevailing wisdom is that each layer of a network produces a higher order of information than the previous layer {cite(5)}. This may or may not be the case, but it is at least a useful starting point for thinking about how networks learn {cite(4)}.</p>
 
-            <p>At the first layer, filters function as templates. They can have some tolerance, but they match a narrow range of pixel arrangements. After multiple layers the filters no longer correspond to templates. The network can match a visual object at different scales, rotations, or individual expressions (to some extent). It should be noted that if something can be matched with a template, it requires only one layer of convolution. If an object is abstract (i.e. it can take a variety of forms), then the network must flexibly encode the visual concept through multiple layers.</p>
+            <p>At the first layer, kernels function as templates. They can have some tolerance, but they match a narrow range of pixel arrangements. After multiple layers the kernels no longer correspond to templates. The network can match a visual object at different scales, rotations, or individual expressions (to some extent). It should be noted that if something can be matched with a template, it requires only one layer of convolution. If an object is abstract (i.e. it can take a variety of forms), then the network must flexibly encode the visual concept through multiple layers.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -210,7 +206,7 @@ export default function KernelTuner() {
 
             <h4>Construction of kernels</h4>
 
-            <p>The patterns for the kernels produced by this tool are inspired by Gabor filters. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection). A study by Jones and Palmer demonstrated that 2D Gabor filters provide similar performance to the simple receptive fields in a mammalian visual cortex {cite(1)}. As further demonstration of their representational capacity, Sketch-A-Net (a state-of-the-art line drawing CNN) learned filters that looked similar to Gabor filters {cite(6)}.</p>
+            <p>The patterns for the kernels produced by the Kernel Tuner are inspired by Gabor filters. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection). A study by Jones and Palmer demonstrated that 2D Gabor filters provide similar performance to the simple receptive fields in a mammalian visual cortex {cite(1)}. As further demonstration of their representational capacity, Sketch-A-Net (a state-of-the-art line drawing CNN) learned filters that looked similar to Gabor filters {cite(6)}.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -232,7 +228,7 @@ export default function KernelTuner() {
 
             <p>Typically, Gabor filters are applied at various sizes. This tool is designed to work with line drawings of a consistent stroke width and therefore provides a single size. In addition, this tool produces filters with three ridges (one positive, flanked by two negative). Gabor filters have multiple ridges to match textures in addition to lines. For simplicity's sake, this project ignores textures and focuses on detecting line features.</p>
 
-            <p>The other important difference between the output of the Kernel Tuner and Gabor filters is the range of features matched. Instead of being limited to lines of different orientations, the kernels produced can match a range of feature types. Normally, networks take their time to build up these representations. In an investigation of representations within Sketch-a-Net, I found that the first layer matched line orientations and layers two through four haphazardly refined features such as corners, rounded corners, dots, curves, and a variety of textures {cite(8)}.</p>
+            <p>The other important difference between the output of the Kernel Tuner and Gabor filters is the range of features matched. Instead of being limited to lines of different orientations, the kernels produced by this tool can match a range of feature types. Normally, networks take their time to build up these representations. In an investigation of representations within Sketch-a-Net, I found that the first layer matched line orientations and layers two through four haphazardly refined features such as corners, rounded corners, dots, curves, and a variety of textures {cite(8)}.</p>
 
 
             <div style={imgSectionStyle}>
@@ -253,7 +249,7 @@ export default function KernelTuner() {
               </div>
             </div>
 
-            <p>The kernel types were chosen to span the range of possibilities from one, two, or three lines passing through the center of the kernel. Typically, CNNs develop kernels matching lines that do not pass their center as well. I chose to exclude these offset filters to reduce the size of the network. The goal of the Kernel Tuner is to efficiently extract the most salient, “template”-like information available. The layers built on top of these kernels can derive any further insight necessary.</p>
+            <p>The kernel types chosen span the range of possibilities from one, two, or three lines passing through the center of the kernel. In Sketch-A-Net, there are kernels matching lines that do not pass through their center as well. I chose to exclude these offset filters to reduce the size of the network. The goal of the Kernel Tuner is to efficiently extract the most salient, “template”-like information available. The layers built on top of these kernels can derive any further insight necessary.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -269,7 +265,6 @@ export default function KernelTuner() {
                 <small>(1) The one, two, and three line constructions considered. (2) Each kernel is a Frankenstein of Gabor filters corresponding to the lines involved. The ‘L’ corner is made by stitching together two Gabor filters at an angle.</small>
               </div>
             </div>
-
 
             <h4>Example usage</h4>
             <p>How is the kernel tuner used?</p>

@@ -10,7 +10,7 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <Tile title="Crafting the Weights of a CNN" year="2020" subtitle="Line Drawing + CNN (ReactJS)" img="./imgs/thesis/boxes/gif/boxes_first.gif" gif="./imgs/thesis/boxes/gif/boxes.gif" link="/kerneltuner" styleName="col-md-4" />
+          <Tile title="Crafting the Weights of a CNN" year="2020" subtitle="Line Drawing + CNN (ReactJS)" img="./imgs/thesis/boxes/gif/boxes_first.gif" gif="./imgs/thesis/boxes/gif/boxes.gif" link="/thesis" styleName="col-md-4" />
           <Tile title="Sketch Repeater" year="2019" subtitle="Line Drawing + ML (Python, JS)" img="./imgs/home/sketchrepeat_first.gif" gif="./imgs/home/sketchrepeat.gif" link="/sketchrepeater" styleName="col-md-4" />
           <Tile title="Visual Concepts in Sketch-A-Net" year="2019" subtitle="Line Drawing + ML Interpretability (JS)" img="./imgs/home/visualconcepts_first.gif" gif="./imgs/home/visualconcepts.gif" absoluteLink="https://github.com/ulberge/SketchANetClustering" styleName="col-md-4" />
         </div>
