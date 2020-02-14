@@ -94,8 +94,7 @@ export default function KernelTuner() {
         <div className="row">
           <div className="col-md-6">
             <p><b>Description</b>:</p>
-            <p>The <b>Kernel Tuner</b> is a parametric tool that produces kernels for detecting important features in line drawings. It was built as part of a Master's Thesis at Carnegie Mellon University focused on manually crafting the internal weights of a convolutional neural network (CNN) to better understand how networks encode visual concepts. The Kernel Tuner is the first piece in a series of tools to construct generative networks to be used for art-making.</p>
-            <p>Recent advances in generative techniques using CNNs, such as generative adversarial networks (GANs) and convolutional autoencoders, have enabled data-driven approaches for creating <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)" target="_blank">visual art</a>. However, the representations contained within these networks are not well understood and thus creative control is limited to trial and error. In order to further explore the aesthetic potential of CNNs we need to master the basic process of abstraction that occurs within them. This thesis presents an ensemble of approaches to manually editing and debugging the internal weights of a CNN.</p>
+            <p>The <b>Kernel Tuner</b> is a parametric tool that produces human-interpretable kernels for detecting important features in line drawings. It was built as part of a <a href="/#/thesis">Master's Thesis</a> at Carnegie Mellon University focused on manually crafting the internal weights of a convolutional neural network (CNN) to make line drawings. The first step to that process is to make interpretable and evenly distributed kernels that can serve as a foundational visual language for the rest of the network. This tool generates those kernels.</p>
             <p>(<i>Note: A “kernel” is a 2D matrix of weights. A “filter” is a stack of kernels, with one kernel for each input channel. Since the first layer of a black and white image has only one channel, each filter has one kernel and the terms are interchangeable.</i>)</p>
             <p><b>Technologies</b>: TensorFlow.js, ReactJS</p>
             <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network" target="_blank">https://ulberge.github.io/interactive-network</a></p>
@@ -106,11 +105,11 @@ export default function KernelTuner() {
               <div className="imgContainer text-center">
                 <img src={"./imgs/thesis/kerneltuner.gif"} style={{ maxWidth: '600px', width: '100%' }} />
               </div>
-              <small className="text-left">Matches interesting features in a line drawing.</small>
+              <small className="text-left">The kernels match interesting features in a line drawing.</small>
               <div className="imgContainer text-center">
                 <img src={"./imgs/thesis/kernelinspector.gif"} style={{ maxWidth: '600px', width: '100%' }}/>
               </div>
-              <small className="text-left">Diagnoses how kernels interact with line drawings.</small>
+              <small className="text-left">The tool visualizes how kernels interact with line drawings.</small>
             </div>
           </div>
         </div>
@@ -118,8 +117,8 @@ export default function KernelTuner() {
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <h3 className="text-center">Background</h3>
-            <h4>Why not do it ourselves?</h4>
-            <p>The first step to crafting the weights of a CNN is to make the kernels of the first layer. Typically, we leave it to the machine to infer the weights from training data. This thesis generates the kernels parametrically. Previous research has demonstrated the effectiveness of Gabor filters as the kernels of the first layer {cite(6)}. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection) and provide similar performance to the receptive fields in our visual system {cite(1)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach. If we know what we want the result to be, why not do it ourselves?</p>
+            <h4>Making kernels for a CNN</h4>
+            <p>How should we make kernels for a CNN? Previous research has demonstrated the effectiveness of Gabor filters {cite(6)}. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection) and provide similar performance to the receptive fields in our visual system {cite(1)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -135,13 +134,9 @@ export default function KernelTuner() {
               </div>
             </div>
 
-            <p>One concern with generating the first layer ourselves is that we could easily miss features that the machine finds useful for classification. Patterns spread across vast troves of data can be easier to detect for computers cranking out billions of calculations per second than for a human thumbing through images one-by-one. If we let the machine shape the kernels through training, it can hopefully cover its own needs.</p>
+            <p>One concern with generating the first layer ourselves (as opposed to the typical training process in machine learning) is that we could easily miss features that are useful for classification. Patterns spread across vast troves of data can be easier to detect for computers cranking out billions of calculations per second than for a human thumbing through images one-by-one. If we let the machine shape the kernels through training, maybe it could do a better job.</p>
 
-            <p>But what if machine learning algorithms are not perfect at discovering those needs? This could be an issue because humans have difficulty evaluating the kernels produced. When something goes wrong in a network, we struggle to accurately diagnose the problem. As a form of representation, neural networks are not well understood when they reach depths of more than one or two layers. We tolerate this lack of interpretability because we assume that their mystery is a result of networks understanding concepts that we cannot grasp. Thus, there is a commonly held belief that machines know best and that a tradeoff must be made between accuracy and interpretability.</p>
-
-            <p>However, this belief rests on shaky ground. Some critics argue that the default use of 'black box' networks emerged from industries focused on low stakes decisions such as serving ads {cite(9)}. These same networks are not necessarily appropriate for determining parole or credit scores. They also seem inappropriate for artists seeking creative control. One must understand a material to mold it. Allowing the training process to shape the kernels avoids some risk, but there are benefits to exercising human control.</p>
-
-            <p>The Kernel Tuner creates kernels that are well distributed and human-comprehensible. The Gabor-like filters formed computationally through training are messy. They are offset and incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly spaced by angle and that correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
+            <p>Allowing the training process to shape the kernels avoids some risk, but there are benefits to exercising human control. The Kernel Tuner creates kernels that are well distributed and human-comprehensible. The Gabor-like filters formed computationally through training are messy. They are offset and incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly spaced by angle and that correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -182,7 +177,7 @@ export default function KernelTuner() {
                 style={{ height: '150px' }}
               />
               <div style={{ textAlign: 'center' }}>
-                <small>(1) The set of kernels applied as a sliding window. (2) The process of convolution {cite(1)}. (3) An image before convolution. (4) The maximum activations from convolution.</small>
+                <small>(1) The set of kernels applied as a sliding window. (2) The process of convolution {cite(7)}. (3) An image before convolution. (4) The maximum activations from convolution.</small>
               </div>
             </div>
 
@@ -265,7 +260,7 @@ export default function KernelTuner() {
             </div>
 
             <h4>Example Usage</h4>
-            <p>How is the kernel tuner used?</p>
+            <p>How is the Kernel Tuner used?</p>
             <p>Let’s say I care about line drawings of boxes. First, I might draw a box in the test area. A box is made up of lines and corners. So, I would select the line and corner types. This yields kernels that match the elements of a box. When applied to the drawing, the six kernels neatly label the parts of the box.</p>
 
             <div style={imgSectionStyle}>

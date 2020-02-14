@@ -10,9 +10,9 @@ export default class extends Component {
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">
-          <Tile title="Kernel Tuner" year="2020" subtitle="Line Drawing + CNN (ReactJS)" img="./imgs/tuner/tuner.gif" gif="./imgs/tuner/tuner_first.gif" link="/kerneltuner" styleName="col-md-4" />
+          <Tile title="Master's Thesis" year="2020" subtitle="Line Drawing + Neural Networks (ReactJS)" img="./imgs/thesis/boxes/gif/boxes_first.gif" gif="./imgs/thesis/boxes/gif/boxes.gif" link="/thesis" styleName="col-md-4 padTile" />
+          <Tile title="Kernel Tuner" year="2020" subtitle="Line Drawing + Neural Networks (ReactJS)" img="./imgs/tuner/tuner_first.gif" gif="./imgs/tuner/tuner.gif" link="/kerneltuner" styleName="col-md-4" />
           <Tile title="Sketch Repeater" year="2019" subtitle="Line Drawing + ML (Python, JS)" img="./imgs/home/sketchrepeat_first.gif" gif="./imgs/home/sketchrepeat.gif" link="/sketchrepeater" styleName="col-md-4" />
-          <Tile title="Visual Concepts in Sketch-A-Net" year="2019" subtitle="Line Drawing + ML Interpretability (JS)" img="./imgs/home/visualconcepts_first.gif" gif="./imgs/home/visualconcepts.gif" absoluteLink="https://github.com/ulberge/SketchANetClustering" styleName="col-md-4" />
         </div>
         <div className="row">
           <Tile title="A Conversation with a Machine" year="2019" subtitle="Drawing + ML (JS, Python)" img="./imgs/home/mldraw_first.gif" gif="./imgs/home/mldraw_rollover.gif" link="/conversationwithamachine" styleName="col-md-4" />

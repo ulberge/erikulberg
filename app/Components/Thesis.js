@@ -1,87 +1,47 @@
 import React from 'react';
+import classnames from 'classnames';
+import { className } from './KernelTuner.less';
 
 const lineDrawingStyle = { filter: 'opacity(87%)' };
-const gifSize = '52px';
-const gif1Style = { height: gifSize, width: gifSize, padding: '2px', margin: 0 };
-const gif2Style = { height: gifSize, width: gifSize, padding: '4px', margin: 0 };
-const gif3Style = { height: gifSize, width: gifSize, padding: '6px', margin: 0 };
-const gif4Style = { height: gifSize, width: gifSize, padding: '7px', margin: 0 };
 
 export default function Thesis() {
   return (
-    <div className="container-fluid projectPage">
+    <div className={classnames(className, 'container-fluid projectPage')}>
       <div className="container">
         <div className="detailPageHeader">
           <h2>
             Master's Thesis&nbsp;&nbsp;<small>2020</small>
           </h2>
-          <div>Crafting the Weights of a CNN to Make a Line Drawing</div>
+          <div>Crafting the Weights of a Convolutional Neural Network to Make a Line Drawing</div>
         </div>
         <div className="row">
-          <div className="col-md-12 text-center" style={lineDrawingStyle}>
-            <img src={"./imgs/thesis/boxes/gif/box1_0.gif"} style={gif1Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box3_0.gif"} style={gif3Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box2_0.gif"} style={gif2Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box4_0.gif"} style={gif4Style}/>
-          </div>
-          <div className="col-md-12 text-center" style={lineDrawingStyle}>
-            <img src={"./imgs/thesis/boxes/gif/box1_1.gif"} style={gif1Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box3_1.gif"} style={gif3Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box2_1.gif"} style={gif2Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box4_1.gif"} style={gif4Style}/>
-          </div>
-          <div className="col-md-12 text-center" style={lineDrawingStyle}>
-            <img src={"./imgs/thesis/boxes/gif/box1_2.gif"} style={gif1Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box3_2.gif"} style={gif3Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box2_2.gif"} style={gif2Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box4_2.gif"} style={gif4Style}/>
-          </div>
-          <div className="col-md-12 text-center" style={lineDrawingStyle}>
-            <img src={"./imgs/thesis/boxes/gif/box1_3.gif"} style={gif1Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box3_3.gif"} style={gif3Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box2_3.gif"} style={gif2Style}/>
-            <img src={"./imgs/thesis/boxes/gif/box4_3.gif"} style={gif4Style}/>
-          </div>
-          <div className="col-md-8 col-md-offset-2">
+          <div className="col-md-5">
             <p><b>Description</b>:</p>
-            <p>This thesis presents a series of web tools for directly crafting the weights of convolutional neural networks (CNNs) to make line drawings. The goal is to make art and to better understand how CNNs encode visual concepts.</p>
+            <p>Deep learning has powered dramatic advances in image recognition and generation in the last decade (the generation part is becoming increasingly popular with <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)" target="_blank">artists</a>). These feats are possible because of the remarkable power of neural networks to represent abstract visual concepts.</p>
+
+            <p>However, humans can only interact with neural networks indirectly through the choice of datasets. It is generally assumed that these networks are too complex to manipulate by hand and that they require the mediation of machine learning algorithms.</p>
+
+            <p>This thesis rejects that assumption and attempts to dive right in. Instead of training networks through gradient descent or what have you, it presents an approach to manually editing and debugging the internal weights. It adopts a data structure from machine learning, neural networks, and uses human reasoning to shape it.</p>
+            <p><b>Research Question:</b> Can humans use networks as a low level shape grammar to make art? How do the layers of convolution in a neural network flexibly encode shape, size, and structural relations at different scales in a line drawing?</p>
             <p><b>Technologies</b>: TensorFlow.js, ReactJS</p>
-            <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network">https://ulberge.github.io/interactive-network/</a></p>
-            <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network">github.com/ulberge/interactive-network</a></p>
-            <p><b>Abstract</b>:</p>
-            <p>Recent advances in generative techniques using convolutional neural networks (CNNs), such as GANs and convolutional autoencoders, have enabled data-driven approaches for creating <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)">visual art</a>. However, the representations contained within these deep networks are not well understood and thus creative control is limited to trial and error. In order to further explore the aesthetic potential of CNNs we need to master the basic process of abstraction that occurs within them. This thesis presents an approach to manually crafting and debugging the internal weights of a CNN that recognizes line drawings. It demonstrates a tool and documents a set of recipes for encoding abstract visual concepts.</p>
-            <div style={{ maxWidth: '600px', margin: '10px auto' }}>
-              <img src={"./imgs/thesis/ridler.jpg"} style={{ width: '32%' }}/>
-              <img src={"./imgs/thesis/sarin.jpg"} style={{ width: '32%', marginLeft: '2%' }}/>
-              <img src={"./imgs/thesis/neuralglitch.jpg"} style={{ width: '32%', marginLeft: '2%' }}/>
-              <small style={{ textAlign: 'left', width: '100%', display: 'inline-block' }}>These are data-driven examples of machine learning art using CNNs. These artists carefully select the training data to determine outcomes. Although Klingemann directly edits the weights at the end of the process to create "glitches." From left to right: <a href="http://annaridler.com/gans-in-art"><i>Fall of the House of Usher</i></a> by Anna Ridler (2017), <a href="https://www.artnome.com/news/2018/11/14/helena-sarin-why-bigger-isnt-always-better-with-gans-and-ai-art" title="Helena Sarin: Why Bigger Isn’t Always Better With GANs And AI Art"><i>Candy Store</i></a> by Helena Sarin (2018), and <a href="http://underdestruction.com/2018/10/28/neural-glitch/"><i>Neural Glitch</i></a> by Mario Klingemann (2018)</small>
+            <p><b>Demo</b>: <i>Under construction</i></p>
+            <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
+          </div>
+          <div className="col-md-7">
+            <div style={{ margin: '30px' }}>
+              <div className="imgContainer text-center" style={lineDrawingStyle}>
+                <img src={"./imgs/thesis/thesisimg.png"} style={{ maxWidth: '120px', width: '30%', marginRight: '5%' }} />
+                <img src={"./imgs/thesis/houses/results/housesgood.png"} style={{ maxWidth: '200px', width: '50%' }} />
+              </div>
+              <small className="text-left">Early drawings by the system. So many types of boxes are possible! And some attempts at a house.</small>
+              <div className="imgContainer text-center">
+                <img src={"./imgs/thesis/house2.gif"} style={{ maxWidth: '600px', width: '100%', marginTop: '20px' }} />
+              </div>
+              <small className="text-left">The interface provides a drawing area and editable network that updates in real-time with respect to the drawing. It uses the kernels produced by the <a href="/#/kerneltuner" target="_blank">Kernel Tuner</a> for the first layer.</small>
             </div>
-            <br/>
-            <p><b><strike>Machine Learning</strike></b>:</p>
-            <p>This project does not actually use machine learning. There is no gradient descent or training of weights. Instead, this project adopts a data structure from machine learning (CNNs) and uses human learning to shape it. The goal is to answer the following question.</p>
-            <p><b>Research Question</b>: <i>How are basic visual concepts encoded within convolutional neural networks? Can humans understand and directly craft complete descriptions of basic visual concepts in CNNs?</i></p>
-            <p>CNNs are a generic, visual programming language whose low level, spatial representations are conducive to incremental changes by optimization functions and inscrutable to human designers. But maybe, with the right tools and knowledge, they can become pliable. The hope of this project is to uncover a new form of interacting with computational art that bridges the gulf between rule-based and data-driven approaches.</p>
           </div>
         </div>
-        <div className="accentRow row">
-          <div className="col-md-8 col-md-offset-2">
-            <h3 className="text-center">From Pixels -> Line Drawing Features</h3>
-            <hr/>
-            <p><b>Kernel Tuner</b>:</p>
-            <p className="text-left">The kernel tuner is a parametric tool for creating kernels for the first convolutional layer. Inspired by Gabor filters and early CV work, kernels are generated using a Gaussian function and a sine wave. They detect different types of interesting features in a line drawing such as lines, line ends, corners, T, X and Y-intersections.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/kerneltuner.gif"} style={{ maxWidth: '600px' }} />
-            </div>
-            <br/>
-            <p><b>Kernel Inspector</b>:</p>
-            <p className="text-left">The inspector tool is useful for diagnosing how kernels interact with line drawings. After making a drawing, users can see the top activation at a given point in a color-coded map. When they select a point, a chart shows the top activations at the point and the kernels are displayed as overlays to demonstrate how they are being activated. The inspector can be used simultaneously with the tuner for fine-grained adjusting.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/kernelinspector.gif"} style={{ maxWidth: '600px' }}/>
-            </div>
-            <br/>
-            <p className="text-left">The above tools provide the first convolutional layer that translates from pixels to a higher level of abstraction: line drawing features. Users can then build networks on top of this foundation.</p>
-          </div>
-        </div>
+        <hr/>
         <div className="accentRow row">
           <div className="col-md-8 col-md-offset-2">
             <h3 className="text-center">Crafting a Network to Make a Line Drawing</h3>
@@ -91,7 +51,7 @@ export default function Thesis() {
             <div className="imgContainer text-center" style={lineDrawingStyle}>
               <img src={"./imgs/thesis/boxes/box8.png"} style={{ maxWidth: '600px' }} />
             </div>
-            <p className="text-left">But how do you acheive this using a CNN?</p>
+            <p className="text-left">But how do you achieve this using a CNN?</p>
             <br/>
             <p><b>Approach</b>:</p>
             <p>For the following study I used a line drawing algorithm that has two functions. It can start lines and continue lines. It chooses where to start lines and how to continue lines based on whether the action increases the activation at the end of a network.</p>
