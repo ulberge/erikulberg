@@ -103,11 +103,11 @@ export default function KernelTuner() {
           <div className="col-md-6">
             <div style={{ margin: '30px' }}>
               <div className="imgContainer text-center">
-                <img src={"./imgs/thesis/kerneltuner.gif"} style={{ maxWidth: '600px', width: '100%' }} />
+                <img src={"./imgs/thesis/kerneltuner.gif"} />
               </div>
               <small className="text-left">The kernels match interesting features in a line drawing.</small>
               <div className="imgContainer text-center">
-                <img src={"./imgs/thesis/kernelinspector.gif"} style={{ maxWidth: '600px', width: '100%' }}/>
+                <img src={"./imgs/thesis/kernelinspector.gif"} />
               </div>
               <small className="text-left">The tool visualizes how kernels interact with line drawings.</small>
             </div>
@@ -227,7 +227,7 @@ export default function KernelTuner() {
             <div style={imgSectionStyle}>
               <img
                 src="./imgs/tuner/kerneltypes.png" alt="sample of line filters generated with tuner"
-                style={{ height: '100px', marginBottom: '25px', marginLeft: '20px' }}
+                style={{ height: '100px', marginBottom: '25px' }}
               />
               <img
                 src="./imgs/tuner/viz0.png" alt="Sketch-A-Net layer 1 visual concepts"
@@ -247,12 +247,12 @@ export default function KernelTuner() {
             <div style={imgSectionStyle}>
               <img
                 src="./imgs/tuner/linetypes.png" alt="The one, two, and three line constructions considered"
-                style={{ height: '200px', filter: 'grayscale()' }}
+                style={{ height: '200px', filter: 'grayscale()', marginRight: '40px' }}
               />
               <img
                 src="./imgs/tuner/stitch.png" alt="The ‘L’ corner is made by stitching perpendicular Gabor filters along a diagonal a 45 degree angle"
                 className="noSmooth"
-                style={{ height: '100px', marginBottom: '50px', marginLeft: '40px' }}
+                style={{ height: '100px', marginBottom: '50px' }}
               />
               <div style={{ textAlign: 'center' }}>
                 <small>(1) The one, two, and three line constructions considered. (2) Each kernel is a Frankenstein of Gabor filters corresponding to the lines involved. The ‘L’ corner is made by stitching together two Gabor filters at an angle.</small>

@@ -35,7 +35,7 @@ export default function Thesis() {
               </div>
               <small className="text-left">Early drawings by the system. So many types of boxes are possible! And some attempts at a house.</small>
               <div className="imgContainer text-center">
-                <img src={"./imgs/thesis/house2.gif"} style={{ maxWidth: '600px', width: '100%', marginTop: '20px' }} />
+                <img src={"./imgs/thesis/house2.gif"} style={{ width: '100%', marginTop: '20px' }} />
               </div>
               <small className="text-left">The interface provides a drawing area and editable network that updates in real-time with respect to the drawing. It uses the kernels produced by the <a href="/#/kerneltuner" target="_blank">Kernel Tuner</a> for the first layer.</small>
             </div>
@@ -49,7 +49,7 @@ export default function Thesis() {
             <p><b>Drawing a box</b>:</p>
             <p className="text-left">Let's say you want to draw a box. What is a box? You might say a box is a rectangle of flexible size, formed by a single continuous line with no loose ends and squared corners. The corners should be approximately in line with each other. Maybe they look something like the following:</p>
             <div className="imgContainer text-center" style={lineDrawingStyle}>
-              <img src={"./imgs/thesis/boxes/box8.png"} style={{ maxWidth: '600px' }} />
+              <img src={"./imgs/thesis/boxes/box8.png"} />
             </div>
             <p className="text-left">But how do you achieve this using a CNN?</p>
             <br/>
@@ -116,7 +116,7 @@ export default function Thesis() {
             <p><b>Next Steps</b>:</p>
             <p>Can more complex shapes be drawn in the same manner? The next step is to try to make a house.</p>
             <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/houses/results/house0.png"} style={{ maxWidth: '600px' }} />
+              <img src={"./imgs/thesis/houses/results/house0.png"} />
             </div>
             <br/>
           </div>
