@@ -94,9 +94,9 @@ export default function KernelTuner() {
         <div className="row">
           <div className="col-md-6">
             <p><b>Description</b>:</p>
-            <p>The <b>Kernel Tuner</b> is a parametric tool that produces human-interpretable kernels for detecting important features in line drawings. It was built as part of a <a href="/#/thesis">Master's Thesis</a> at Carnegie Mellon University focused on manually crafting the internal weights of a convolutional neural network (CNN) to make line drawings. The first step to that process is to make interpretable and evenly distributed kernels that can serve as a foundational visual language for the rest of the network. This tool generates those kernels.</p>
+            <p>The <b>Kernel Tuner</b> is a parametric tool that produces evenly distributed, human-interpretable kernels for detecting important features in line drawings. It was built as part of a <a href="/#/thesis">Master's Thesis</a> at Carnegie Mellon University. Overall, the thesis focuses on manually crafting the internal weights of a convolutional neural network (CNN) to make line drawings. This tool provides the kernels that act as the foundational layer for those networks.</p>
             <p>(<i>Note: A “kernel” is a 2D matrix of weights. A “filter” is a stack of kernels, with one kernel for each input channel. Since the first layer of a black and white image has only one channel, each filter has one kernel and the terms are interchangeable.</i>)</p>
-            <p><b>Technologies</b>: TensorFlow.js, ReactJS</p>
+            <p><b>Technologies</b>: TensorFlow.js, ReactJS, Material-UI, p5.js</p>
             <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network" target="_blank">https://ulberge.github.io/interactive-network</a></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
           </div>
@@ -118,7 +118,7 @@ export default function KernelTuner() {
           <div className="col-md-8 col-md-offset-2">
             <h3 className="text-center">Background</h3>
             <h4>Making kernels for a CNN</h4>
-            <p>How should we make kernels for a CNN? Previous research has demonstrated the effectiveness of Gabor filters {cite(6)}. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection) and provide similar performance to the receptive fields in our visual system {cite(1)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach.</p>
+            <p>What should the first layer of kernels in a convolutional neural network look like? Previous research has demonstrated the effectiveness of Gabor filters {cite(6)}. Gabor filters are kernels created using a Gaussian function applied to a sine wave {cite(2)}. They are useful for edge detection (or in this case, line detection) and provide similar performance to the receptive fields in our visual system {cite(1)}. Therefore, the Kernel Tuner uses Gabor filters as the basis of its approach.</p>
 
             <div style={imgSectionStyle}>
               <img
@@ -134,9 +134,9 @@ export default function KernelTuner() {
               </div>
             </div>
 
-            <p>One concern with generating the first layer ourselves (as opposed to the typical training process in machine learning) is that we could easily miss features that are useful for classification. Patterns spread across vast troves of data can be easier to detect for computers cranking out billions of calculations per second than for a human thumbing through images one-by-one. If we let the machine shape the kernels through training, maybe it could do a better job.</p>
+            <p>One concern with generating the weights of the kernels parametrically (as opposed to a training process such as gradient descent) is that we could easily miss features that are useful for classification. Patterns spread across vast troves of data can be easier to detect for computers cranking out billions of calculations per second than for a human thumbing through images one-by-one. If we let the machine shape the kernels through training, we can avoid human mistakes.</p>
 
-            <p>Allowing the training process to shape the kernels avoids some risk, but there are benefits to exercising human control. The Kernel Tuner creates kernels that are well distributed and human-comprehensible. The Gabor-like filters formed computationally through training are messy. They are offset and incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly spaced by angle and that correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
+            <p>However, there are benefits to exercising human control. The Kernel Tuner creates kernels that are well distributed and human-comprehensible. The Gabor-like filters formed computationally through training are messy. They are offset and incomplete. It is unclear how they are distributed or whether they are overfit. On the other hand, the Kernel Tuner produces kernels that are evenly spaced by angle and that correspond to visual concepts with names such as 'lines', 'corners', and 'intersections.'</p>
 
             <div style={imgSectionStyle}>
               <img

@@ -12,7 +12,7 @@ export default function Thesis() {
           <h2>
             Master's Thesis&nbsp;&nbsp;<small>2020</small>
           </h2>
-          <div>Crafting the Weights of a Convolutional Neural Network to Make a Line Drawing</div>
+          <div>Crafting Weights in a Convolutional Neural Network to Make a Drawing</div>
         </div>
         <div className="row">
           <div className="col-md-5">
@@ -21,9 +21,9 @@ export default function Thesis() {
 
             <p>However, humans can only interact with neural networks indirectly through the choice of datasets. It is generally assumed that these networks are too complex to manipulate by hand and that they require the mediation of machine learning algorithms.</p>
 
-            <p>This thesis rejects that assumption and attempts to dive right in. Instead of training networks through gradient descent or what have you, it presents an approach to manually editing and debugging the internal weights. It adopts a data structure from machine learning, neural networks, and uses human reasoning to shape it.</p>
+            <p>This thesis probes that assumption. Instead of training networks through gradient descent, it presents an approach to manually editing and debugging the internal weights. It adopts a data structure from machine learning, neural networks, and uses human reasoning to shape it.</p>
             <p><b>Research Question:</b> Can humans use networks as a low level shape grammar to make art? How do the layers of convolution in a neural network flexibly encode shape, size, and structural relations at different scales in a line drawing?</p>
-            <p><b>Technologies</b>: TensorFlow.js, ReactJS</p>
+            <p><b>Technologies</b>: TensorFlow.js, ReactJS, Material-UI, p5.js</p>
             <p><b>Demo</b>: <i>Under construction</i></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
           </div>
@@ -33,7 +33,7 @@ export default function Thesis() {
                 <img src={"./imgs/thesis/thesisimg.png"} style={{ maxWidth: '120px', width: '30%', marginRight: '5%' }} />
                 <img src={"./imgs/thesis/houses/results/housesgood.png"} style={{ maxWidth: '200px', width: '50%' }} />
               </div>
-              <small className="text-left">Early drawings by the system. So many types of boxes are possible! And some attempts at a house.</small>
+              <small className="text-left">Early drawings by the system: many shades of a box, and some houses. The network is rendered by an agent-based algorithm that draws lines that increase the activation of the network.</small>
               <div className="imgContainer text-center">
                 <img src={"./imgs/thesis/house2.gif"} style={{ width: '100%', marginTop: '20px' }} />
               </div>
@@ -79,22 +79,20 @@ export default function Thesis() {
               <img src={"./imgs/thesis/boxes/results/box2.png"} style={{ maxWidth: '300px' }} />
             </div>
             <br/>
-            <p>I also wanted the shape to have a <b>continuous line</b>. These boxes were too broken up, so I added receptive areas for the corners at different widths.</p>
+            <p>I also wanted the outline of the shape to be a <b>continuous line</b>. These boxes were too broken up, so I added receptive areas for the corners at different widths.</p>
             <div className="imgContainer text-center">
               <img src={"./imgs/thesis/boxes/results/box3.png"} style={{ maxWidth: '300px' }} />
               <img src={"./imgs/thesis/boxes/results/box4.png"} style={{ maxWidth: '300px' }} />
               <img src={"./imgs/thesis/boxes/results/box5.png"} style={{ maxWidth: '300px' }} />
             </div>
             <br/>
-            <p>These boxes had more continuous lines. The receptive field that is only one pixel wide is starting to look like a box, but it is not flexible.</p>
-            <p>I also decided to test different weights for the corners and edges to see how that affected the outcome.</p>
+            <p>These boxes had more continuous lines. The receptive field that is only one pixel wide is starting to look like a box, but it is not flexible. I also decided to test different weights for the corners and edges to see how that affected the outcome.</p>
             <div className="imgContainer text-center">
               <img src={"./imgs/thesis/boxes/results/box6.png"} style={{ maxWidth: '300px' }} />
               <img src={"./imgs/thesis/boxes/results/box7.png"} style={{ maxWidth: '300px' }} />
             </div>
             <br/>
-            <p>The different weights seemed to give an even cleaner finish.</p>
-            <p>I still wanted the shapes to only use a <b>single line</b>. I encountered duplicate lines as I tried to increase the size of their receptive fields to add flexibility. I decided to try adding another layer. Now, I would start with a layer that recognized edges comprising of a wall and two corners. I would have four of these filters and combine them in the next layer to make a box. Here, I tried to add flexibility in the second layer.</p>
+            <p>The different weights seemed to give a cleaner finish. I still wanted the shapes to only use a <b>single line</b>. I encountered duplicate lines as I tried to increase the size of their receptive fields to add flexibility. I decided to try adding another layer. Now, I would start with a layer that recognized edges comprising of a wall and two corners. I would have four of these filters and combine them in the next layer to make a box. Here, I tried to add flexibility in the second layer.</p>
             <div className="imgContainer text-center">
               <img src={"./imgs/thesis/boxes/results/box8.png"} style={{ maxWidth: '300px' }} />
               <img src={"./imgs/thesis/boxes/results/box9.png"} style={{ maxWidth: '300px' }} />
@@ -107,7 +105,7 @@ export default function Thesis() {
               <img src={"./imgs/thesis/boxes/results/box12.png"} style={{ maxWidth: '300px' }} />
             </div>
             <br/>
-            <p>I found that sufficient thickness at both layers yield the best result. However, the corners still needed to be cleaned up. To do this, I added a negative backstop behind each edge for the other type of edge.</p>
+            <p>I found that sufficient thickness at both layers yielded the best result. However, the corners still needed to be cleaned up. To do this, I added a negative backstop behind each edge.</p>
             <div className="imgContainer text-center">
               <img src={"./imgs/thesis/boxes/results/box13b.png"} style={{ maxWidth: '300px' }} />
             </div>
