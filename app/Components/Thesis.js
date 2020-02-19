@@ -30,10 +30,11 @@ export default function Thesis() {
           <div className="col-md-7">
             <div style={{ margin: '30px' }}>
               <div className="imgContainer text-center" style={lineDrawingStyle}>
-                <img src={"./imgs/thesis/thesisimg.png"} style={{ maxWidth: '120px', width: '30%', marginRight: '5%' }} />
-                <img src={"./imgs/thesis/houses/results/housesgood.png"} style={{ maxWidth: '200px', width: '50%' }} />
+                <img src={"./imgs/thesis/thesisimg.png"} style={{ maxWidth: '120px', width: '20%', marginRight: '5%' }} />
+                <img src={"./imgs/thesis/houses/results/housesgood.png"} style={{ maxWidth: '200px', width: '30%', marginRight: '5%' }} />
+                <img src={"./imgs/thesis/bottles.png"} style={{ maxWidth: '200px', width: '40%' }} />
               </div>
-              <small className="text-left">Early drawings by the system: many shades of a box, and some houses. The network is rendered by an agent-based algorithm that draws lines that increase the activation of the network.</small>
+              <small className="text-left">Drawings by the system: many shades of a box, a house and a bottle of flexible height. The network is rendered by an agent-based algorithm that draws lines that increase the activation of the network.</small>
               <div className="imgContainer text-center">
                 <img src={"./imgs/thesis/house2.gif"} style={{ width: '100%', marginTop: '20px' }} />
               </div>
