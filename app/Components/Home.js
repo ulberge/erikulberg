@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import setHead from '../setHead';
 
 import Tile from './Tile';
 
@@ -7,6 +8,11 @@ import { className } from './Home.less';
 
 export default class extends Component {
   render() {
+    setHead('Work by Erik Ulberg',
+          'Work by Erik Ulberg.',
+          'https://www.erikulberg.com',
+          'https://www.erikulberg.com/imgs/thesis/final/thesis_cover.png');
+
     return (
       <div className={classnames(className, 'container')}>
         <div className="row">

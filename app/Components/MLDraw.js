@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import setHead from '../setHead';
 
 export default class MLDraw extends Component {
   render() {
+    setHead('A Conversation with a Machine',
+          'A conversational interaction with the hidden layers of a deep learning model about a drawing.',
+          'https://www.erikulberg.com/#/conversationwithamachine',
+          'https://www.erikulberg.com/imgs/seo/mldraw.gif');
     return (
       <div className="container-fluid projectPage">
         <div className="container">

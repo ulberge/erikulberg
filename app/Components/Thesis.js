@@ -1,10 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
 import { className } from './KernelTuner.less';
+import setHead from '../setHead';
 
 const lineDrawingStyle = { filter: 'opacity(87%)' };
 
 export default function Thesis() {
+  setHead('Crafting the Weights of a Convolutional Neural Network to Make a Drawing',
+          'Master\'s thesis exploring hand-crafting CNNs for artists.',
+          'https://www.erikulberg.com/#/thesis',
+          'https://www.erikulberg.com/imgs/thesis/final/thesis_cover.png');
+
   return (
     <div className={classnames(className, 'container-fluid projectPage')}>
       <div className="container">

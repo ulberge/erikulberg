@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import setHead from '../setHead';
 
 export default class SketchRepeat extends Component {
   render() {
+    setHead('Sketch Repeater',
+          'An interactive AI drawing tool that extrapolates user actions.',
+          'https://www.erikulberg.com/#/sketchrepeater',
+          'https://www.erikulberg.com/imgs/seo/sketchrepeat.jpg');
     return (
       <div className="container-fluid projectPage">
         <div className="container">
