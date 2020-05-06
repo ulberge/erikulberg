@@ -12,112 +12,95 @@ export default function Thesis() {
           <h2>
             Master's Thesis&nbsp;&nbsp;<small>2020</small>
           </h2>
-          <div>Crafting Weights in a Convolutional Neural Network to Make a Drawing</div>
+          <div>Crafting the Weights of a Convolutional Neural Network to Make a Drawing</div>
         </div>
         <div className="row">
           <div className="col-md-5">
             <p><b>Description</b>:</p>
-            <p>Deep learning has powered dramatic advances in image recognition and generation in the last decade (the generation part is becoming increasingly popular with <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)" target="_blank">artists</a>). These feats are possible because of the remarkable power of neural networks to represent abstract visual concepts.</p>
-
-            <p>However, humans can only interact with neural networks indirectly through the choice of datasets. It is generally assumed that these networks are too complex to manipulate by hand and that they require the mediation of machine learning algorithms.</p>
-
-            <p>This thesis probes that assumption. Instead of training networks through gradient descent, it presents an approach to manually editing and debugging the internal weights. It adopts a data structure from machine learning, neural networks, and uses human reasoning to shape it.</p>
-            <p><b>Research Question:</b> Can humans use networks as a low level shape grammar to make art? How do the layers of convolution in a neural network flexibly encode shape, size, and structural relations at different scales in a line drawing?</p>
-            <p><b>Technologies</b>: TensorFlow.js, ReactJS, Material-UI, p5.js</p>
+            <p>A growing number of visual artists use convolutional neural networks (CNNs) in their practice. While CNNs show promise as a form of representation in <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)" target="_blank">art</a>, the lack of interpretability of CNNs limits creative control to high level decisions around datasets, algorithms, and hyperparameters.</p>
+            <p>As an alternative, the field of computer vision presents a more immediate paradigm of control through the hand-crafting of convolutional kernels. <b>This thesis investigates hand-crafting as a creative lever for artists working with CNNs.</b> It reimagines network weights as a continuous, spatial, and computational material supporting direct human interaction.</p>
+            <p>Two experimental tools are proposed: one for parametrically generating first layer kernels and the other for editing multiple layers. These tools attempt to transform the hand-crafting of features into “crafting” in a more traditional sense by bringing CNNs and visual materials into a close feedback loop.</p>
+            <p>The results are rough-hewn networks. But are they rough-hewn in the negative sense of lacking refinement or the positive sense of being crafted to satisfy a minimum set of functional requirements?</p>
+            <p><b>Technologies</b>: TensorFlow.js, ReactJS, p5.js</p>
             <p><b>Demo</b>: <i>Under construction</i></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
           </div>
           <div className="col-md-7">
             <div style={{ margin: '30px' }}>
               <div className="imgContainer text-center" style={lineDrawingStyle}>
-                <img src={"./imgs/thesis/thesisimg.png"} style={{ maxWidth: '120px', width: '20%', marginRight: '5%' }} />
-                <img src={"./imgs/thesis/houses/results/housesgood.png"} style={{ maxWidth: '200px', width: '30%', marginRight: '5%' }} />
-                <img src={"./imgs/thesis/bottles.png"} style={{ maxWidth: '200px', width: '40%' }} />
+                <img src={"./imgs/thesis/final/image1.gif"} style={{ width: '30%', marginRight: '5%' }} />
+                <img src={"./imgs/thesis/final/bottles.png"} style={{ width: '65%' }} />
               </div>
-              <small className="text-left">Drawings by the system: many shades of a box, a house and a bottle of flexible height. The network is rendered by an agent-based algorithm that draws lines that increase the activation of the network.</small>
+              <small className="text-left">A bottle drawing system was created by hand-crafting the inner weights of a CNN.</small>
               <div className="imgContainer text-center">
-                <img src={"./imgs/thesis/house2.gif"} style={{ width: '100%', marginTop: '20px' }} />
+                <img src={"./imgs/thesis/final/image4.png"} style={{ width: '80%', marginTop: '20px' }} />
               </div>
-              <small className="text-left">The interface provides a drawing area and editable network that updates in real-time with respect to the drawing. It uses the kernels produced by the <a href="/#/kerneltuner" target="_blank">Kernel Tuner</a> for the first layer.</small>
+              <small className="text-left">The drawing system was run using various composition strategies to generate artworks.</small>
             </div>
           </div>
         </div>
         <hr/>
         <div className="accentRow row">
           <div className="col-md-8 col-md-offset-2">
-            <h3 className="text-center">Crafting a Network to Make a Line Drawing</h3>
+            <h3 className="text-center">The Kernel Tuner</h3>
             <hr/>
-            <p><b>Drawing a box</b>:</p>
-            <p className="text-left">Let's say you want to draw a box. What is a box? You might say a box is a rectangle of flexible size, formed by a single continuous line with no loose ends and squared corners. The corners should be approximately in line with each other. Maybe they look something like the following:</p>
+            <p>The Kernel Tuner is a parametric tool for crafting the first layer of kernels in a CNN to extract basic features from line drawings. It puts the visual material of a line drawing in direct communication with the design of convolutional kernels. The kernels can be exported for use in larger networks.
+            </p>
             <div className="imgContainer text-center" style={lineDrawingStyle}>
-              <img src={"./imgs/thesis/boxes/box8.png"} />
+              <img src={"./imgs/thesis/final/image15.png"} style={{ width: '90%', marginTop: '10px' }} />
             </div>
-            <p className="text-left">But how do you achieve this using a CNN?</p>
-            <br/>
-            <p><b>Approach</b>:</p>
-            <p>For the following study I used a line drawing algorithm that has two functions. It can start lines and continue lines. It chooses where to start lines and how to continue lines based on whether the action increases the activation at the end of a network.</p>
-            <div className="col-md-12 text-center" style={lineDrawingStyle}>
-              <img src={"./imgs/thesis/boxes/box5.gif"} style={{ height: '64px', width: '64px' }}/>
-              <img src={"./imgs/thesis/boxes/box6.gif"} style={{ height: '64px', width: '64px' }}/>
-              <img src={"./imgs/thesis/boxes/box7.gif"} style={{ height: '64px', width: '64px' }}/>
-              <img src={"./imgs/thesis/boxes/box8.gif"} style={{ height: '64px', width: '64px' }}/>
+            <small className="text-left">A labeled diagram of the Kernel Tuner, a tool for crafting kernels for the first layer of a CNN.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/kt.gif"} style={{ width: '50%', marginTop: '40px', marginRight: '5%' }} />
+              <img src={"./imgs/thesis/final/image12.gif"} style={{ width: '30%', marginTop: '40px' }} />
             </div>
-            <br/>
-            <p>As a foundation, I used the six kernels shown below as the first layer and a max pool layer as the second layer. All the networks are built on top.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/base.png"} style={{ maxWidth: '200px' }} />
+            <small className="text-left">Designing a line-end detector using the Kernel Tuner (left). The resulting detector with red dots indicating its dynamic perception of line ends (right).</small>
+          </div>
+        </div>
+        <div className="accentRow row">
+          <div className="col-md-8 col-md-offset-2">
+            <h3 className="text-center">The Network Builder</h3>
+            <hr/>
+            <p>The second tool is called the Network Builder and assists with building a CNN with multiple layers of convolution and pooling. Like the Kernel Tuner, the goal of the tool is to support the creation of these kernels with close attention to a particular visual material. To that end, the Network Builder provides a drawing area and a visualization of a network with respect to that drawing. Drawings can be executed by a human or through a generative algorithm. As lines are drawn or changes are made to kernels, the interactive visualization of the network updates in real time.
+            </p>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image8.png"} style={{ width: '90%', marginTop: '10px' }} />
             </div>
-            <br/>
-            <p><b>Results</b>:</p>
-            <p>First, I tried matching pairs of vertical and horizontal lines.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box0.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">A labeled diagram of the Network Builder, a tool for crafting multiple layers of a CNN.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/nb.gif"} style={{ width: '90%', marginTop: '40px' }} />
             </div>
-            <br/>
-            <p>Next, I wanted to add <b>size flexibility</b>, so I added width to the receptive areas.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box1.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box2.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">The Network Builder being used to test changes to a line drawing to see how the activations respond.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image14.png"} style={{ width: '70%', marginTop: '40px' }} />
+              <img src={"./imgs/thesis/final/image1.gif"} style={{ width: '30%', marginTop: '40px' }} />
             </div>
-            <br/>
-            <p>I also wanted the outline of the shape to be a <b>continuous line</b>. These boxes were too broken up, so I added receptive areas for the corners at different widths.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box3.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box4.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box5.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">The rough-hewn weights of a bottle network hand-crafted using the Network Builder (left). A drawing system using the bottle network running on random input (right).</small>
+          </div>
+        </div>
+        <div className="accentRow row">
+          <div className="col-md-8 col-md-offset-2">
+            <h3 className="text-center">Artistic Explorations</h3>
+            <hr/>
+            <p>The following explorations demonstrate a few of the ways hand-crafted CNNs can be used for art making. The drawing system uses a network crafted with the Network Builder as its guiding reward function and a line end detector designed with the Kernel Tuner to help it narrow the search space of places to start new lines.
+            </p>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image7.gif"} style={{ width: '40%', marginTop: '10px' }} />
+              <img src={"./imgs/thesis/final/handpaint.gif"} style={{ width: '40%', marginTop: '10px' }} />
             </div>
-            <br/>
-            <p>These boxes had more continuous lines. The receptive field that is only one pixel wide is starting to look like a box, but it is not flexible. I also decided to test different weights for the corners and edges to see how that affected the outcome.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box6.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box7.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">Animations of composition algorithms combining multiple bottle drawing systems.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image6.png"} style={{ maxWidth: '600px', width: '80%', marginTop: '40px' }} />
             </div>
-            <br/>
-            <p>The different weights seemed to give a cleaner finish. I still wanted the shapes to only use a <b>single line</b>. I encountered duplicate lines as I tried to increase the size of their receptive fields to add flexibility. I decided to try adding another layer. Now, I would start with a layer that recognized edges comprising of a wall and two corners. I would have four of these filters and combine them in the next layer to make a box. Here, I tried to add flexibility in the second layer.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box8.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box9.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">A bottle texture generated with the drawing system, printed out and hand-painted.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image17.gif"} style={{ width: '90%', marginTop: '10px' }} />
             </div>
-            <br/>
-            <p>After testing the addition of a layer, I was ready to add negative weights to prevent duplicate lines. I tested out different widths at each layer.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box10.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box11.png"} style={{ maxWidth: '300px' }} />
-              <img src={"./imgs/thesis/boxes/results/box12.png"} style={{ maxWidth: '300px' }} />
+            <small className="text-left">The bottle drawing system run on Jackson Pollock's Autumn Rhythm (Number 30).</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image2.png"} style={{ width: '90%', marginTop: '40px' }} />
             </div>
-            <br/>
-            <p>I found that sufficient thickness at both layers yielded the best result. However, the corners still needed to be cleaned up. To do this, I added a negative backstop behind each edge.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/boxes/results/box13b.png"} style={{ maxWidth: '300px' }} />
-            </div>
-            <p>The result was a flexible, clean looking box.</p>
-            <br/>
-            <p><b>Next Steps</b>:</p>
-            <p>Can more complex shapes be drawn in the same manner? The next step is to try to make a house.</p>
-            <div className="imgContainer text-center">
-              <img src={"./imgs/thesis/houses/results/house0.png"} />
-            </div>
-            <br/>
+            <small className="text-left">The result of running the system on Pollock's piece after the background painting was removed.</small>
           </div>
         </div>
       </div>
