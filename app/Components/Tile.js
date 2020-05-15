@@ -13,7 +13,7 @@ export default class extends Component {
       return (
         <div className={classnames(className, styleName)}>
           <div>
-            <a href={absoluteLink}>
+            <a href={absoluteLink} target="_blank">
               <RolloverImage img={img} gif={gif} alt={alt} />
             </a>
           </div>
