@@ -12,7 +12,7 @@ export default class About extends Component {
             <hr/>
             <div className="col-md-6 col-md-offset-2 text-justify">
               <p><b></b></p>
-              <p>I'm Erik, a software engineer, researcher, and artist exploring new forms of interaction involving machine learning, computer vision, perception, and visual information.</p>
+              <p>I'm Erik, a software engineer, researcher, and artist exploring new forms of digital interaction and the integration of human reasoning with machine learning.</p>
             </div>
             <div className="col-md-2">
               <img src={'./assets/me.jpeg'} />
