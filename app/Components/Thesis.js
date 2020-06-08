@@ -28,7 +28,7 @@ export default function Thesis() {
             <p>Two experimental tools are proposed: one for parametrically generating first layer kernels and the other for editing multiple layers. These tools attempt to transform the hand-crafting of features into “crafting” in a more traditional sense by bringing CNNs and visual materials into a close feedback loop.</p>
             <p>The results are rough-hewn networks. But are they rough-hewn in the negative sense of lacking refinement or the positive sense of being crafted to satisfy a minimum set of functional requirements?</p>
             <p><b>Technologies</b>: TensorFlow.js, ReactJS, p5.js</p>
-            <p><b>Demo</b>: <i>Under construction</i></p>
+            <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network/" target="_blank">Kernel Tuner</a></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
           </div>
           <div className="col-md-7">
