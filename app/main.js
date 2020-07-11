@@ -198,6 +198,11 @@ ReactDom.render(
             component={Thesis}
           />
           <Route
+            name="Thesis"
+            path="/hand_crafted_cnn_for_art"
+            component={Thesis}
+          />
+          <Route
             name="KernelTuner"
             path="/kerneltuner"
             component={KernelTuner}
