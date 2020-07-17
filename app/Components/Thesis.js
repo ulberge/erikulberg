@@ -6,7 +6,7 @@ import setHead from '../setHead';
 const lineDrawingStyle = { filter: 'opacity(87%)' };
 
 export default function Thesis() {
-  setHead('Crafting the Weights of a Convolutional Neural Network to Make a Drawing',
+  setHead('Hand-Crafting CNNs for Art-Making',
           'Master\'s thesis exploring hand-crafting CNNs for artists.',
           'https://www.erikulberg.com/#/thesis',
           'https://www.erikulberg.com/imgs/thesis/final/thesis_cover.png');
@@ -16,12 +16,12 @@ export default function Thesis() {
       <div className="container">
         <div className="detailPageHeader">
           <h2>
-            Master's Thesis&nbsp;&nbsp;<small>2020</small>
+            Hand-Crafting CNNs for Art-Making&nbsp;&nbsp;<small>2020</small>
           </h2>
-          <div>Crafting the Weights of a Convolutional Neural Network to Make a Drawing</div>
+          <div>ML + Art</div>
         </div>
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-6">
             <p><b>Description</b>:</p>
             <p>A growing number of visual artists use convolutional neural networks (CNNs) in their practice. While CNNs show promise as a form of representation in <a href="http://www.aiartonline.com/category/community-2019/" title="AI Art Gallery (NeurIPS 2019)" target="_blank">art</a>, the lack of interpretability of CNNs limits creative control to high level decisions around datasets, algorithms, and hyperparameters.</p>
             <p>As an alternative, the field of computer vision presents a more immediate paradigm of control through the hand-crafting of convolutional kernels. <b>This thesis investigates hand-crafting as a creative lever for artists working with CNNs.</b> It reimagines network weights as a continuous, spatial, and computational material supporting direct human interaction.</p>
@@ -31,17 +31,12 @@ export default function Thesis() {
             <p><b>Demo</b>: <a href="https://ulberge.github.io/interactive-network/" target="_blank">Kernel Tuner</a></p>
             <p><b>Code</b>: <a href="https://github.com/ulberge/interactive-network" target="_blank">github.com/ulberge/interactive-network</a></p>
           </div>
-          <div className="col-md-7">
-            <div style={{ margin: '30px' }}>
+          <div className="col-md-6">
+            <div style={{ margin: '30px', width: '80%' }}>
               <div className="imgContainer text-center" style={lineDrawingStyle}>
-                <img src={"./imgs/thesis/final/image1.gif"} style={{ width: '30%', marginRight: '5%' }} />
-                <img src={"./imgs/thesis/final/bottles.png"} style={{ width: '65%' }} />
+                <img src={"./imgs/thesis/final/full_canvas_slow.gif"} style={{ marginTop: '10px' }} />
               </div>
-              <small className="text-left">A bottle drawing system was created by hand-crafting the inner weights of a CNN.</small>
-              <div className="imgContainer text-center">
-                <img src={"./imgs/thesis/final/image4.png"} style={{ width: '80%', marginTop: '20px' }} />
-              </div>
-              <small className="text-left">The drawing system was run using various composition strategies to generate artworks.</small>
+              <small className="text-left">A generative algorithm at work using a hand-crafted bottle-detecting network as its reward function.</small>
             </div>
           </div>
         </div>
@@ -57,10 +52,13 @@ export default function Thesis() {
             </div>
             <small className="text-left">A labeled diagram of the Kernel Tuner, a tool for crafting kernels for the first layer of a CNN.</small>
             <div className="imgContainer text-center" style={lineDrawingStyle}>
-              <img src={"./imgs/thesis/final/kt.gif"} style={{ width: '50%', marginTop: '40px', marginRight: '5%' }} />
+              <img src={"./imgs/thesis/final/kt.gif"} style={{ width: '80%', marginTop: '40px', marginRight: '5%' }} />
+            </div>
+            <small className="text-left">Designing a line-end detector using the Kernel Tuner.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
               <img src={"./imgs/thesis/final/image12.gif"} style={{ width: '30%', marginTop: '40px' }} />
             </div>
-            <small className="text-left">Designing a line-end detector using the Kernel Tuner (left). The resulting detector with red dots indicating its dynamic perception of line ends (right).</small>
+            <small className="text-left">The resulting detector with red dots indicating its dynamic perception of line ends.</small>
           </div>
         </div>
         <div className="accentRow row">
@@ -77,11 +75,17 @@ export default function Thesis() {
               <img src={"./imgs/thesis/final/nb.gif"} style={{ width: '90%', marginTop: '40px' }} />
             </div>
             <small className="text-left">The Network Builder being used to test changes to a line drawing to see how the activations respond.</small>
+
             <div className="imgContainer text-center" style={lineDrawingStyle}>
-              <img src={"./imgs/thesis/final/image14.png"} style={{ width: '70%', marginTop: '40px' }} />
-              <img src={"./imgs/thesis/final/image1.gif"} style={{ width: '30%', marginTop: '40px' }} />
+              <img src={"./imgs/thesis/final/image14.png"} style={{ width: '80%', marginTop: '40px' }} />
             </div>
             <small className="text-left">The rough-hewn weights of a bottle network hand-crafted using the Network Builder (left). A drawing system using the bottle network running on random input (right).</small>
+
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+                <img src={"./imgs/thesis/final/image1.gif"} style={{ width: '30%', marginRight: '5%' }} />
+                <img src={"./imgs/thesis/final/bottles.png"} style={{ width: '65%' }} />
+              <small className="text-left">The drawing system was run using various composition strategies to generate artworks.</small>
+            </div>
           </div>
         </div>
         <div className="accentRow row">
@@ -92,7 +96,10 @@ export default function Thesis() {
             </p>
             <div className="imgContainer text-center" style={lineDrawingStyle}>
               <img src={"./imgs/thesis/final/image7.gif"} style={{ width: '40%', marginTop: '10px' }} />
-              <img src={"./imgs/thesis/final/handpaint.gif"} style={{ width: '40%', marginTop: '10px' }} />
+            </div>
+            <small className="text-left">Animations of composition algorithms combining multiple bottle drawing systems.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/full_canvas_build.gif"} style={{ width: '40%', marginTop: '10px' }} />
             </div>
             <small className="text-left">Animations of composition algorithms combining multiple bottle drawing systems.</small>
             <div className="imgContainer text-center" style={lineDrawingStyle}>
@@ -107,6 +114,9 @@ export default function Thesis() {
               <img src={"./imgs/thesis/final/image2.png"} style={{ width: '90%', marginTop: '40px' }} />
             </div>
             <small className="text-left">The result of running the system on Pollock's piece after the background painting was removed.</small>
+            <div className="imgContainer text-center" style={lineDrawingStyle}>
+              <img src={"./imgs/thesis/final/image4.gif"} style={{ width: '40%', marginTop: '10px' }} />
+            </div>
           </div>
         </div>
       </div>
