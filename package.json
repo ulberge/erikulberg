@@ -8,7 +8,7 @@
     "bootstrap": "^3.3.6",
     "classnames": "^2.2.3",
     "font-awesome": "^4.5.0",
-    "highlight.js": "^9.0.0",
+    "highlight.js": "^10.1.2",
     "history": "^4.6.3",
     "imagesloaded": "^4.1.1",
     "imports-loader": "^0.6.5",
