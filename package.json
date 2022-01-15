@@ -13,7 +13,7 @@
     "imagesloaded": "^4.1.1",
     "imports-loader": "^0.6.5",
     "jquery": "^2.1.4",
-    "marked": "^0.6.0",
+    "marked": "^4.0.10",
     "masonry-layout": "^4.1.0",
     "material-ui": "^0.20.2",
     "moment": "^2.24.0",
